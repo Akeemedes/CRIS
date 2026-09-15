@@ -26,6 +26,12 @@ Here `publish` generates local plotting files; it does not upload anything. Inde
 
 ## Other experiments
 
+The [shock-refinement study](../training/twophasetransport/analysis/shock_refinement/README.md) compares SRDM and CRIS with analytic cell averages and independent discrete solutions on 19 mesh/timestep pairs. It includes a standalone simulation runner, midpoint/final solution profiles and error tables. Replot the saved results with `python Figures/reproduce.py build mesh-refinement`, or rerun the paired simulations with:
+
+```text
+python training/twophasetransport/scripts/shock_refinement.py --solver build/transport/Release/tp_transport.exe --output runs/shock_refinement
+```
+
 Saved results and selected model weights for the fixed-point, checkpoint-accuracy and singular-endpoint studies are under `training/twophasetransport/analysis/`. The figure catalogue provides commands for plotting these results.
 
 Bratu branch and initialization studies are implemented under `Figures/fig3_bratu/` and `training/bratu/`. These compare learned inverses with the analytic local inverse.

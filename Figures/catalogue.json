@@ -72,6 +72,19 @@
       ]
     },
     {
+      "id": "mesh-refinement",
+      "name": "Shock refinement and propagated inverse error",
+      "status": "replot from supplied data",
+      "builder": "build_shock_refinement.py",
+      "output": "fig6_refinement/shock_refinement.pdf",
+      "experiments": [
+        "transport.regular.shock_refinement"
+      ],
+      "inputs": [
+        "training/twophasetransport/analysis/shock_refinement/errors.csv"
+      ]
+    },
+    {
       "id": "training-histories",
       "name": "Training, validation and residual histories",
       "status": "replot from supplied data",

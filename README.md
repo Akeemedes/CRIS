@@ -8,6 +8,7 @@ The examples cover branch selection in Bratu and two-phase transport on one-dime
 
 - [Install dependencies and build](docs/INSTALLATION.md).
 - [Run the transport benchmarks with a pretrained inverse](docs/SIMULATIONS.md).
+- [Reproduce the mesh-refinement accuracy study](training/twophasetransport/analysis/shock_refinement/README.md).
 - [Train local inverses](docs/TRAINING.md).
 - [Recreate the figures from the supplied results](docs/FIGURES.md).
 
