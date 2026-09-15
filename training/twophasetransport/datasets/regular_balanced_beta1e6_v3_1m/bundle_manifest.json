@@ -2,9 +2,9 @@
   "artifact": "twophasetransport_active_advection_label_bundle",
   "generated_utc": "2026-09-07T20:28:22.833306+00:00",
   "law": "regular",
-  "oracle": "C:\\Users\\Akeem\\OneDrive - Texas A&M University\\SimulationFramework_DevBranch\\build\\TwoPhaseTransportTraining\\Release\\twophasetransport_label_oracle.exe",
+  "oracle": "twophasetransport_label_oracle",
   "oracle_sha256": "90364238f5a8c624edb8a483ba8d7a6bf856f6ce5b3474d28bd91c67a7aedcb0",
-  "specification": "C:\\Users\\Akeem\\OneDrive - Texas A&M University\\SimulationFramework_DevBranch\\training\\twophasetransport\\specification\\active_advection_v2_balanced_beta1e6.json",
+  "specification": "training/twophasetransport/specification/active_advection_v2_balanced_beta1e6.json",
   "specification_sha256": "83e7505f12966f08cc05f04ec3f3862a9aa860ea81bf7c31ade9c6c1f16c4add",
   "beta_max": 1000000.0,
   "seed_root": 20260907,
@@ -24,7 +24,7 @@
   "products": {
     "train": {
       "command": [
-        "build\\TwoPhaseTransportTraining\\Release\\twophasetransport_label_oracle.exe",
+        "build/TwoPhaseTransportTraining/Release/twophasetransport_label_oracle.exe",
         "--law",
         "regular",
         "--split",
@@ -38,17 +38,17 @@
         "--beta-max",
         "1000000.0",
         "--output",
-        "training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\train.csv"
+        "training/twophasetransport/datasets/regular_balanced_beta1e6_v3_1m/train.csv"
       ],
       "elapsed_seconds": 7.946422100008931,
       "stdout": "wrote_dataset=training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\train.csv\nwrote_manifest=training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\train.csv.manifest.json\nsamples=1000000\nelapsed_seconds=7.93033\nsamples_per_second=126098\nmax_abs_residual=1.50823e-10\nrepresentation_limited_count=0\n",
-      "dataset": "training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\train.csv",
+      "dataset": "training/twophasetransport/datasets/regular_balanced_beta1e6_v3_1m/train.csv",
       "dataset_sha256": "b9f6fb54cc4d426bca7afe454d6049bf3227e7c7da789b9bb36ce91e495a3dce",
-      "dataset_manifest": "training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\train.csv.manifest.json"
+      "dataset_manifest": "training/twophasetransport/datasets/regular_balanced_beta1e6_v3_1m/train.csv.manifest.json"
     },
     "validation": {
       "command": [
-        "build\\TwoPhaseTransportTraining\\Release\\twophasetransport_label_oracle.exe",
+        "build/TwoPhaseTransportTraining/Release/twophasetransport_label_oracle.exe",
         "--law",
         "regular",
         "--split",
@@ -62,17 +62,17 @@
         "--beta-max",
         "1000000.0",
         "--output",
-        "training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\validation.csv"
+        "training/twophasetransport/datasets/regular_balanced_beta1e6_v3_1m/validation.csv"
       ],
       "elapsed_seconds": 0.8227974000037648,
       "stdout": "wrote_dataset=training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\validation.csv\nwrote_manifest=training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\validation.csv.manifest.json\nsamples=100000\nelapsed_seconds=0.795071\nsamples_per_second=125775\nmax_abs_residual=1.52029e-10\nrepresentation_limited_count=0\n",
-      "dataset": "training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\validation.csv",
+      "dataset": "training/twophasetransport/datasets/regular_balanced_beta1e6_v3_1m/validation.csv",
       "dataset_sha256": "b713ef46c61e659ec51751d82e5d40a31127e8141e068117f7c41829e5afe729",
-      "dataset_manifest": "training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\validation.csv.manifest.json"
+      "dataset_manifest": "training/twophasetransport/datasets/regular_balanced_beta1e6_v3_1m/validation.csv.manifest.json"
     },
     "test_uniform": {
       "command": [
-        "build\\TwoPhaseTransportTraining\\Release\\twophasetransport_label_oracle.exe",
+        "build/TwoPhaseTransportTraining/Release/twophasetransport_label_oracle.exe",
         "--law",
         "regular",
         "--split",
@@ -86,17 +86,17 @@
         "--beta-max",
         "1000000.0",
         "--output",
-        "training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\test_uniform.csv"
+        "training/twophasetransport/datasets/regular_balanced_beta1e6_v3_1m/test_uniform.csv"
       ],
       "elapsed_seconds": 0.1817468000226654,
       "stdout": "wrote_dataset=training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\test_uniform.csv\nwrote_manifest=training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\test_uniform.csv.manifest.json\nsamples=20000\nelapsed_seconds=0.156869\nsamples_per_second=127495\nmax_abs_residual=1.43435e-10\nrepresentation_limited_count=0\n",
-      "dataset": "training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\test_uniform.csv",
+      "dataset": "training/twophasetransport/datasets/regular_balanced_beta1e6_v3_1m/test_uniform.csv",
       "dataset_sha256": "e99823087a035b81ccd431758b732128f81bf2ee363bc8de364a2d9e5053ade1",
-      "dataset_manifest": "training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\test_uniform.csv.manifest.json"
+      "dataset_manifest": "training/twophasetransport/datasets/regular_balanced_beta1e6_v3_1m/test_uniform.csv.manifest.json"
     },
     "test_edge": {
       "command": [
-        "build\\TwoPhaseTransportTraining\\Release\\twophasetransport_label_oracle.exe",
+        "build/TwoPhaseTransportTraining/Release/twophasetransport_label_oracle.exe",
         "--law",
         "regular",
         "--split",
@@ -110,17 +110,17 @@
         "--beta-max",
         "1000000.0",
         "--output",
-        "training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\test_edge.csv"
+        "training/twophasetransport/datasets/regular_balanced_beta1e6_v3_1m/test_edge.csv"
       ],
       "elapsed_seconds": 0.1759604000253603,
       "stdout": "wrote_dataset=training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\test_edge.csv\nwrote_manifest=training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\test_edge.csv.manifest.json\nsamples=20000\nelapsed_seconds=0.157144\nsamples_per_second=127271\nmax_abs_residual=1.55984e-10\nrepresentation_limited_count=0\n",
-      "dataset": "training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\test_edge.csv",
+      "dataset": "training/twophasetransport/datasets/regular_balanced_beta1e6_v3_1m/test_edge.csv",
       "dataset_sha256": "5d29cdf4063c0ed1e39ca7860f35f777cbc47e8ea10ff85d5e73478b32f61c47",
-      "dataset_manifest": "training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\test_edge.csv.manifest.json"
+      "dataset_manifest": "training/twophasetransport/datasets/regular_balanced_beta1e6_v3_1m/test_edge.csv.manifest.json"
     },
     "test_log_beta": {
       "command": [
-        "build\\TwoPhaseTransportTraining\\Release\\twophasetransport_label_oracle.exe",
+        "build/TwoPhaseTransportTraining/Release/twophasetransport_label_oracle.exe",
         "--law",
         "regular",
         "--split",
@@ -134,17 +134,17 @@
         "--beta-max",
         "1000000.0",
         "--output",
-        "training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\test_log_beta.csv"
+        "training/twophasetransport/datasets/regular_balanced_beta1e6_v3_1m/test_log_beta.csv"
       ],
       "elapsed_seconds": 0.18216490000486374,
       "stdout": "wrote_dataset=training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\test_log_beta.csv\nwrote_manifest=training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\test_log_beta.csv.manifest.json\nsamples=20000\nelapsed_seconds=0.162831\nsamples_per_second=122827\nmax_abs_residual=1.50111e-10\nrepresentation_limited_count=0\n",
-      "dataset": "training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\test_log_beta.csv",
+      "dataset": "training/twophasetransport/datasets/regular_balanced_beta1e6_v3_1m/test_log_beta.csv",
       "dataset_sha256": "8a2377eb234bfcab44347414eb62c6bcd7c00e06ce953b9019c7bc2e75a80097",
-      "dataset_manifest": "training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\test_log_beta.csv.manifest.json"
+      "dataset_manifest": "training/twophasetransport/datasets/regular_balanced_beta1e6_v3_1m/test_log_beta.csv.manifest.json"
     },
     "test_target_tail": {
       "command": [
-        "build\\TwoPhaseTransportTraining\\Release\\twophasetransport_label_oracle.exe",
+        "build/TwoPhaseTransportTraining/Release/twophasetransport_label_oracle.exe",
         "--law",
         "regular",
         "--split",
@@ -158,17 +158,17 @@
         "--beta-max",
         "1000000.0",
         "--output",
-        "training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\test_target_tail.csv"
+        "training/twophasetransport/datasets/regular_balanced_beta1e6_v3_1m/test_target_tail.csv"
       ],
       "elapsed_seconds": 0.17141800001263618,
       "stdout": "wrote_dataset=training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\test_target_tail.csv\nwrote_manifest=training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\test_target_tail.csv.manifest.json\nsamples=20000\nelapsed_seconds=0.15414\nsamples_per_second=129753\nmax_abs_residual=1.06916e-10\nrepresentation_limited_count=0\n",
-      "dataset": "training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\test_target_tail.csv",
+      "dataset": "training/twophasetransport/datasets/regular_balanced_beta1e6_v3_1m/test_target_tail.csv",
       "dataset_sha256": "df19eda605904c5c1af8bb4e259cb7aa7dbf1eb6b12d2b242b83f814cc96bd64",
-      "dataset_manifest": "training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\test_target_tail.csv.manifest.json"
+      "dataset_manifest": "training/twophasetransport/datasets/regular_balanced_beta1e6_v3_1m/test_target_tail.csv.manifest.json"
     },
     "test_balanced_transport": {
       "command": [
-        "build\\TwoPhaseTransportTraining\\Release\\twophasetransport_label_oracle.exe",
+        "build/TwoPhaseTransportTraining/Release/twophasetransport_label_oracle.exe",
         "--law",
         "regular",
         "--split",
@@ -182,177 +182,177 @@
         "--beta-max",
         "1000000.0",
         "--output",
-        "training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\test_balanced_transport.csv"
+        "training/twophasetransport/datasets/regular_balanced_beta1e6_v3_1m/test_balanced_transport.csv"
       ],
       "elapsed_seconds": 0.17571910005062819,
       "stdout": "wrote_dataset=training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\test_balanced_transport.csv\nwrote_manifest=training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\test_balanced_transport.csv.manifest.json\nsamples=20000\nelapsed_seconds=0.158246\nsamples_per_second=126386\nmax_abs_residual=1.08739e-10\nrepresentation_limited_count=0\n",
-      "dataset": "training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\test_balanced_transport.csv",
+      "dataset": "training/twophasetransport/datasets/regular_balanced_beta1e6_v3_1m/test_balanced_transport.csv",
       "dataset_sha256": "830bfcafaab746f9bd51c7dd0ff706b4ec88eb62eadaf8ddd1088c2c41dd8af5",
-      "dataset_manifest": "training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\test_balanced_transport.csv.manifest.json"
+      "dataset_manifest": "training/twophasetransport/datasets/regular_balanced_beta1e6_v3_1m/test_balanced_transport.csv.manifest.json"
     }
   },
   "packed_products": {
     "train_62400": {
       "command": [
-        "build\\TwoPhaseTransportTraining\\Release\\twophasetransport_dataset_packer.exe",
+        "build/TwoPhaseTransportTraining/Release/twophasetransport_dataset_packer.exe",
         "--input",
-        "training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\train.csv",
+        "training/twophasetransport/datasets/regular_balanced_beta1e6_v3_1m/train.csv",
         "--output",
-        "training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\train_62k.tptbin",
+        "training/twophasetransport/datasets/regular_balanced_beta1e6_v3_1m/train_62k.tptbin",
         "--max-records",
         "62400"
       ],
       "elapsed_seconds": 0.0,
       "stdout": "input_rows=62400\\nrecord_bytes=48\\npacked_bytes=2995224\\nwrote_dataset=training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\train_62k.tptbin\\n",
-      "dataset": "training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\train_62k.tptbin",
+      "dataset": "training/twophasetransport/datasets/regular_balanced_beta1e6_v3_1m/train_62k.tptbin",
       "dataset_sha256": "e8b131c6e14aa319bc35f8aaf6ee8c607efafb0e66eeb0253d9a6029af44aa64",
       "rows": 62400
     },
     "train_125000": {
       "command": [
-        "build\\TwoPhaseTransportTraining\\Release\\twophasetransport_dataset_packer.exe",
+        "build/TwoPhaseTransportTraining/Release/twophasetransport_dataset_packer.exe",
         "--input",
-        "training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\train.csv",
+        "training/twophasetransport/datasets/regular_balanced_beta1e6_v3_1m/train.csv",
         "--output",
-        "training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\train_125k.tptbin",
+        "training/twophasetransport/datasets/regular_balanced_beta1e6_v3_1m/train_125k.tptbin",
         "--max-records",
         "125000"
       ],
       "elapsed_seconds": 0.5033952000085264,
       "stdout": "input_rows=125000\nrecord_bytes=48\npacked_bytes=6000024\nwrote_dataset=training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\train_125k.tptbin\n",
-      "dataset": "training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\train_125k.tptbin",
+      "dataset": "training/twophasetransport/datasets/regular_balanced_beta1e6_v3_1m/train_125k.tptbin",
       "dataset_sha256": "9d57913d5f2e02c3a18a7497d796bed6aa77c6d4cc15decbdb818991ee5cd86f",
       "rows": 125000
     },
     "train_250000": {
       "command": [
-        "build\\TwoPhaseTransportTraining\\Release\\twophasetransport_dataset_packer.exe",
+        "build/TwoPhaseTransportTraining/Release/twophasetransport_dataset_packer.exe",
         "--input",
-        "training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\train.csv",
+        "training/twophasetransport/datasets/regular_balanced_beta1e6_v3_1m/train.csv",
         "--output",
-        "training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\train_250k.tptbin",
+        "training/twophasetransport/datasets/regular_balanced_beta1e6_v3_1m/train_250k.tptbin",
         "--max-records",
         "250000"
       ],
       "elapsed_seconds": 0.9850068999803625,
       "stdout": "input_rows=250000\nrecord_bytes=48\npacked_bytes=12000024\nwrote_dataset=training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\train_250k.tptbin\n",
-      "dataset": "training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\train_250k.tptbin",
+      "dataset": "training/twophasetransport/datasets/regular_balanced_beta1e6_v3_1m/train_250k.tptbin",
       "dataset_sha256": "fb4b0c27b75f399cfc4311b5af550b35c2cb36a060ce81d490b478b7c67df491",
       "rows": 250000
     },
     "train_500000": {
       "command": [
-        "build\\TwoPhaseTransportTraining\\Release\\twophasetransport_dataset_packer.exe",
+        "build/TwoPhaseTransportTraining/Release/twophasetransport_dataset_packer.exe",
         "--input",
-        "training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\train.csv",
+        "training/twophasetransport/datasets/regular_balanced_beta1e6_v3_1m/train.csv",
         "--output",
-        "training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\train_500k.tptbin",
+        "training/twophasetransport/datasets/regular_balanced_beta1e6_v3_1m/train_500k.tptbin",
         "--max-records",
         "500000"
       ],
       "elapsed_seconds": 1.9461911999969743,
       "stdout": "input_rows=500000\nrecord_bytes=48\npacked_bytes=24000024\nwrote_dataset=training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\train_500k.tptbin\n",
-      "dataset": "training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\train_500k.tptbin",
+      "dataset": "training/twophasetransport/datasets/regular_balanced_beta1e6_v3_1m/train_500k.tptbin",
       "dataset_sha256": "902bdd73fb75b627e198e3acf77b2421fab7cdb7e76fb700247dcc5b9cbfa600",
       "rows": 500000
     },
     "train_1000000": {
       "command": [
-        "build\\TwoPhaseTransportTraining\\Release\\twophasetransport_dataset_packer.exe",
+        "build/TwoPhaseTransportTraining/Release/twophasetransport_dataset_packer.exe",
         "--input",
-        "training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\train.csv",
+        "training/twophasetransport/datasets/regular_balanced_beta1e6_v3_1m/train.csv",
         "--output",
-        "training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\train_1m.tptbin",
+        "training/twophasetransport/datasets/regular_balanced_beta1e6_v3_1m/train_1m.tptbin",
         "--max-records",
         "1000000"
       ],
       "elapsed_seconds": 3.9460766999982297,
       "stdout": "input_rows=1000000\nrecord_bytes=48\npacked_bytes=48000024\nwrote_dataset=training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\train_1m.tptbin\n",
-      "dataset": "training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\train_1m.tptbin",
+      "dataset": "training/twophasetransport/datasets/regular_balanced_beta1e6_v3_1m/train_1m.tptbin",
       "dataset_sha256": "367175bf8290c1c33e90e5c96e84d638c3f547f230fd64d1af47c8a3fd6796aa",
       "rows": 1000000
     },
     "validation": {
       "command": [
-        "build\\TwoPhaseTransportTraining\\Release\\twophasetransport_dataset_packer.exe",
+        "build/TwoPhaseTransportTraining/Release/twophasetransport_dataset_packer.exe",
         "--input",
-        "training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\validation.csv",
+        "training/twophasetransport/datasets/regular_balanced_beta1e6_v3_1m/validation.csv",
         "--output",
-        "training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\validation.tptbin"
+        "training/twophasetransport/datasets/regular_balanced_beta1e6_v3_1m/validation.tptbin"
       ],
       "elapsed_seconds": 0.39001339999958873,
       "stdout": "input_rows=100000\nrecord_bytes=48\npacked_bytes=4800024\nwrote_dataset=training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\validation.tptbin\n",
-      "dataset": "training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\validation.tptbin",
+      "dataset": "training/twophasetransport/datasets/regular_balanced_beta1e6_v3_1m/validation.tptbin",
       "dataset_sha256": "3724183b6ae26de9f3b4b3928f50152544bf24644f4601403a3f9177472bb36f",
       "rows": null
     },
     "test_uniform": {
       "command": [
-        "build\\TwoPhaseTransportTraining\\Release\\twophasetransport_dataset_packer.exe",
+        "build/TwoPhaseTransportTraining/Release/twophasetransport_dataset_packer.exe",
         "--input",
-        "training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\test_uniform.csv",
+        "training/twophasetransport/datasets/regular_balanced_beta1e6_v3_1m/test_uniform.csv",
         "--output",
-        "training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\test_uniform.tptbin"
+        "training/twophasetransport/datasets/regular_balanced_beta1e6_v3_1m/test_uniform.tptbin"
       ],
       "elapsed_seconds": 0.09693650004919618,
       "stdout": "input_rows=20000\nrecord_bytes=48\npacked_bytes=960024\nwrote_dataset=training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\test_uniform.tptbin\n",
-      "dataset": "training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\test_uniform.tptbin",
+      "dataset": "training/twophasetransport/datasets/regular_balanced_beta1e6_v3_1m/test_uniform.tptbin",
       "dataset_sha256": "2912b6dc621a963ace241f754c7dbab5cac4d6cf56a86687891da58a01125047",
       "rows": null
     },
     "test_edge": {
       "command": [
-        "build\\TwoPhaseTransportTraining\\Release\\twophasetransport_dataset_packer.exe",
+        "build/TwoPhaseTransportTraining/Release/twophasetransport_dataset_packer.exe",
         "--input",
-        "training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\test_edge.csv",
+        "training/twophasetransport/datasets/regular_balanced_beta1e6_v3_1m/test_edge.csv",
         "--output",
-        "training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\test_edge.tptbin"
+        "training/twophasetransport/datasets/regular_balanced_beta1e6_v3_1m/test_edge.tptbin"
       ],
       "elapsed_seconds": 0.09527319995686412,
       "stdout": "input_rows=20000\nrecord_bytes=48\npacked_bytes=960024\nwrote_dataset=training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\test_edge.tptbin\n",
-      "dataset": "training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\test_edge.tptbin",
+      "dataset": "training/twophasetransport/datasets/regular_balanced_beta1e6_v3_1m/test_edge.tptbin",
       "dataset_sha256": "1b881296ecc1a4912a687bdea2cf0a5fbb1ee8ed0a876c925f9a8b686947cbc3",
       "rows": null
     },
     "test_log_beta": {
       "command": [
-        "build\\TwoPhaseTransportTraining\\Release\\twophasetransport_dataset_packer.exe",
+        "build/TwoPhaseTransportTraining/Release/twophasetransport_dataset_packer.exe",
         "--input",
-        "training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\test_log_beta.csv",
+        "training/twophasetransport/datasets/regular_balanced_beta1e6_v3_1m/test_log_beta.csv",
         "--output",
-        "training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\test_log_beta.tptbin"
+        "training/twophasetransport/datasets/regular_balanced_beta1e6_v3_1m/test_log_beta.tptbin"
       ],
       "elapsed_seconds": 0.0939290999667719,
       "stdout": "input_rows=20000\nrecord_bytes=48\npacked_bytes=960024\nwrote_dataset=training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\test_log_beta.tptbin\n",
-      "dataset": "training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\test_log_beta.tptbin",
+      "dataset": "training/twophasetransport/datasets/regular_balanced_beta1e6_v3_1m/test_log_beta.tptbin",
       "dataset_sha256": "7fb00d4198bdda2ae81711831044a4c01b9c988594ac362f314caa5b7af297de",
       "rows": null
     },
     "test_target_tail": {
       "command": [
-        "build\\TwoPhaseTransportTraining\\Release\\twophasetransport_dataset_packer.exe",
+        "build/TwoPhaseTransportTraining/Release/twophasetransport_dataset_packer.exe",
         "--input",
-        "training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\test_target_tail.csv",
+        "training/twophasetransport/datasets/regular_balanced_beta1e6_v3_1m/test_target_tail.csv",
         "--output",
-        "training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\test_target_tail.tptbin"
+        "training/twophasetransport/datasets/regular_balanced_beta1e6_v3_1m/test_target_tail.tptbin"
       ],
       "elapsed_seconds": 0.09537250001449138,
       "stdout": "input_rows=20000\nrecord_bytes=48\npacked_bytes=960024\nwrote_dataset=training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\test_target_tail.tptbin\n",
-      "dataset": "training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\test_target_tail.tptbin",
+      "dataset": "training/twophasetransport/datasets/regular_balanced_beta1e6_v3_1m/test_target_tail.tptbin",
       "dataset_sha256": "553d45caeb507f79a13ff11a438933493b7d159df3b49891cb347f9e84a7cb7d",
       "rows": null
     },
     "test_balanced_transport": {
       "command": [
-        "build\\TwoPhaseTransportTraining\\Release\\twophasetransport_dataset_packer.exe",
+        "build/TwoPhaseTransportTraining/Release/twophasetransport_dataset_packer.exe",
         "--input",
-        "training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\test_balanced_transport.csv",
+        "training/twophasetransport/datasets/regular_balanced_beta1e6_v3_1m/test_balanced_transport.csv",
         "--output",
-        "training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\test_balanced_transport.tptbin"
+        "training/twophasetransport/datasets/regular_balanced_beta1e6_v3_1m/test_balanced_transport.tptbin"
       ],
       "elapsed_seconds": 0.09679629997117445,
       "stdout": "input_rows=20000\nrecord_bytes=48\npacked_bytes=960024\nwrote_dataset=training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\test_balanced_transport.tptbin\n",
-      "dataset": "training\\twophasetransport\\datasets\\regular_balanced_beta1e6_v3_1m\\test_balanced_transport.tptbin",
+      "dataset": "training/twophasetransport/datasets/regular_balanced_beta1e6_v3_1m/test_balanced_transport.tptbin",
       "dataset_sha256": "5effab5d1293de45eb075290926b2e9d6a5a1f4fdf4a7326c4e7bd2e107bec39",
       "rows": null
     }

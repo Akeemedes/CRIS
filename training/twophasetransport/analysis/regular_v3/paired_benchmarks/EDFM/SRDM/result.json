@@ -30,7 +30,6 @@
   "platform": "Windows-11-10.0.26200-SP0",
   "python": "3.12.7 | packaged by Anaconda, Inc. | (main, Oct  4 2024, 13:17:27) [MSC v.1929 64 bit (AMD64)]",
   "thread_count": 1,
-  "runtime_dir": "C:\\Users\\Akeem\\Desktop\\libtorch\\lib",
   "config_sha256": "172ca68bc41a74baa0d2b3c2ae897afd001cf9874cc73325b66123b8675a18eb",
   "executable_sha256": "13569c11587c3394d4b9b1ade2b03cffa6820d1cd2912fa6190785b25c3f9d13",
   "newton": 51152,

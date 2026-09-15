@@ -1,6 +1,6 @@
 {
-  "protocol": "Regular EDFM full benchmark, original zero initial state and timestep schedule; cuts allowed; fresh ILU0; native cell order; LINTOL=1e-2; RTOL=DUTOL=1e-6",
-  "pressure_protocol": "Native pressure BiCGStab/AMG, strict, initial tolerance 1e-6, floor 1e-12; explicit pressure cap when specified, otherwise inherits LINMAX. Pressure failures are not transport failures.",
+  "protocol": "Regular-law EDFM benchmark with zero initial saturation and adaptive time steps; ILU0 recomputed at each update; native cell order; LINTOL=1e-2; RTOL=DUTOL=1e-6",
+  "pressure_protocol": "Pressure uses BiCGStab/AMG with initial tolerance 1e-6 and floor 1e-12. The pressure iteration cap is specified independently or defaults to LINMAX. Pressure and transport failures are recorded separately.",
   "pressure_cap": 100,
   "full_benchmark": true,
   "methods": [
@@ -2786,5 +2786,5 @@
   "pressure_failed_caps": [],
   "common_completed_horizon": 200000000.0,
   "summary_source_sha256": "31a0701c05b4dc881abf26cf1c8e71a6a5117212dc60c7c52466d674c8bd2e5b",
-  "common_horizon_rule": "Largest scheduled reporting time reached by every recorded case; no extrapolation or outcome-optimized cutoff"
+  "common_horizon_rule": "Largest scheduled reporting time reached by every recorded case."
 }

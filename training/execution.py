@@ -1,7 +1,7 @@
-"""Explicit, synchronous training execution; independent of campaign queues.
+"""Launch native training and record its configuration, inputs and outputs.
 
-No shell, automatic retry or scheduling. Restart requires a validated parent.
-This module does not import or modify either live campaign controller.
+Each invocation creates a separate run directory. Resumed runs verify the
+parent checkpoint and optimizer state before starting the trainer.
 """
 
 from datetime import datetime, timezone
@@ -49,7 +49,7 @@ def write_record(path, value):
 
 
 def child_environment(directories, inherited=None, system=None):
-    """Change only the child's loader search path; never dump the environment."""
+    """Add runtime-library directories to the child process's loader search path."""
     env = dict(os.environ if inherited is None else inherited)
     system = sys.platform if system is None else system
     key = (
@@ -64,7 +64,7 @@ def child_environment(directories, inherited=None, system=None):
 
 
 def source_observation(root):
-    """Observe available source; do not imply it produced the supplied binary."""
+    """Record checkout hashes separately from the supplied executable's hash."""
     paths = set((root / "training/native_lm/include").rglob("*.hpp"))
     for adapter in ("bratu", "twophasetransport"):
         directory = root / "training" / adapter
@@ -100,17 +100,17 @@ def source_observation(root):
     return {
         "git_revision": revision,
         "file_sha256": files,
-        "scope": "Checkout observation, not binary build attestation; file hashes include local edits",
+        "scope": "Source files in this checkout, including local edits; the executable is hashed separately",
     }
 
 
 def revalidate(plan, root):
-    """Reconstruct argv from the supported contract; never execute arbitrary plan argv."""
+    """Validate the plan and reconstruct the native trainer arguments."""
     cold = plan.get("schema_version") == 1 and plan.get("mode") == "cold-start plan only"
     restart = plan.get("schema_version") == 2 and plan.get("mode") == "restart plan only" and plan.get("start_mode") in ("resume", "continuation")
     if not cold and not restart:
         raise ValueError(
-            "Unsupported plan; unvalidated resume/continuation are disabled"
+            "Unsupported training-plan schema or start mode"
         )
     command = plan["command_argv"]
     if not command or len(command) % 2 != 1:
@@ -156,7 +156,7 @@ def collect_outputs(directory, adapter, successful):
         from restart import read_state
         snapshots = list(directory.glob("optimizer_state_[01].bin"))
         if not snapshots:
-            raise ValueError("Trainer exited zero without complete-state recovery; rebuild the current native adapter")
+            raise ValueError("Trainer exited without the required optimizer-state checkpoint; rebuild the native trainer")
         snapshot = max(snapshots, key=lambda p: read_state(p, adapter)["iteration"])
         if snapshot.read_bytes()[96 + parameters*8:-8] != (directory / "final_checkpoint.bin").read_bytes():
             raise ValueError("Final checkpoint differs from the complete-state best weights")

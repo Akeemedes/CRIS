@@ -1,9 +1,11 @@
 {
   "sources": {
-    "training/twophasetransport/analysis/regular_v3/paired_benchmarks/EDFM/CRIS/result.json": "1579dcee583ae70d45f4ca1f90a70ca9ce216ebe99f6a5ae2653b6f858643d2c",
+    "training/twophasetransport/analysis/regular_v3/paired_benchmarks/EDFM/CRIS/result.json": "b5f505bbf0e06cac3a193e42aa715c0c1137180c645819f9d468259895975c8d",
     "training/twophasetransport/analysis/regular_v3/paired_benchmarks/EDFM/CRIS/output/solver_report.csv": "79441b33b7f759d0187e9c7f2d56e96c2344f7c8b13fc26aaa5c628af0ce43a1",
-    "training/twophasetransport/analysis/regular_v3/paired_benchmarks/EDFM/SRDM/result.json": "b40a8ed0ea65416b399836291219a9f7935f201e8f0c69c737aca42f765f3f8b",
-    "training/twophasetransport/analysis/regular_v3/paired_benchmarks/EDFM/SRDM/output/solver_report.csv": "6c061d55403e8d56c5fd46277fe82aa15fc34b4220ad4ede273a3c20b993809a"
+    "training/twophasetransport/analysis/regular_v3/paired_benchmarks/EDFM/CRIS/sim.txt": "76113f0ae1a759964a83f92b5c66764da7548542e6ed348e3a7d70da57d04830",
+    "training/twophasetransport/analysis/regular_v3/paired_benchmarks/EDFM/SRDM/result.json": "4a45f6fb49a2b5cd4461cd5d3ec7f90afd94ec220c2e12bc0b80018e6cf5d1fc",
+    "training/twophasetransport/analysis/regular_v3/paired_benchmarks/EDFM/SRDM/output/solver_report.csv": "6c061d55403e8d56c5fd46277fe82aa15fc34b4220ad4ede273a3c20b993809a",
+    "training/twophasetransport/analysis/regular_v3/paired_benchmarks/EDFM/SRDM/sim.txt": "3fba224c19fb4233ea864df99b6d65647c7ab5d278f4c5e95ab9a4f2b1d1e649"
   },
   "findings": {
     "CRIS": {
@@ -25,22 +27,16 @@
       ]
     }
   },
-  "figure_number": 9,
   "size_mm": [
     183.0,
     103.0
   ],
-  "previous_size_mm": [
-    183,
-    125
-  ],
   "builder": "Figures/compact_methods_layouts.py",
-  "builder_sha256": "d98afa4dde513152bec2cb02e48dfb9a6138b81ff4e32ee58e75e1491df69d7e",
-  "export_builder_sha256": "91496c358d56ea092ece87262b56f2ab83cccf875eceb020840378f18818526e",
+  "builder_sha256": "e1d5e1365596372c42710e7673984acb31f8d65acd96313201d0291d320d1588",
+  "export_builder_sha256": "68ff09b7679e958c8e6fc470e63c94e5c6cab0750f10b0fa2a2ca0cbbb1eba76",
   "files": {
-    "timestep-work.pdf": "1013d3d694198c350832be3a7b655365ae07d8bcf787d61e2dcaf9dc60117522",
+    "timestep-work.pdf": "e981606bfb87bfcafa53e7dea6e566dd6743142cad5b1c4b4407218fa7ec882a",
     "timestep-work.png": "53d060916a9b9f4086d47c466a4f2ffba3241cf132272b3bbff3679f6100a44f",
-    "timestep-work.svg": "abade3f5b4f343a318da27ff8f75ea1b6080b7e246794262e0b0f57a7b1f7de9"
-  },
-  "layout_bounds_checked": true
+    "timestep-work.svg": "d01269cea61045b6cf4f585aa6597b2eec380cc5e5d3413c37c26839f71232a6"
+  }
 }

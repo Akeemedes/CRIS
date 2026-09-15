@@ -1,4 +1,4 @@
-"""Numerical summaries only: independent 1D and archived physical-SRDM comparisons."""
+"""Compare transport solutions with a 1D implicit reference or saved SRDM fields."""
 import csv
 import json
 from pathlib import Path
@@ -32,8 +32,8 @@ def main(jobs=None):
         steps=tuple(float(r["DT"]) for r in read(out/"solver_report.csv") if r["converged"]=="1")
         if job["case"]=="1D":
             if steps not in cache:
-                # Resolve the exact native staged input, not the source template's
-                # differently rooted path. Older records keep the source fallback.
+                # Resolve input paths relative to the simulation configuration;
+                # use the source template when no staged configuration exists.
                 staged=Path(job['folder'])/'sim.txt'
                 source=staged if staged.exists() else Path(job['source'])
                 initial=Path(next(line.split(maxsplit=1)[1] for line in source.read_text().splitlines() if line.startswith("INIT_FILE ")))
@@ -63,13 +63,12 @@ def main(jobs=None):
             reports=read(reference/"solver_report.csv")
             if not reports: raise ValueError(f"Missing physical SRDM report {reference}")
             refsteps=tuple(float(r.get("DT",r.get("DT_TRIAL"))) for r in reports if r["converged"]=="1")
-            # Canonical index confirms complete matching-physics SRDM runs.
             for path in out.glob("saturation_*.bin"):
                 rp=reference/path.name
                 if not rp.exists():continue
                 t=int(path.stem.split("_")[-1])
                 results.append(dict(case=job["case"],model=job["model"],time=t,
-                    reference="archived_physical_SRDM",same_time_grid=steps==refsteps,
+                    reference="physical_SRDM",same_time_grid=steps==refsteps,
                     **measures(state(rp),state(path))))
     write(DEST/"accuracy.csv",results)
     final=[]

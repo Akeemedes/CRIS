@@ -1,4 +1,4 @@
-"""Validated run lineage and complete-state recovery; no campaign queue imports."""
+"""Validate checkpoints and prepare training continuation or optimizer recovery."""
 import csv
 import hashlib
 import io
@@ -103,7 +103,7 @@ def inspect_parent(parent, mode, config, data, executable, weight, threads, root
     if old["inputs"]["validation"]["sha256"] != data["validation"]["sha256"]:
         raise ValueError("Validation data must stay identical across resume/continuation")
     if old["config"]["limits"]["block_size"] != config["limits"]["block_size"] or old["resolved_settings"]["threads"] != threads:
-        raise ValueError("Keep block size and threads fixed for this validated restart interface")
+        raise ValueError("Restart requires the parent's block size and thread count")
     if mode == "resume":
         if old["executable_sha256"] != experiments.sha(executable):
             raise ValueError("Resume requires the identical native executable")
@@ -126,7 +126,7 @@ def inspect_parent(parent, mode, config, data, executable, weight, threads, root
         except (ValueError, OSError, IndexError, UnicodeError) as error:
             rejected.append({"path": path.name, "reason": str(error)})
     if not candidates:
-        raise ValueError("No valid complete-state checkpoint with matching history; legacy weight-only checkpoints cannot be resumed")
+        raise ValueError("No optimizer-state checkpoint matches the recorded history; weights alone cannot resume the optimizer")
     _, snapshot, state, prefix = max(candidates, key=lambda x: x[0])
     retained = {"checkpoint_000000.bin"}
     for row in csv.DictReader(io.StringIO(prefix.decode("utf-8"))):

@@ -1,15 +1,20 @@
 {
+  "schema_version": 1,
+  "description": "Input checksums, computed summaries and export sizes for the supplementary-method figures.",
+  "findings_description": "Computed from the source files and model evaluations by build_supplementary_methods.py.",
   "sources": {
-    "training/twophasetransport/analysis/regular_v3/paired_benchmarks/EDFM/CRIS/result.json": "1579dcee583ae70d45f4ca1f90a70ca9ce216ebe99f6a5ae2653b6f858643d2c",
+    "training/twophasetransport/analysis/regular_v3/paired_benchmarks/EDFM/CRIS/result.json": "b5f505bbf0e06cac3a193e42aa715c0c1137180c645819f9d468259895975c8d",
+    "training/twophasetransport/analysis/regular_v3/paired_benchmarks/EDFM/CRIS/sim.txt": "76113f0ae1a759964a83f92b5c66764da7548542e6ed348e3a7d70da57d04830",
     "training/twophasetransport/analysis/regular_v3/paired_benchmarks/EDFM/CRIS/output/solver_report.csv": "79441b33b7f759d0187e9c7f2d56e96c2344f7c8b13fc26aaa5c628af0ce43a1",
-    "training/twophasetransport/analysis/regular_v3/paired_benchmarks/EDFM/SRDM/result.json": "b40a8ed0ea65416b399836291219a9f7935f201e8f0c69c737aca42f765f3f8b",
+    "training/twophasetransport/analysis/regular_v3/paired_benchmarks/EDFM/SRDM/result.json": "4a45f6fb49a2b5cd4461cd5d3ec7f90afd94ec220c2e12bc0b80018e6cf5d1fc",
+    "training/twophasetransport/analysis/regular_v3/paired_benchmarks/EDFM/SRDM/sim.txt": "3fba224c19fb4233ea864df99b6d65647c7ab5d278f4c5e95ab9a4f2b1d1e649",
     "training/twophasetransport/analysis/regular_v3/paired_benchmarks/EDFM/SRDM/output/solver_report.csv": "6c061d55403e8d56c5fd46277fe82aa15fc34b4220ad4ede273a3c20b993809a",
     "Figures/fig3_bratu/data/continuation_validation.csv": "74816c888ea94286ffa28a4ffcb397eb206af19f7c45fef7dc7148a7b146d3c1",
     "training/twophasetransport/runs/regular_balanced_beta1e6_v3_62k_log1p_coldstart_residual_softcap_1_lambda_0p01/final_checkpoint.bin": "37e6659beb435841d5389319ee513da843bdd51f2d46429d8c409fca14206535",
     "training/twophasetransport/analysis/imp_v3/checkpoint_assessment/residual_continued_best.bin": "1723205503376b8267a9a20584f159e763badf32c9c883b0590c8bbabeaa2eb8",
-    "training/twophasetransport/analysis/regular_v3/benchmarks/3DSPE10_5SpotBase/picard/cpu_summary.json": "68503685703d4931b2d80e9ab3d879156db87dbd7a95bcc5109900a5ab46c4a3",
-    "training/twophasetransport/analysis/regular_v3/benchmarks/3DSPE10_5SpotBase/picard/cuda_summary.json": "70605110d3f6e8499e65b331b12cd4cf94b23aec4e310cd6261438e256a53529",
-    "training/twophasetransport/analysis/regular_v3/benchmarks/3DSPE10_5SpotBase/picard/cuda_float32_check1_tol0.0001_summary.json": "15cd6ed805347958d72ea187112a107bdd3f21aed15d20c430fa63d958ab8bd9",
+    "training/twophasetransport/analysis/regular_v3/benchmarks/3DSPE10_5SpotBase/picard/cpu_summary.json": "617585fd482b85396bfc9831fe53f363d7d830d3e4e992d32d936ee4b7575b44",
+    "training/twophasetransport/analysis/regular_v3/benchmarks/3DSPE10_5SpotBase/picard/cuda_summary.json": "6a4285021a74c88747b6ac39e8700841d1a9805318b5faf5fc376148a4c6c22a",
+    "training/twophasetransport/analysis/regular_v3/benchmarks/3DSPE10_5SpotBase/picard/cuda_float32_check1_tol0.0001_summary.json": "f04dd02516df3c74431915d27a5eeadedfeff4fd52977a7e030c36c29c2c3202",
     "training/twophasetransport/analysis/regular_v3/benchmarks/summary.csv": "0469a9dc7411f03ca007d78f58163a48318abcd8f34020fb955cf04ee49baa40",
     "training/twophasetransport/analysis/regular_v3/benchmarks/3DSPE10_5SpotBase/reference_accuracy.csv": "c4ab2a226f6409afea35aab9adac803973d2dd2e7ca859d1d02ec629c923ec16",
     "training/twophasetransport/analysis/regular_v3/benchmarks/3DSPE10_5SpotBase/lambda_0p01/output/solver_report.csv": "ce62806e1fcfc982c591d85df8f678ae22c7e449557890c79f8f90f0238c0176"
@@ -91,5 +96,5 @@
       63.0
     ]
   ],
-  "builder_sha256": "c42e3031e8595a0c545dff875650ab257e2097787f7772c1a5fcbfacbf973a0d"
+  "builder_sha256": "7b699a3d6d56d0a4cfb5183a86281cf574a62d2e992cef570c55fd4af5b05b2f"
 }

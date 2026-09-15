@@ -1,24 +1,18 @@
 {
   "sources": {
-    "Figures/build_supplementary_methods.py": "2415da4b73ac6a13f1c683708c1ab681289378b091b303a2aa60ad30003949ae"
+    "Figures/build_supplementary_methods.py": "7b699a3d6d56d0a4cfb5183a86281cf574a62d2e992cef570c55fd4af5b05b2f"
   },
-  "content": "Same three stages, local inputs and recurrence as the source schematic.",
-  "figure_number": 5,
+  "content": "Transport assembly, normalized inputs and local inverse equation.",
   "size_mm": [
     165.0,
     37.0
   ],
-  "previous_size_mm": [
-    183,
-    49
-  ],
   "builder": "Figures/compact_methods_layouts.py",
-  "builder_sha256": "d98afa4dde513152bec2cb02e48dfb9a6138b81ff4e32ee58e75e1491df69d7e",
-  "export_builder_sha256": "91496c358d56ea092ece87262b56f2ab83cccf875eceb020840378f18818526e",
+  "builder_sha256": "e1d5e1365596372c42710e7673984acb31f8d65acd96313201d0291d320d1588",
+  "export_builder_sha256": "68ff09b7679e958c8e6fc470e63c94e5c6cab0750f10b0fa2a2ca0cbbb1eba76",
   "files": {
-    "transport-inputs.pdf": "ffb62df34b7efdc74ce52d3d27ad3700a0129c1f88a795a650ee3e1c9bb06e19",
+    "transport-inputs.pdf": "5fd757306afce310de50a885a9ad5e2e057e6c76ad5b833ff2f77d53e95d1ee2",
     "transport-inputs.png": "eb8a5c6db682256ec9984618db9281b120b333058d972d6316efcfb549426561",
-    "transport-inputs.svg": "66416d9190fc2d33667d00cfc0b85c60e778d359183ae370d6acd50a5adda3c2"
-  },
-  "layout_bounds_checked": true
+    "transport-inputs.svg": "6bb710f39e12920b19018d9a1585925497dad970a39499d509c528b8b3dd540a"
+  }
 }

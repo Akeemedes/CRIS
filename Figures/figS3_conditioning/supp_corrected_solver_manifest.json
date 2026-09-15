@@ -5,9 +5,9 @@
   ],
   "font_min_pt": 11,
   "sources": {
-    "Figures\\build_publication_completion.py": "a53d158eef4e8c60f70c1d548849b856275cc6a59a3bd10dee133c5554d9c65f",
-    "Figures\\figS3_conditioning\\data\\frozen_linear\\policy_edfm_full_budget_results.json": "4b8c4060f06b384d059aaf63c0a4f5206c76f70a52c868d8db9602a71114ca52",
-    "Figures\\publication_style.py": "5d85333910c26d970f23e5d5abc55a3d603f946cb0663791f51966499955815c"
+    "Figures/build_publication_completion.py": "6258eec758032c376770e57bea54b2b18a36f6c83ae4d0f1405ee9180f81934e",
+    "Figures/figS3_conditioning/data/frozen_linear/policy_edfm_full_budget_results.json": "31379f9cdab380625714d0745d37e97e9a84a20edfcf6b8d255ba9ddb6947e25",
+    "Figures/publication_style.py": "2c2932377c843c43f03f27ae93a62c48cdbeb984804a81ebbbee411e56bfd74c"
   },
-  "builder_sha256": "d900270f3cc69e57ba3be7ff7fe8e1b0e4c3e142b73c9cfd7f8a933f665b38e8"
+  "builder_sha256": "dda0bd4f6c8e130320463b02976bb11ac8047124af9120e086798c95d25e61f9"
 }

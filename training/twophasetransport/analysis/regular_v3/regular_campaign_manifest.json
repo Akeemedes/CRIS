@@ -2,39 +2,33 @@
   "artifact": "twophasetransport_regular_training_campaign_analysis",
   "source_runs": {
     "MSE": {
-      "run_directory": "training\\twophasetransport\\runs\\regular_balanced_beta1e6_v3_62k_log1p_fullbatch_lm_cpu",
+      "run_directory": "training/twophasetransport/runs/regular_balanced_beta1e6_v3_62k_log1p_fullbatch_lm_cpu",
       "optimizer_trace_sha256": "621b512f2ad0084f3017742caebfd335b461eb3c78305aceb4eaa5454bb13e60",
       "checkpoint_metrics_sha256": "5ab62ec60f022bc414b2b8761b285598506dfbddbcba1a14dfcba67d60a57db4",
       "run_manifest_sha256": "a4d3badff561ac4d637130b4c049be06a42b26a389c0637041fb34b7fc5ba047",
       "final_checkpoint_sha256": "374222a9d79571f5763ae181529e3e69a7eef3e0d3c410caeeddb25e7a775111"
     },
     "Residual $\\lambda=0.01$": {
-      "run_directory": "training\\twophasetransport\\runs\\regular_balanced_beta1e6_v3_62k_log1p_coldstart_residual_softcap_1_lambda_0p01",
+      "run_directory": "training/twophasetransport/runs/regular_balanced_beta1e6_v3_62k_log1p_coldstart_residual_softcap_1_lambda_0p01",
       "optimizer_trace_sha256": "2500a943902edcbb039a4bd34280ed652b2b46033df3db8f8dc3174df0dfa625",
       "checkpoint_metrics_sha256": "e1a956587e09188bb38c04739f90d473e7b72a1832c2c4481e3f3c85f8bb03d7",
       "run_manifest_sha256": "4c4c50ad9fca65f3ad77ce377ad47756a0afb8cb81c34fe5d33ea8b5de25230b",
       "final_checkpoint_sha256": "37e6659beb435841d5389319ee513da843bdd51f2d46429d8c409fca14206535"
     },
     "Residual $\\lambda=0.1$": {
-      "run_directory": "training\\twophasetransport\\runs\\regular_balanced_beta1e6_v3_62k_log1p_coldstart_residual_softcap_1_lambda_0p1",
+      "run_directory": "training/twophasetransport/runs/regular_balanced_beta1e6_v3_62k_log1p_coldstart_residual_softcap_1_lambda_0p1",
       "optimizer_trace_sha256": "ed18f52d51b153d930b0ec06b571de16315ac551350df313e5bb33429a289414",
       "checkpoint_metrics_sha256": "0706bc2c527422e9b2ce9e564f96548877c457178ee55328ac042114bcfb39f4",
       "run_manifest_sha256": "1efda60d264575d04bb10ee918d06e85661792878488428551acb306a9ae930a",
       "final_checkpoint_sha256": "e5ed0a6219347698840bdacbc1eef1112636de8a18d5199280d538e9664f35cf"
     },
     "Residual $\\lambda=1$": {
-      "run_directory": "training\\twophasetransport\\runs\\regular_balanced_beta1e6_v3_62k_log1p_coldstart_residual_softcap_1_lambda_1",
+      "run_directory": "training/twophasetransport/runs/regular_balanced_beta1e6_v3_62k_log1p_coldstart_residual_softcap_1_lambda_1",
       "optimizer_trace_sha256": "ac7c4615c90d06ddf737227442febd6aa04e2ec176640e919fa3534af6a88372",
       "checkpoint_metrics_sha256": "e1eb523e95cf31a5e701be870987682b94c1c81198291a002951620a43d79433",
       "run_manifest_sha256": "04f5bf0d9ad2d001e97a38050c1a8447c862a521ff11a6c2f7bdaf063296f71a",
       "final_checkpoint_sha256": "f08cada509549668604eb37f4cfa71bdf9c177e1bcb4bcad75b416d9cb3da990"
     }
   },
-  "figures": [
-    "figure_r1_training_convergence.pdf",
-    "figure_r2_final_local_diagnostics.pdf",
-    "figure_s1_training_validation.pdf",
-    "figure_s2_training_efficiency.pdf"
-  ],
   "comparison_rule": "Only common held-out metrics are compared across objectives; objective-loss values are excluded."
 }

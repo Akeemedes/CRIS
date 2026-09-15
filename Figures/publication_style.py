@@ -1,4 +1,4 @@
-"""Print-size typography shared by the current publication figure builders."""
+"""Shared print-size typography for the manuscript figures."""
 from matplotlib.text import Text
 
 MIN_FONT_PT = 11

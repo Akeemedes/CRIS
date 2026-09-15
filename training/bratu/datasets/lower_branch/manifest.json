@@ -38,7 +38,7 @@
       "max_physical_residual": 8.881072689325559e-16,
       "minimum_root_slope": 0.00014142439029463105,
       "beta_zero_rows": 4992,
-      "path": "C:\\Users\\Akeem\\OneDrive - Texas A&M University\\SimulationFramework_DevBranch\\training\\bratu\\datasets\\lower_branch\\train.bin",
+      "path": "training/bratu/datasets/lower_branch/train.bin",
       "sha256": "59a0ceeb44c20736fac488277b3010d719b0db46f573de4293283018f4121540"
     },
     "validation": {
@@ -48,7 +48,7 @@
       "max_physical_residual": 8.880361181649865e-16,
       "minimum_root_slope": 0.000141416448700471,
       "beta_zero_rows": 8000,
-      "path": "C:\\Users\\Akeem\\OneDrive - Texas A&M University\\SimulationFramework_DevBranch\\training\\bratu\\datasets\\lower_branch\\validation.bin",
+      "path": "training/bratu/datasets/lower_branch/validation.bin",
       "sha256": "4be16c531fb019762d631fe944efea59874fafcc0bc083ad95d0a1fb4954198d"
     },
     "test": {
@@ -58,7 +58,7 @@
       "max_physical_residual": 8.871628271963673e-16,
       "minimum_root_slope": 0.00014142413245910035,
       "beta_zero_rows": 1600,
-      "path": "C:\\Users\\Akeem\\OneDrive - Texas A&M University\\SimulationFramework_DevBranch\\training\\bratu\\datasets\\lower_branch\\test.bin",
+      "path": "training/bratu/datasets/lower_branch/test.bin",
       "sha256": "057c802b329c71ab59067590db54a7a30b4a9406a51ab6a2b35cb8558ca9ac9b"
     },
     "test_near_fold": {
@@ -68,9 +68,9 @@
       "max_physical_residual": 2.220446049250313e-16,
       "minimum_root_slope": 1.414356423301566e-05,
       "beta_zero_rows": 0,
-      "path": "C:\\Users\\Akeem\\OneDrive - Texas A&M University\\SimulationFramework_DevBranch\\training\\bratu\\datasets\\lower_branch\\test_near_fold.bin",
+      "path": "training/bratu/datasets/lower_branch/test_near_fold.bin",
       "sha256": "e4d2d46d581c117f89d83fcaac5a3cb331ce15d37faa0a4a8d6c4fb376367328"
     }
   },
-  "caveat": "No exact labels exist beyond the fold. Network extension there is tested later, not supervised as a real branch."
+  "caveat": "Supervised samples lie on the real lower branch up to the fold; values beyond the fold have no real branch label."
 }

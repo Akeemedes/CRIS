@@ -15,6 +15,9 @@
 *.pdb
 .vs/
 .vscode/
+# Local analysis-tool session state
+/config/context_values.cfg
+/config/state.cfg
 *.user
 Thumbs.db
 Desktop.ini

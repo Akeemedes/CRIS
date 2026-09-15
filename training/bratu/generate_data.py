@@ -1,4 +1,5 @@
 """Branch-consistent Bratu data; bisection labels independently checked by W0."""
+import argparse
 import hashlib
 import json
 import struct
@@ -53,17 +54,25 @@ def generate(n, seed, fold_test=False):
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--output", type=Path, default=DATA,
+                        help="New output directory for the four datasets and manifest")
+    args = parser.parse_args()
+    output = args.output.resolve()
     started = time.perf_counter()
-    DATA.mkdir(parents=True, exist_ok=False)
+    try:
+        output.mkdir(parents=True, exist_ok=False)
+    except FileExistsError:
+        parser.error(f"Output directory already exists: {output}; choose a new directory")
     products = {}
     for name, n, seed, fold in [("train", 62400, 20260919, False),
                                 ("validation", 100000, 20260931, False),
                                 ("test", 20000, 20261001, False),
                                 ("test_near_fold", 20000, 20261002, True)]:
         values, report = generate(n, seed, fold)
-        path = DATA / f"{name}.bin"
+        path = output / f"{name}.bin"
         path.write_bytes(b"BRATUD01" + struct.pack("<Q", n) + values.tobytes())
-        products[name] = dict(report, path=str(path), sha256=digest(path))
+        products[name] = dict(report, path=path.name, sha256=digest(path))
     manifest = {
         "physics": "a-u+beta*exp(u)=0", "branch": "lower, continued from beta=0; Lambert W0",
         "root_formula": "u=a-W0(-beta*exp(a))", "a_range": [-2, 6], "beta_range": [0, 1],
@@ -75,9 +84,10 @@ def main():
         "physical_MSE_multiplier": 20.25,
         "generation_seconds": time.perf_counter() - started,
         "generator_sha256": digest(Path(__file__)), "products": products,
-        "caveat": "No exact labels exist beyond the fold. Network extension there is tested later, not supervised as a real branch.",
+        "product_path_base": "Directory containing this manifest",
+        "branch_domain_note": "The selected real branch ends at the fold; points beyond it have no real-valued training labels.",
     }
-    (DATA / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
+    (output / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
     print(json.dumps(products, indent=2))
 
 

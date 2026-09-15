@@ -7,27 +7,27 @@
   "config_sha256": "7a83d18a83981274a59b99b9e8ba14ec127fb6ce256a7be197e99772004f8f2e",
   "inputs": {
     "CL_FILE": {
-      "path": "C:\\Users\\Akeem\\OneDrive - Texas A&M University\\SimulationFramework_DevBranch\\training\\twophasetransport\\analysis\\imp_v3\\checkpoint_assessment\\EDFM\\e913ca94ef_intr_faces.txt",
+      "path": "Figures/fig4_transport/benchmark_edfm/inputs/cris/74d061f5ee_intr_faces.txt",
       "sha256": "2c0bd9e5aaf11d1e8236e8edc4a231f85dc2ebf617878c698d4db07f8806b6c4"
     },
     "TRANS_FILE": {
-      "path": "C:\\Users\\Akeem\\OneDrive - Texas A&M University\\SimulationFramework_DevBranch\\training\\twophasetransport\\analysis\\imp_v3\\checkpoint_assessment\\EDFM\\85b501ccbb_intr_T.txt",
+      "path": "Figures/fig4_transport/benchmark_edfm/inputs/cris/ab5b529b6b_intr_T.txt",
       "sha256": "c18c4b52dfa69520c45354c350af8fdac8e1f563dc886848c4f7cb48e6bd457e"
     },
     "DEPTH_FILE": {
-      "path": "C:\\Users\\Akeem\\OneDrive - Texas A&M University\\SimulationFramework_DevBranch\\training\\twophasetransport\\analysis\\imp_v3\\checkpoint_assessment\\EDFM\\50f73ebbca_depth.txt",
+      "path": "Figures/fig4_transport/benchmark_edfm/inputs/cris/f77dc9af76_depth.txt",
       "sha256": "5bedc912e6fc7f9961e7e1172a360b7fc8f2d5fbd67853400bdbf3c2e47fcd1f"
     },
     "VOL_FILE": {
-      "path": "C:\\Users\\Akeem\\OneDrive - Texas A&M University\\SimulationFramework_DevBranch\\training\\twophasetransport\\analysis\\imp_v3\\checkpoint_assessment\\EDFM\\5592723ed1_vol.txt",
+      "path": "Figures/fig4_transport/benchmark_edfm/inputs/cris/325cfb88bf_vol.txt",
       "sha256": "3ae437517b9afcb265592a079bc90699179fc09ce846659d010fbdfc8e58ca78"
     },
     "WELLS_FILE": {
-      "path": "C:\\Users\\Akeem\\OneDrive - Texas A&M University\\SimulationFramework_DevBranch\\training\\twophasetransport\\analysis\\imp_v3\\checkpoint_assessment\\EDFM\\07f67d0f1a_wells.txt",
+      "path": "Figures/fig4_transport/benchmark_edfm/inputs/cris/f48b0d5ff7_wells.txt",
       "sha256": "23f004685d9d35217b4b591ec2fff6ceb88a83a52a6161d4612b0e9738649ac1"
     }
   },
-  "scope": "Full degenerate EDFM, M=.4 n=(2,.2), fresh ILU0, MAC-free SRDM+line search; LINTOL1e-2 floor1e-6, continue-on-budget, pressure LINMAX100; original time controls",
+  "scope": "Full degenerate EDFM, M=.4 n=(2,.2), ILU0 recomputed at each update, SRDM+line search; LINTOL1e-2 floor1e-6, continue-on-budget, pressure LINMAX100; benchmark time-step controls",
   "returncode": null,
   "seconds": 900.048609999998,
   "accepted_time": 10014.6484375,

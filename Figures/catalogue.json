@@ -193,7 +193,7 @@
       ]
     },
     {
-      "id": "corrected-solver",
+      "id": "linear-budget",
       "name": "EDFM linear-budget sensitivity",
       "status": "replot from supplied data",
       "builder": "build_publication_completion.py",
@@ -363,6 +363,64 @@
       "input_manifests": [
         "Figures/supplementary_methods_manifest.json"
       ]
+    },
+    {
+      "id": "manuscript-transport-inputs",
+      "name": "Transport inputs, manuscript layout",
+      "builder": "build_manuscript_compact.py",
+      "arguments": ["--only", "transport-inputs"],
+      "output": "manuscript_compact/transport-inputs.pdf"
+    },
+    {
+      "id": "manuscript-transport-contours",
+      "name": "Two-cell transport contours, manuscript layout",
+      "builder": "build_manuscript_compact.py",
+      "arguments": ["--only", "transport-contours"],
+      "inputs": ["Figures/figS2_transport_geometry/two_cell_residual_contours.json"],
+      "output": "manuscript_compact/transport-contours.pdf"
+    },
+    {
+      "id": "manuscript-timestep-work",
+      "name": "Timestep work, manuscript layout",
+      "builder": "build_manuscript_compact.py",
+      "arguments": ["--only", "timestep-work"],
+      "output": "manuscript_compact/timestep-work.pdf"
+    },
+    {
+      "id": "manuscript-linear-budget",
+      "name": "Linear-budget sensitivity, manuscript layout",
+      "builder": "build_manuscript_compact.py",
+      "arguments": ["--only", "linear-budget"],
+      "output": "manuscript_compact/linear-budget.pdf"
+    },
+    {
+      "id": "manuscript-training-histories",
+      "name": "Training histories, manuscript layout",
+      "builder": "build_manuscript_compact.py",
+      "arguments": ["--only", "training-histories"],
+      "output": "manuscript_compact/training-histories.pdf"
+    },
+    {
+      "id": "manuscript-bratu-continuation",
+      "name": "Bratu branch continuation, manuscript layout",
+      "builder": "build_manuscript_compact.py",
+      "arguments": ["--only", "bratu-continuation"],
+      "output": "manuscript_compact/bratu-continuation.pdf"
+    },
+    {
+      "id": "manuscript-error-distributions",
+      "name": "Local error distributions, manuscript layout",
+      "builder": "build_manuscript_compact.py",
+      "arguments": ["--only", "regular-distributions"],
+      "output": "manuscript_compact/regular-distributions.pdf"
+    },
+    {
+      "id": "manuscript-bratu-3d",
+      "name": "Three-dimensional Bratu accuracy, manuscript layout",
+      "builder": "build_manuscript_compact.py",
+      "arguments": ["--only", "bratu-3d-accuracy"],
+      "inputs": ["training/bratu/analysis/three_dimensional_initialization.csv"],
+      "output": "manuscript_compact/bratu-3d-accuracy.pdf"
     }
   ]
 }

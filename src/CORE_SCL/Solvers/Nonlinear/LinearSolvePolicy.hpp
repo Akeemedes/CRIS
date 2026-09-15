@@ -25,8 +25,7 @@ bool usable(const Report& report, LinearSolvePolicy policy) {
         return report.is_converged || (policy == LinearSolvePolicy::ContinueOnBudget
             && report.reached_iteration_limit);
     } else {
-        // An older backend must explicitly identify budget exhaustion before
-        // its unconverged corrections can be used.
+        // Without a budget-exhaustion report, accept only converged solves.
         return report.is_converged;
     }
 }

@@ -20,7 +20,6 @@
   "minimum": -4.827976226806641e-06,
   "maximum": 1.0006663799285889,
   "rmse_vs_native_newton": 7.660903785651488e-05,
-  "reference_path": "C:\\Users\\Akeem\\OneDrive - Texas A&M University\\SimulationFramework_DevBranch\\training\\twophasetransport\\analysis\\regular_v3\\benchmarks\\3DSPE10_5SpotBase\\reference_68f0bf8a75bfaf82.npz",
   "rmse_vs_physical_reference": 8.86300936788476e-05,
   "volume_weighted_rmse": 8.863009367884761e-05,
   "fixed_20_updates_seconds": {
@@ -34,5 +33,7 @@
       0.361802000006719,
       0.3617473000049358
     ]
-  }
+  },
+  "reference": "independent_DAG_same_time_grid",
+  "reference_sha256": "d1e7e02157fb060eccbfd18ee24c05c7caa2b5d3d7e09f3802044ae4f0a2b68c"
 }

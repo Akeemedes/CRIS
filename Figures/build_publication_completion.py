@@ -1,4 +1,4 @@
-"""Final publication composites from saved evidence only; never launches solvers."""
+"""Plot transport completion, solver sensitivity, amortization and endpoint errors."""
 import json
 import os
 from pathlib import Path
@@ -119,7 +119,7 @@ def amortization(axes=None,compact=False):
     if standalone:fig,axes=plt.subplots(1,2,figsize=(183/25.4,100/25.4),layout='constrained')
     else:fig=axes[0].figure
     measured=rows(FIG/'fig4_transport/data/current_model_cost_table.csv')
-    measured=[r for r in measured if r['cris_provenance']==r['srdm_provenance']=='corrected']
+    measured=[r for r in measured if r['cris_provenance']==r['srdm_provenance']=='paired_benchmark']
     train=float(next(r for r in costs if '0.01' in r['model'])['instrumented_hours'])*3600
     sweep=sum(float(r['instrumented_hours'])*3600 for r in costs)
     savings=np.geomspace(1,1e4,150)

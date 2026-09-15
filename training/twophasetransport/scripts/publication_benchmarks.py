@@ -28,7 +28,7 @@ def config(path):
 
 
 def validate_controls(c, method):
-    """Reject physics/globalization drift before an executable is started."""
+    """Validate the constitutive law, solver policy and paired benchmark controls."""
     fixed={'MODE':method,'NEWTONUPDATER':'STANDARD' if method=='CRIS' else 'LINESEARCH',
            'REFRESH_TRANSPORT_PRECONDITIONER':'1','LINEAR_SOLVE_POLICY':'CONTINUE_ON_BUDGET',
            'DISPERSION':'HOMOGENEOUS'}
@@ -106,7 +106,7 @@ def stage(args):
                   model=str(model),model_sha256=sha(model),thread_count=args.threads,
                   policy='fresh ILU0; CRIS plain Newton; SRDM line search')
     target=args.output/'manifest.json'
-    if target.exists() and json.loads(target.read_text())!=manifest:raise ValueError('Staged manifest differs; existing evidence preserved')
+    if target.exists() and json.loads(target.read_text())!=manifest:raise ValueError('Staged manifest differs; choose a new output directory')
     copy_inputs(copies)
     for path,text in pending:
         if not path.exists():
@@ -146,7 +146,7 @@ def checked_manifest(output):
 
 
 def check(args):
-    """Read-only stage and result audit; never executes a solver."""
+    """Verify input checksums and report the completion status of each case."""
     m=checked_manifest(args.output);states=[]
     print(f'Verified model/executable/config/input hashes; {m["thread_count"]} worker(s).')
     for job in m['jobs']:
@@ -162,7 +162,7 @@ def check(args):
 
 
 def output_hashes(folder):
-    """Freeze every file consumed by numerical post-processing plus stdout."""
+    """Hash solver outputs and logs used by the result checks."""
     files=[folder/'stdout.log',*sorted((folder/'output').glob('*.bin')),
            folder/'output/solver_report.csv',folder/'output/well_report.csv']
     return {p.relative_to(folder).as_posix():sha(p) for p in files if p.is_file()}
@@ -180,7 +180,7 @@ def verified_result(job, manifest):
 
 
 def archive_startup_failures(output, manifest, archive_name='startup_launch_failure.zip'):
-    """Explicitly retry only audited input-open failures with no solver work.
+    """Prepare retries for input-open failures that performed no solver work.
 
     The caller holds run.lock. Failed records are hash-verified in an archive
     before removing generated files; configurations and successful runs remain.
@@ -226,7 +226,7 @@ def archive_startup_failures(output, manifest, archive_name='startup_launch_fail
 
 
 def localize_inputs(args):
-    """Shorten paths only for unrun/zero-work jobs, preserving completed evidence."""
+    """Shorten input paths for unstarted cases or zero-work startup failures."""
     import copy
     m=checked_manifest(args.output);updated=copy.deepcopy(m);copies={};changes=[]
     lock=args.output/'run.lock'
@@ -351,8 +351,7 @@ def run_jobs(args,m,env):
 
 
 def write_status(output,m,work,active=None):
-    # Include completed jobs later in queue order, not only the traversed
-    # prefix. This matters when earlier startup failures are being retried.
+    # Include completed jobs throughout the queue when calculating progress.
     records={(r['case'],r['method']):r for r in work}
     for job in m['jobs']:
         key=(job['case'],job['method']);path=Path(job['folder'])/'result.json'
@@ -372,7 +371,7 @@ def publication_runs(args, m):
         result=verified_result(job,m)
         key=(job['case'],job['method'])
         if result['completed']:
-            selected[key]=dict(folder=Path(job['folder']),result=result,provenance='corrected')
+            selected[key]=dict(folder=Path(job['folder']),result=result,provenance='paired_benchmark')
             continue
         raise ValueError(f'Paired run incomplete: {key}')
     return selected
@@ -384,14 +383,14 @@ def references(args):
     import numpy as np
     import reference_regular_benchmarks as reference
     import summarize_regular_benchmarks as summarize
-    # Reuse the existing independent-reference implementations, restricted to CRIS.
+    # Evaluate the CRIS fields against independent discrete solutions.
     reference.DEST=args.output
     cris=[j for j in m['jobs'] if j['method']=='CRIS']
     for job in cris:
         case=job['case'];folder=Path(job['folder'])
         if not json.loads((folder/'result.json').read_text())['completed']:raise ValueError(f'CRIS incomplete: {case}')
         if case=='1D':
-            # The existing scalar recurrence supports the canonical 1D case.
+            # Solve the one-dimensional implicit recurrence cell by cell.
             summarize.DEST=args.output;summarize.main(jobs=[job])
         else:
             saved_argv=sys.argv
@@ -440,12 +439,12 @@ def publish(args):
         if not accuracy.exists():raise FileNotFoundError('Run the references action first: '+str(accuracy))
         case['accuracy']=str(accuracy)
         if 'image' in case:case['image']=str(case['image'])
-    # Repository-relative paths keep saved-evidence redraw independent of the host.
+    # Record repository-relative paths so the results can be replotted elsewhere.
     for case in cases:
         for key in ('cris','srdm','accuracy','image','cris_watercut','srdm_watercut'):
             if key in case:case[key]=Path(case[key]).resolve().relative_to(ROOT).as_posix()
     manifest=ROOT/'Figures/fig4_transport/data/publication_sources.json'
-    manifest.write_text(json.dumps(dict(all_completed=True,all_corrected_completed=all(v['provenance']=='corrected' for v in selected.values()),
+    manifest.write_text(json.dumps(dict(all_completed=True,
         scope='Completed paired transport runs.',
         cases=cases,simulation_manifest_sha256=sha(args.output/'manifest.json')),indent=2))
     subprocess.run([sys.executable,str(path),'--sources',str(manifest)],check=True,cwd=ROOT)

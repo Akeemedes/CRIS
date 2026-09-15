@@ -5,11 +5,11 @@
   ],
   "font_min_pt": 11,
   "sources": {
-    "Figures\\publication_style.py": "5d85333910c26d970f23e5d5abc55a3d603f946cb0663791f51966499955815c",
-    "training\\bratu\\analysis\\checkpoint_selection.json": "4173c97e25998e28307d3adb0adeaeaa5dfa112305d3378947b0213453e5f7d0",
-    "training\\bratu\\analysis\\two_cell_basins.csv": "a1b137082ac72093df2e853e982b4c88870abf9401c56da65f6e0747afb03a71",
-    "training\\bratu\\checkpoint_selection.py": "83beeb739fa573d4cc9504b4a8918e2f1a581e7b9dd25a22b5102d1fe0aa629a",
-    "training\\bratu\\plot_bratu_details.py": "365a9d3574ac060a493eb9fc739f70891315035ad937b1e3b3fd33f4403834b0"
+    "Figures/publication_style.py": "2c2932377c843c43f03f27ae93a62c48cdbeb984804a81ebbbee411e56bfd74c",
+    "training/bratu/analysis/checkpoint_selection.json": "165f6597d0c15134cbbd8eaf26593b905c8db70061daf22f10688dd26864408b",
+    "training/bratu/analysis/two_cell_basins.csv": "a1b137082ac72093df2e853e982b4c88870abf9401c56da65f6e0747afb03a71",
+    "training/bratu/checkpoint_selection.py": "ccb715509099591fe27f9a826585966b6949ad25578c0e178948a7edfe7a244e",
+    "training/bratu/plot_bratu_details.py": "86fa9d3ad9f615ec82d80ff62d918fcfffee4b8911d88444e9e94f06da7c06ac"
   },
-  "builder_sha256": "d900270f3cc69e57ba3be7ff7fe8e1b0e4c3e142b73c9cfd7f8a933f665b38e8"
+  "builder_sha256": "dda0bd4f6c8e130320463b02976bb11ac8047124af9120e086798c95d25e61f9"
 }

@@ -1,8 +1,9 @@
-"""Restored residual landscapes with explicit Newton trajectories.
+"""Plot two-cell residual landscapes and Newton trajectories.
 
-Mechanism diagnostics: Bratu uses exact selected-branch CRIS; transport uses
-the current regular lambda=.01 network and the original smooth algebraic flux
-extension. Neither panel is a field-benchmark performance comparison.
+Bratu uses the exact lower-branch inverse. Transport uses the lambda=0.01
+network and a smooth algebraic extension of the fractional-flow law beyond
+[0, 1] to illustrate convergence to physical and nonphysical roots. The field
+benchmarks instead clip fractional-flow inputs to [0, 1].
 """
 import importlib.util
 import json

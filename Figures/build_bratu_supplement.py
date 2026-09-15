@@ -1,4 +1,4 @@
-"""Catalogue entry point for saved-data Bratu supplements (no training)."""
+"""Plot local inverse accuracy and global convergence for the Bratu problem."""
 import argparse
 from pathlib import Path
 import sys

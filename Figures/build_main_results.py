@@ -1,7 +1,7 @@
-"""Main-text result figures from archived evidence; never launches training.
+"""Plot Bratu branch selection and transport training-to-simulation accuracy.
 
-Fixed physical export sizes, no embedded captions, and hashed input manifests.
-Historical figure builders remain available but do not define this revision.
+The figures combine the supplied root, solver and training results. Each export
+includes a manifest identifying its numerical inputs and model checkpoints.
 """
 from pathlib import Path
 import csv
@@ -20,10 +20,7 @@ from scipy.special import lambertw
 ROOT=Path(__file__).resolve().parents[1]
 FIG=ROOT/'Figures'
 BASE=ROOT/'training/twophasetransport/analysis/regular_v3'
-BENCH=BASE/'benchmarks'
 sys.path.insert(0,str(ROOT/'training/twophasetransport/scripts'))
-from summarize_regular_benchmarks import state
-from reference_regular_benchmarks import config
 
 COLORS=['#245781','#008C95','#C77D16','#A24E77']
 LABELS=[r'$\lambda=0$',r'$\lambda=0.01$',r'$\lambda=0.1$',r'$\lambda=1$']
@@ -35,8 +32,6 @@ SOURCES=set()
 def rows(path):
     SOURCES.add(path)
     with path.open() as f:return list(csv.DictReader(f))
-def field(path):
-    SOURCES.add(path);return state(path)
 def label(ax,letter,title):
     ax.set_title(title,loc='left',pad=9)
     ax.text(-.12,1.065,letter,transform=ax.transAxes,fontweight='bold',fontsize=12)
@@ -50,7 +45,7 @@ def save(fig,folder,name):
     for ext in ('png','pdf','svg'):fig.savefig(folder/f'{name}.{ext}')
     (folder/f'{name}_manifest.json').write_text(json.dumps(dict(
         size_mm=(fig.get_size_inches()*25.4).tolist(),font_min_pt=MIN_FONT_PT,
-        sources={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(SOURCES)},
+        sources={p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(SOURCES)},
         builder_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest()),indent=2))
     plt.close(fig);SOURCES.clear()
 
@@ -95,7 +90,8 @@ def bratu():
     contour_axes[1].tick_params(labelleft=False)
     (FIG/'fig3_bratu/main_bratu_contours.json').write_text(json.dumps(contour_evidence,indent=2))
     SOURCES.add(FIG/'two_cell_contours.py')
-    # SRDM uses the same plain Newton policy and lattice as archived CRIS.
+    # Evaluate SRDM on the same initial-state lattice and with the same full-step
+    # Newton policy as the CRIS basin data.
     grid=np.linspace(0,3,91);x,y=np.meshgrid(grid,grid);start=np.c_[x.ravel(),y.ravel()];u=start.copy()
     active=np.ones(len(u),bool);converged=np.zeros(len(u),bool)
     for iteration in range(81):
@@ -139,42 +135,6 @@ def bratu():
     np.savez_compressed(out/'main_bratu_basins.npz',grid=grid,**masks)
     save(fig,out,'main_bratu')
 
-def transport():
-    data=rows(BENCH/'summary.csv');cases=['1D','2DSPE10_Layer50','2DSPE10_Layer75','2DSPE10_Layer84','Norne_5SpotBase','EDFM','3DSPE10_5SpotBase']
-    names=['1D','Layer 50','Layer 75','Layer 84','Norne','EDFM','3D SPE10']
-    selected={c:next(r for r in data if r['case']==c and r['model']=='lambda_0p01') for c in cases}
-    fig=plt.figure(figsize=(183/25.4,172/25.4),layout='constrained');gs=fig.add_gridspec(2,6,height_ratios=[1,1.35],hspace=.15)
-    ax=fig.add_subplot(gs[0,:2]);folder=BENCH/'1D/lambda_0p01'
-    final=field(folder/'output/saturation_1500.bin');cfg=config(folder/'sim.txt');initial=np.loadtxt(folder/cfg['INIT_FILE']);SOURCES.add((folder/cfg['INIT_FILE']).resolve())
-    ax.plot((np.arange(len(final))+.5)/len(final),initial,color='#AAAAAA',lw=1,label='Initial')
-    ax.plot((np.arange(len(final))+.5)/len(final),final,color=COLORS[1],lw=1.2,label='Final')
-    ax.set(xlabel='$x/L$',ylabel='Saturation',ylim=(-.03,1.03));ax.legend(frameon=False,loc='lower left')
-    label(ax,'a','1D displacement')
-    for k,path in enumerate([FIG/'2DSPE10/Layer75/CRIS/output/output.jpg',FIG/'3DSPE10/5SpotBase/CRIS/output/output.jpg']):
-        ax=fig.add_subplot(gs[0,2+2*k:4+2*k]);SOURCES.add(path)
-        ax.imshow(plt.imread(path));ax.set_axis_off()
-        label(ax,chr(98+k),['Layer 75','3D SPE10'][k])
-    ax=fig.add_subplot(gs[1,:3]);yy=np.arange(7)
-    for tag,col,marker,text in [('lambda_0p01',COLORS[1],'o',r'$\lambda=0.01$'),('lambda_0',COLORS[0],'s',r'$\lambda=0$')]:
-        errors=[float(next(r for r in data if r['case']==c and r['model']==tag)['rmse']) for c in cases]
-        ax.plot(errors,yy,marker,ls='none',color=col,ms=5,label=text)
-    ax.set(xscale='log',xlabel='Final saturation RMSE',yticks=yy,yticklabels=names,ylim=(6.6,-.6));ax.grid(axis='x',alpha=.18)
-    ax.legend(frameon=False,loc='lower right');label(ax,'d','Physical accuracy')
-    ax=fig.add_subplot(gs[1,3:]);records=[]
-    for c in cases:
-        if c=='1D':s=FIG/'1D/NX_10000_full_fresh_ilu_linmax7_dt150/SRDM'
-        else:s=FIG/'benchmark_spe10_srdm/cases'/c/'SRDM'
-        sc=config(s/'sim.txt');cc=config(BENCH/c/'lambda_0p01/sim.txt')
-        keys=['RTOL','DUTOL','LINMAX','LINTOL','MAX_STEPS_NEWTON','REFRESH_TRANSPORT_PRECONDITIONER','DT_INIT','DT_MAX','T_END']
-        for key in keys:assert sc.get(key)==cc.get(key),(c,key,sc.get(key),cc.get(key))
-        rr=rows(s/'output/solver_report.csv');SOURCES.update([s/'sim.txt',BENCH/c/'lambda_0p01/sim.txt'])
-        records.append([sum(float(r[key]) for r in rr)/float(selected[c][target]) for key,target in [('NLNSTEPS','newton'),('LINSTEPS','krylov'),('NFEVAL','residual_evaluations')]])
-    for k,(m,t,col) in enumerate(zip(['o','s','^'],['Newton','Krylov','Residual evaluations'],[COLORS[0],COLORS[1],COLORS[2]])):
-        ax.plot(np.array(records)[:,k],yy+(k-1)*.16,m,ls='none',ms=5,label=t,color=col)
-    ax.axvline(1,color='#666666',lw=.8,ls='--');ax.set(xscale='log',xlabel='Work ratio: SRDM / CRIS',yticks=yy,yticklabels=names,ylim=(6.6,-.6));ax.grid(axis='x',alpha=.18)
-    fig.legend(*ax.get_legend_handles_labels(),loc='outside lower center',ncol=3,frameon=False);label(ax,'e','Computational work')
-    save(fig,FIG/'fig4_transport','main_transport')
-
 def training():
     history=rows(BASE/'validation_residual_history.csv');transfer=rows(BASE/'transport_accuracy_summary.csv')
     current=rows(BASE/'regular_campaign_summary.csv')
@@ -211,8 +171,6 @@ def training():
     save(fig,FIG/'fig5_local_inverse','main_training')
 
 if __name__=='__main__':
-    # Transport uses the author's seven-case composition, not the rejected
-    # compact alternative retained above for historical inspection.
     import argparse
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--only',nargs='+',choices=['bratu','training'],default=['bratu','training'])

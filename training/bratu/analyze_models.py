@@ -109,8 +109,8 @@ def two_cell(name, scheme):
 
 
 def setup3d():
-    # Same unit cube, lambda=2 and z=0 sin(pi*x) boundary as the Figure 3
-    # reference, at a declared pilot mesh rather than its 480,249 unknowns.
+    # Unit cube, lambda=2 and sin(pi*x) boundary data on z=0.
+    # The initialization sweep uses 3,249 interior unknowns.
     x,y,z = np.linspace(0,1,21),np.linspace(0,1,21),np.linspace(0,1,11)
     nx,ny,nz = len(x)-2,len(y)-2,len(z)-2
     def adjacency(n): return sparse.diags([np.ones(n-1),np.ones(n-1)],[-1,1],shape=(n,n),format="csr")
@@ -231,17 +231,16 @@ def main():
             row["lower_capture"]=bool(row["status"]=="map_converged" and row["lower_rmse"]<=1e-3 and row["scaled_physical_residual_inf"]<=1e-4)
             three.append(row); print(row,flush=True)
             write_csv(OUT/"three_dimensional_initialization.csv",three)
-    # Publication layouts are built separately from these raw numerical results.
     (OUT/"manifest.json").write_text(json.dumps({
         "models":{name:record['sha256'] for name,record in selected.items()},
         "checkpoint_selection":selected,
         "two_cell":"Figure 3: a0=.65, coupling=.25, beta=.1; 91x91 starts on [0,3]^2; separate Picard and unrestricted Newton",
-        "three_dimensional":"Pilot 21x21x11 nodes, 3249 interior unknowns; unit cube, lambda=2, z=0 sin(pi*x) boundary; amplitude*sin(pi*x)*sin(pi*y)*sin(pi*z) initial conditions",
-        "linear_solver":"Refactored sparse direct solve at every Newton update; no iterative-preconditioner confound",
+        "three_dimensional":"21x21x11 nodes, 3249 interior unknowns; unit cube, lambda=2, z=0 sin(pi*x) boundary; amplitude*sin(pi*x)*sin(pi*y)*sin(pi*z) initial conditions",
+        "linear_solver":"Sparse direct solve with a new factorization at every Newton update",
         "termination":"Own map infinity residual<=1e-10; at most 80 updates. 3D time cap45s per case.",
         "capture_gate":"Map convergence AND lower-solution error<=1e-3 (two-cell max; 3D RMSE) AND scaled physical residual<=1e-4",
-        "timing":"Exploratory Python diagnostics, not native C++ performance benchmarks",
-        "scope":"3D pilot differs in mesh from Figure3 101x101x51 reference. Full-resolution initial-guess robustness is not established.",
+        "timing":"Python timings for the branch and initialization study; native C++ timings are reported separately for transport",
+        "scope":"The 3D initialization sweep uses a coarser mesh than the 101x101x51-node solution plot",
     },indent=2)+"\n")
 
 

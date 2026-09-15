@@ -3,7 +3,6 @@
 #include "SimFactories.hpp"
 #include <type_traits>
 #include "Solvers/Linear/AMGCL_Solver.hpp"
-//#include "Solvers/Linear/intel_Pardiso.hpp"
 
 #include <string>
 
@@ -12,7 +11,6 @@ int main(int argc, char** argv)
     const std::string case_folder = (argc > 1) ? std::string(argv[1]) : std::string("case");
     std::cout << "Starting Simulation" << std::endl;
 
-    //const std::string cfg_path = case_folder + "/sim.txt";
     const SimConfig cfg{ parse_sim_config(case_folder) };
     std::cout << "Config file Parsed" << std::endl;
     std::cout << "Transport linear policy: "
@@ -22,10 +20,8 @@ int main(int argc, char** argv)
         << ", pressure=" << cfg.pressure_linear_budget() << std::endl;
 
     using LNsolver = AMGCL<>;
-    //using LNsolver = GENSOL::Intel_Pardiso;
     simfact::MeshBundle gridBundle{ cfg };
     std::cout << "Grid generated" << std::endl;
-    //const std::string prf_rprt_csv_path = cfg.output_folder + "/solver_report.csv"; 
     std::ofstream prf_rprt_csv(cfg.output_folder + "/solver_report.csv");
     prf_rprt_csv << std::setprecision(17);
     std::ofstream well_rprt_csv;

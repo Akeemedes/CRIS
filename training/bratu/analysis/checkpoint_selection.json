@@ -1,12 +1,12 @@
 {
   "mse": {
-    "path": "runs\\budget_10k\\mse\\final_checkpoint.bin",
+    "path": "runs/budget_10k/mse/final_checkpoint.bin",
     "sha256": "730b32e7421335a690966660ded62a71a1e2af56077ad5084e0b1172ea89993c",
     "accepted": 10000,
     "proposals": 13004,
     "hours": 1.7915104250277774,
     "validation_mse_normalized": 7.831173657078796e-12,
-    "run": "C:\\Users\\Akeem\\OneDrive - Texas A&M University\\SimulationFramework_DevBranch\\training\\bratu\\runs\\budget_10k\\mse",
+    "run": "training/bratu/runs/budget_10k/mse",
     "trace_sha256": "4c4ed7e0bb7c73335d61b71f039a180293c4f68b3ff260437a633f1b2d1755c2",
     "budget_accepted": 10000,
     "budget_hours": 1.7915104250277774,
@@ -16,13 +16,13 @@
     "full_run_hours": 1.7915104250277774
   },
   "lambda_0p01": {
-    "path": "runs\\budget_10k\\lambda_0p01\\final_checkpoint.bin",
+    "path": "runs/budget_10k/lambda_0p01/final_checkpoint.bin",
     "sha256": "4f8a5b42b12c3bdfb5043de15dd59019e68571485a4bdcfb286c3d20622ec657",
     "accepted": 10000,
     "proposals": 13003,
     "hours": 3.4939397843611064,
     "validation_mse_normalized": 7.81153069939462e-12,
-    "run": "C:\\Users\\Akeem\\OneDrive - Texas A&M University\\SimulationFramework_DevBranch\\training\\bratu\\runs\\budget_10k\\lambda_0p01",
+    "run": "training/bratu/runs/budget_10k/lambda_0p01",
     "trace_sha256": "e6aeee148682c9f3495d8af1bdb62e562d3d6f7a6049a2a2b68f88a81a97115a",
     "budget_accepted": 10000,
     "budget_hours": 3.4939397843611064,
@@ -32,13 +32,13 @@
     "full_run_hours": 3.4939397843611064
   },
   "lambda_0p1": {
-    "path": "runs\\budget_10k\\lambda_0p1\\final_checkpoint.bin",
+    "path": "runs/budget_10k/lambda_0p1/final_checkpoint.bin",
     "sha256": "cddea5776691d5e30e062b7a8379a9fbf525f443251c374bef1ca6814047b15b",
     "accepted": 9999,
     "proposals": 13001,
     "hours": 3.324118301444433,
     "validation_mse_normalized": 2.961046001931238e-12,
-    "run": "C:\\Users\\Akeem\\OneDrive - Texas A&M University\\SimulationFramework_DevBranch\\training\\bratu\\runs\\budget_10k\\lambda_0p1",
+    "run": "training/bratu/runs/budget_10k/lambda_0p1",
     "trace_sha256": "975aae076ed32fab24301c8bd9e22590587101e4da314bb6c8ab639fdd3de167",
     "budget_accepted": 10000,
     "budget_hours": 3.324419110194433,
@@ -48,13 +48,13 @@
     "full_run_hours": 3.324419110194433
   },
   "lambda_1": {
-    "path": "runs\\lower_branch_sweep\\lambda_1\\final_checkpoint.bin",
+    "path": "runs/lower_branch_sweep/lambda_1/final_checkpoint.bin",
     "sha256": "da1e33d513a369f719b0ab46dd1eea1b11005c6e9aca70b35a123c470fc1525f",
     "accepted": 10000,
     "proposals": 13002,
     "hours": 2.860933768472224,
     "validation_mse_normalized": 3.539646912166134e-12,
-    "run": "C:\\Users\\Akeem\\OneDrive - Texas A&M University\\SimulationFramework_DevBranch\\training\\bratu\\runs\\lower_branch_sweep\\lambda_1",
+    "run": "training/bratu/runs/lower_branch_sweep/lambda_1",
     "trace_sha256": "abb9ccfe1d76837789616a6680ad262597c7ff9d02c6843e92052aacc3bfccf7",
     "budget_accepted": 10000,
     "budget_hours": 2.860933768472224,

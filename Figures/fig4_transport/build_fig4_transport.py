@@ -1,4 +1,4 @@
-# full_figure.py
+"""Plot paired transport accuracy, water cuts and solver work for seven problems."""
 
 import os
 import glob
@@ -53,7 +53,6 @@ COL_SRDM = "#D62728"
 COL_CRIS = "#1F77B4"
 HERE=Path(__file__).resolve().parent
 BENCH=HERE.parents[1]/'training/twophasetransport/analysis/regular_v3/benchmarks'
-AUDIT=[]
 SOURCE_MANIFEST=None
 
 def accuracy(case):
@@ -71,7 +70,7 @@ def verify_pair(case):
     if SOURCE_MANIFEST:
         assert cc['MODE']=='CRIS' and sc['MODE']=='SRDM'
         assert cc['NEWTONUPDATER']=='STANDARD' and sc['NEWTONUPDATER']=='LINESEARCH'
-        if case.get('srdm_provenance')!='archived_pre_correction':
+        if case.get('srdm_provenance')!='separate_completed_benchmark':
             for key in ('PRESSURE_LINMAX','LINTOL_MIN','LINEAR_SOLVE_POLICY'):
                 assert cc[key]==sc[key],(case['slug'],key)
         else:assert case['slug']=='3DSPE10_5SpotBase'
@@ -81,21 +80,10 @@ def verify_pair(case):
     model=(c.parent/cc['CRIS_MODEL']).resolve()
     expected=BENCH.parent/'packages/residual_lambda_0p01_final.pt'
     assert hashlib.sha256(model.read_bytes()).digest()==hashlib.sha256(expected.read_bytes()).digest()
-    paths=[c/'solver_report.csv',s/'solver_report.csv',c.parent/'sim.txt',s.parent/'sim.txt',model]
-    if case.get('image'):paths.append(Path(case['image']))
-    ref=accuracy(case['slug'])[-1]
-    AUDIT.append(dict(case=case['slug'],final_rmse=float(ref['rmse']),reference=ref['reference'],
-        files={str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in paths}))
 
 
 def matched_case_sources():
-    """Return the audited common-policy outputs used for the Fig. 4 update.
-
-    The source renderer's established field-view assets are retained here;
-    solver reports and well traces come only from the paired rerun directories.
-    """
-    # Figure assets live here; simulation products remain one level above in
-    # the shared Figures data area.
+    """Resolve field views, accuracy references and paired solver outputs."""
     if SOURCE_MANIFEST:
         cases=SOURCE_MANIFEST['cases']
         for case in cases:verify_pair(case)
@@ -104,13 +92,13 @@ def matched_case_sources():
     srdm_root = root / "benchmark_spe10_srdm" / "cases"
     cris_root = BENCH
 
-    def source(label, slug, legacy_image):
+    def source(label, slug, image_folder):
         return {
             "label": label,
             "slug": slug,
             "cris": cris_root / slug / "lambda_0p01" / "output",
             "srdm": srdm_root / slug / "SRDM" / "output",
-            "image": root / legacy_image / "CRIS" / "output" / "output.jpg",
+            "image": root / image_folder / "CRIS" / "output" / "output.jpg",
         }
 
     one_d = {
@@ -128,14 +116,12 @@ def matched_case_sources():
         source("SPE10", "3DSPE10_5SpotBase", "3DSPE10/5SpotBase"),
         source("EDFM", "EDFM", "EDFM"),
     ]
-    # Replace the overnight CRIS EDFM run (dt_init=1e5) with the completed
-    # dt_init=1e6 rerun, matching the regular SRDM timestep schedule.
     for case in [one_d,*two_d,*three_d]:verify_pair(case)
     return one_d, two_d, three_d
 
 
 def case_outputs(case):
-    """Resolve CRIS/SRDM output paths and optional retained field-view asset."""
+    """Resolve CRIS/SRDM output paths and the optional field-view image."""
     if isinstance(case, dict):
         return str(case["cris"]), str(case["srdm"]), str(case.get("image", ""))
     return os.path.join(case, "CRIS/output/"), os.path.join(case, "SRDM/output/"), os.path.join(case, "CRIS/output/output.jpg")
@@ -329,7 +315,7 @@ def plot_speedup_ax(ax, speed_tbl):
     # Positions, not bar lengths, encode multiplicative reductions. All seven
     # panels share the same axis, including an explicit unity reference.
     if not all(.7 <= value <= 15000 for value in [*ratios, total]):
-        raise ValueError('Work ratio outside shared publication limits; revise all panels together')
+        raise ValueError('Work ratio lies outside the common axis limits')
     ax.set_xscale('log')
     ax.set_xlim(.7, 15000)
     ax.set_ylim(-.55, 3.55)
@@ -455,7 +441,7 @@ def build_nature_fullpage(
     matched=False,
 ):
     """
-    Final layout:
+    Layout:
       panel a = approximately one row height
       panel b = three equal-height rows
       panel c = three equal-height rows
@@ -734,7 +720,6 @@ def build_nature_fullpage(
     fig.savefig(outpath)
     fig.savefig(Path(outpath).with_suffix(".png"), dpi=300)
     fig.savefig(Path(outpath).with_suffix('.svg'))
-    (HERE/'data/current_model_figure_audit.json').write_text(json.dumps(AUDIT,indent=2))
     plt.close(fig)
 
     print(f"Saved: {outpath}")
@@ -749,14 +734,14 @@ def build_nature_fullpage(
 def write_cost_table(cases):
     def records(path):
         with path.open(newline='') as stream:return list(csv.DictReader(stream))
-    current=records(BENCH/'summary.csv') if not SOURCE_MANIFEST else []
-    archived=records(HERE.parent/'benchmark_spe10_srdm/summary.csv') if not SOURCE_MANIFEST else []
+    cris_summary=records(BENCH/'summary.csv') if not SOURCE_MANIFEST else []
+    srdm_summary=records(HERE.parent/'benchmark_spe10_srdm/summary.csv') if not SOURCE_MANIFEST else []
     one_d=records(HERE.parent/'1D/NX_10000_full_fresh_ilu_linmax7_dt150/summary.csv') if not SOURCE_MANIFEST else []
     aliases={'2DSPE10_Layer50':('2DSPE10','Layer50'),'2DSPE10_Layer75':('2DSPE10','Layer75'),
              '2DSPE10_Layer84':('2DSPE10','Layer84'),'Norne_5SpotBase':('Norne','5SpotBase'),
              '3DSPE10_5SpotBase':('3DSPE10','5SpotBase'),'EDFM':('EDFM','EDFM')}
-    lines=['# Regular transport: current-model computational cost','',
-           'Current lambda=0.01 CRIS versus the unchanged, matched-policy SRDM runs.',
+    lines=['# Transport computational cost','',
+           'CRIS with residual weight lambda=0.01 and paired SRDM results.',
            'All factors are SRDM/CRIS. Equal-weight work sums Jacobian builds, Krylov',
            'iterations and residual evaluations before taking the ratio. Counts include',
            'failed attempts; one Jacobian build is represented by each Newton update.',
@@ -766,8 +751,8 @@ def write_cost_table(cases):
     for case in cases:
         slug=case['slug']
         if not SOURCE_MANIFEST:
-            c=next(r for r in current if r['case']==slug and r['model']=='lambda_0p01')
-            s=next(r for r in one_d if r['method']=='SRDM') if slug=='1D' else next(r for r in archived if (r['family'],r['case'])==aliases[slug])
+            c=next(r for r in cris_summary if r['case']==slug and r['model']=='lambda_0p01')
+            s=next(r for r in one_d if r['method']=='SRDM') if slug=='1D' else next(r for r in srdm_summary if (r['family'],r['case'])==aliases[slug])
         cc=[sum(r[k] for r in read_csv_rows(Path(case['cris'])/'solver_report.csv')) for k in ('NLNSTEPS','LINSTEPS','NFEVAL')]
         ss=[sum(r[k] for r in read_csv_rows(Path(case['srdm'])/'solver_report.csv')) for k in ('NLNSTEPS','LINSTEPS','NFEVAL')]
         if SOURCE_MANIFEST:
@@ -790,26 +775,26 @@ def write_cost_table(cases):
                 **{k+'_linear_seconds':sum(r['LNSOLVE TIME (S)'] for r in rr) for k,rr in reports.items()},
                 final_rmse=float(accuracy(slug)[-1]['rmse']),reference_residual_inf=float(accuracy(slug)[-1]['reference_residual_inf']),
                 cris_provenance=case['cris_provenance'],srdm_provenance=case['srdm_provenance']))
-    lines+=['','Times are archived single-process observations including startup, pressure',
-            'and I/O, not controlled repeated timings. Some independent-reference work',
-            'overlapped the current long 3D runs. Time factors are diagnostic observations,',
-            'not publication-grade controlled speedup estimates; no runs were repeated.',
+    lines+=['','Times include process startup, pressure solution and I/O.',
+            'Each time is a single observation. Concurrent reference computations may',
+            'affect the three-dimensional timings; these measurements do not provide',
+            'repeated-trial confidence intervals.',
             '', '## Underlying counts (SRDM / CRIS)','',
             '| Case | Jacobian builds | Krylov iterations | Residual evaluations |',
             '|---|---:|---:|---:|',*counts,'','## Timing sources','',
-            '- Current CRIS: `training/twophasetransport/analysis/regular_v3/benchmarks/summary.csv`',
+            '- CRIS: `training/twophasetransport/analysis/regular_v3/benchmarks/summary.csv`',
             '- SRDM, 1D: `Figures/1D/NX_10000_full_fresh_ilu_linmax7_dt150/summary.csv`',
             '- SRDM, other cases: `Figures/benchmark_spe10_srdm/summary.csv`',
             '', 'Paths above are relative to the repository root. Timing-summary work counts',
             'are asserted to equal the plotted native solver-report counts on every export.','']
     if SOURCE_MANIFEST:
-        start=lines.index('Times are archived single-process observations including startup, pressure')
+        start=lines.index('Times include process startup, pressure solution and I/O.')
         end=lines.index('## Underlying counts (SRDM / CRIS)')
         lines[start:end]=['Times are measured sequential single-process observations including startup,',
             'pressure and I/O. Reference generation is excluded. These are single realizations,',
             'not repeated-timing confidence intervals. The manifest records threads and host.', '']
         lines=lines[:lines.index('## Timing sources')]+['## Timing sources','',
-            'Explicit publication_sources.json: one recorded process time for each plotted paired run.',
+            '`publication_sources.json` identifies the output files and process time for each paired run.',
             'All cases completed; failed attempts are included. Independent references use CRIS time grids.',
             'Producer curves use physical fractional-flow water cuts reconstructed from completion rates.']
         lines+=['', '## Accuracy and timestep accounting','',
@@ -822,8 +807,9 @@ def write_cost_table(cases):
 
 if __name__ == "__main__":
     import argparse
-    parser=argparse.ArgumentParser(description='Render the retained layout from archived or supplied paired evidence.')
-    parser.add_argument('--sources',type=Path,help='Validated seven-case publication_sources.json')
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--sources',type=Path,default=HERE/'data/publication_sources.json',
+                        help='Manifest of the seven paired benchmark runs')
     args=parser.parse_args()
     if args.sources:
         SOURCE_MANIFEST=json.loads(args.sources.read_text())

@@ -98,30 +98,24 @@ struct Options {
     std::filesystem::path batch_directory;
     std::uint64_t seed{20260904};
     int max_iterations{12};
-    // Measured on the production 500k-row, 1361-parameter workload: 16384
-    // rows minimized the full normal-equation time (3.51 s) across the tested
-    // 4096--65536 range.  The block holds ~170 MiB of float64 Jacobian data:
-    // large enough for dense-kernel efficiency without consuming the memory
-    // budget or reducing cache locality with oversized temporary storage.
+    // Each block holds about 170 MiB of float64 Jacobian data for the
+    // 1,361-parameter network, bounding temporary memory use.
     int block_size{16384};
     int threads{0};
-    // CUDA is opt-in.  The reference path remains CPU float64 so every
-    // established checkpoint/recovery trajectory is reproducible.  CUDA
-    // currently offloads only the dense normal-equation algebra; the manual
-    // Jacobian remains cache-local CPU code and is transferred blockwise.
+    // CUDA offloads the dense normal-equation algebra. The analytic Jacobian
+    // is assembled on the CPU and transferred blockwise. CPU float64 is the
+    // default execution mode.
     ComputeDevice compute_device{ComputeDevice::Cpu};
     CudaPrecision cuda_precision{CudaPrecision::Float64};
-    // On oneMKL builds DSYRK forms only the unique triangle of J^T J.  It was
-    // 1.80x faster than the portable GEMM formulation on the fixed reference
-    // workload, with the same accepted float64 update.  Non-MKL builds retain
-    // the portable implementation by construction.
+    // DSYRK forms one triangle of the symmetric matrix J^T J. Builds without
+    // oneMKL use the portable GEMM implementation.
 #ifdef TWOPHASETRANSPORT_HAS_MKL
     NormalEquationKernel normal_equation_kernel{NormalEquationKernel::MklSyrk};
 #else
     NormalEquationKernel normal_equation_kernel{NormalEquationKernel::TorchGemm};
 #endif
-    // Profiling modes run one fixed-state phase and exit before any optimizer
-    // update. They are for reproducible performance studies, never training.
+    // Profiling modes measure one fixed-state phase and exit without updating
+    // the model parameters.
     ProfileMode profile_mode{ProfileMode::None};
     double beta_max{150000.0};
     BetaCoordinate beta_coordinate{BetaCoordinate::Raw};
@@ -133,10 +127,7 @@ struct Options {
     // cold-start defects; tanh(z)=z+O(z^3) leaves late accuracy unchanged.
     double recurrence_cap{1.0};
     double lambda{1.0e-3};
-    // A 2x post-acceptance decrease avoided the baseline's alternating
-    // reject/accept pattern at the late-production checkpoint. At four equal
-    // accepted updates it was faster and achieved lower held-out MSE than the
-    // 10x baseline. Keep the increase aggressive for failed trials.
+    // Reduce damping after accepted steps and increase it after failed trials.
     double lambda_decrease{2.0};
     double lambda_increase{10.0};
     double lambda_max{1.0e10};
@@ -776,9 +767,9 @@ void append_trace(std::ofstream& trace, int iteration, int accepted_updates, con
     trace << iteration << ',' << accepted_updates << ',' << status << ',' << linearization_refreshed << ',';
     if (std::isfinite(mean_objective_gradient_norm)) trace << mean_objective_gradient_norm;
     trace << ',' << lambda;
-    // Existing long-running MSE traces retain their historical schema on
-    // continuation. Fresh traces include the actual stacked-objective value,
-    // which differs from supervised MSE for residual-augmented experiments.
+    // Append only the columns present in the trace header. The optional
+    // stacked-objective value differs from supervised MSE when a residual
+    // penalty is used.
     if (include_objective_loss) trace << ',' << objective_loss_value;
     trace << ',' << train_mse << ',' << validation_mse << ','
           << best_validation_mse << ','

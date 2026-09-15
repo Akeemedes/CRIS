@@ -1,16 +1,15 @@
 {
   "all_completed": true,
-  "all_corrected_completed": false,
-  "scope": "Completed paired transport runs used in the manuscript.",
+  "scope": "Source files and measured timings for the seven transport benchmarks.",
   "cases": [
     {
       "slug": "1D",
       "cris": "training/twophasetransport/analysis/regular_v3/paired_benchmarks/1D/CRIS/output",
       "srdm": "training/twophasetransport/analysis/regular_v3/paired_benchmarks/1D/SRDM/output",
       "cris_seconds": 3.7302012000000104,
-      "cris_provenance": "corrected",
+      "cris_provenance": "paired_benchmark",
       "srdm_seconds": 24.03546740001184,
-      "srdm_provenance": "corrected",
+      "srdm_provenance": "paired_benchmark",
       "accuracy": "training/twophasetransport/analysis/regular_v3/paired_benchmarks/accuracy.csv"
     },
     {
@@ -20,10 +19,10 @@
       "srdm": "training/twophasetransport/analysis/regular_v3/paired_benchmarks/2DSPE10_Layer50/SRDM/output",
       "image": "Figures/2DSPE10/Layer50/CRIS/output/output.jpg",
       "cris_seconds": 3.680693100002827,
-      "cris_provenance": "corrected",
+      "cris_provenance": "paired_benchmark",
       "cris_watercut": "training/twophasetransport/analysis/regular_v3/paired_benchmarks/2DSPE10_Layer50/cris_physical_watercut.csv",
       "srdm_seconds": 109.83172839999315,
-      "srdm_provenance": "corrected",
+      "srdm_provenance": "paired_benchmark",
       "srdm_watercut": "training/twophasetransport/analysis/regular_v3/paired_benchmarks/2DSPE10_Layer50/srdm_physical_watercut.csv",
       "accuracy": "training/twophasetransport/analysis/regular_v3/paired_benchmarks/2DSPE10_Layer50/reference_accuracy.csv"
     },
@@ -34,10 +33,10 @@
       "srdm": "training/twophasetransport/analysis/regular_v3/paired_benchmarks/2DSPE10_Layer75/SRDM/output",
       "image": "Figures/2DSPE10/Layer75/CRIS/output/output.jpg",
       "cris_seconds": 4.313929500000086,
-      "cris_provenance": "corrected",
+      "cris_provenance": "paired_benchmark",
       "cris_watercut": "training/twophasetransport/analysis/regular_v3/paired_benchmarks/2DSPE10_Layer75/cris_physical_watercut.csv",
       "srdm_seconds": 9.686787800019374,
-      "srdm_provenance": "corrected",
+      "srdm_provenance": "paired_benchmark",
       "srdm_watercut": "training/twophasetransport/analysis/regular_v3/paired_benchmarks/2DSPE10_Layer75/srdm_physical_watercut.csv",
       "accuracy": "training/twophasetransport/analysis/regular_v3/paired_benchmarks/2DSPE10_Layer75/reference_accuracy.csv"
     },
@@ -48,10 +47,10 @@
       "srdm": "training/twophasetransport/analysis/regular_v3/paired_benchmarks/2DSPE10_Layer84/SRDM/output",
       "image": "Figures/2DSPE10/Layer84/CRIS/output/output.jpg",
       "cris_seconds": 5.532527799980016,
-      "cris_provenance": "corrected",
+      "cris_provenance": "paired_benchmark",
       "cris_watercut": "training/twophasetransport/analysis/regular_v3/paired_benchmarks/2DSPE10_Layer84/cris_physical_watercut.csv",
       "srdm_seconds": 117.22352420000243,
-      "srdm_provenance": "corrected",
+      "srdm_provenance": "paired_benchmark",
       "srdm_watercut": "training/twophasetransport/analysis/regular_v3/paired_benchmarks/2DSPE10_Layer84/srdm_physical_watercut.csv",
       "accuracy": "training/twophasetransport/analysis/regular_v3/paired_benchmarks/2DSPE10_Layer84/reference_accuracy.csv"
     },
@@ -62,10 +61,10 @@
       "srdm": "training/twophasetransport/analysis/regular_v3/paired_benchmarks/Norne_5SpotBase/SRDM/output",
       "image": "Figures/Norne/5SpotBase/CRIS/output/output.jpg",
       "cris_seconds": 13.12044369999785,
-      "cris_provenance": "corrected",
+      "cris_provenance": "paired_benchmark",
       "cris_watercut": "training/twophasetransport/analysis/regular_v3/paired_benchmarks/Norne_5SpotBase/cris_physical_watercut.csv",
       "srdm_seconds": 778.2307329000032,
-      "srdm_provenance": "corrected",
+      "srdm_provenance": "paired_benchmark",
       "srdm_watercut": "training/twophasetransport/analysis/regular_v3/paired_benchmarks/Norne_5SpotBase/srdm_physical_watercut.csv",
       "accuracy": "training/twophasetransport/analysis/regular_v3/paired_benchmarks/Norne_5SpotBase/reference_accuracy.csv"
     },
@@ -76,10 +75,10 @@
       "srdm": "Figures/benchmark_spe10_srdm/cases/3DSPE10_5SpotBase/SRDM/output",
       "image": "Figures/3DSPE10/5SpotBase/CRIS/output/output.jpg",
       "cris_seconds": 357.1829027000058,
-      "cris_provenance": "corrected",
+      "cris_provenance": "paired_benchmark",
       "cris_watercut": "training/twophasetransport/analysis/regular_v3/paired_benchmarks/3DSPE10_5SpotBase/cris_physical_watercut.csv",
       "srdm_seconds": 21107.042,
-      "srdm_provenance": "archived_pre_correction",
+      "srdm_provenance": "separate_completed_benchmark",
       "srdm_watercut": "training/twophasetransport/analysis/regular_v3/paired_benchmarks/3DSPE10_5SpotBase/srdm_physical_watercut.csv",
       "accuracy": "training/twophasetransport/analysis/regular_v3/paired_benchmarks/3DSPE10_5SpotBase/reference_accuracy.csv"
     },
@@ -90,10 +89,10 @@
       "srdm": "training/twophasetransport/analysis/regular_v3/paired_benchmarks/EDFM/SRDM/output",
       "image": "Figures/EDFM/CRIS/output/output.jpg",
       "cris_seconds": 6.887107899994589,
-      "cris_provenance": "corrected",
+      "cris_provenance": "paired_benchmark",
       "cris_watercut": "training/twophasetransport/analysis/regular_v3/paired_benchmarks/EDFM/cris_physical_watercut.csv",
       "srdm_seconds": 5448.684767899977,
-      "srdm_provenance": "corrected",
+      "srdm_provenance": "paired_benchmark",
       "srdm_watercut": "training/twophasetransport/analysis/regular_v3/paired_benchmarks/EDFM/srdm_physical_watercut.csv",
       "accuracy": "training/twophasetransport/analysis/regular_v3/paired_benchmarks/EDFM/reference_accuracy.csv"
     }

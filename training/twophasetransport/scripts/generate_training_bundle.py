@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate immutable train/validation/test label bundles from the native oracle."""
+"""Generate transport training, validation and test labels with the native oracle."""
 
 from __future__ import annotations
 
@@ -12,6 +12,25 @@ import sys
 import time
 from datetime import datetime, timezone
 from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[3]
+
+
+def record_path(path: Path) -> str:
+    """Use repository-relative paths for inputs and outputs inside the checkout."""
+    resolved = path.resolve()
+    return resolved.relative_to(ROOT).as_posix() if resolved.is_relative_to(ROOT) else resolved.as_posix()
+
+
+def recorded_command(command: list[str]) -> list[str]:
+    """Record the executable name and portable file arguments for reproduction."""
+    result = command.copy()
+    result[0] = Path(result[0]).name
+    for flag in ("--input", "--output"):
+        if flag in result:
+            index = result.index(flag) + 1
+            result[index] = record_path(Path(result[index]))
+    return result
 
 
 def sha256(path: Path) -> str:
@@ -31,12 +50,12 @@ def run_oracle(oracle: Path, law: str, split: str, design: str, samples: int, se
     started = time.perf_counter()
     completed = subprocess.run(command, check=True, text=True, capture_output=True)
     return {
-        "command": command,
+        "command": recorded_command(command),
         "elapsed_seconds": time.perf_counter() - started,
         "stdout": completed.stdout,
-        "dataset": str(output),
+        "dataset": record_path(output),
         "dataset_sha256": sha256(output),
-        "dataset_manifest": str(Path(str(output) + ".manifest.json")),
+        "dataset_manifest": record_path(Path(str(output) + ".manifest.json")),
     }
 
 
@@ -47,10 +66,10 @@ def pack_dataset(packer: Path, input_csv: Path, output: Path, max_records: int |
     started = time.perf_counter()
     completed = subprocess.run(command, check=True, text=True, capture_output=True)
     return {
-        "command": command,
+        "command": recorded_command(command),
         "elapsed_seconds": time.perf_counter() - started,
         "stdout": completed.stdout,
-        "dataset": str(output),
+        "dataset": record_path(output),
         "dataset_sha256": sha256(output),
         "rows": max_records,
     }
@@ -114,9 +133,9 @@ def main() -> None:
         "artifact": "twophasetransport_active_advection_label_bundle",
         "generated_utc": datetime.now(timezone.utc).isoformat(),
         "law": args.law,
-        "oracle": str(args.oracle.resolve()),
+        "oracle": args.oracle.name,
         "oracle_sha256": sha256(args.oracle),
-        "specification": str(specification),
+        "specification": record_path(specification),
         "specification_sha256": sha256(specification),
         "beta_max": args.beta_max,
         "seed_root": args.seed,

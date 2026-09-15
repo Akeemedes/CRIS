@@ -2,23 +2,17 @@
   "sources": {
     "Figures/fig3_bratu/data/continuation_validation.csv": "74816c888ea94286ffa28a4ffcb397eb206af19f7c45fef7dc7148a7b146d3c1"
   },
-  "content": "Same saved targets, reductions and 1e-16 display floor as original.",
-  "figure_number": 13,
+  "content": "Maximum label/path errors and minimum derivative by fold deficit; display floor 1e-16.",
   "size_mm": [
     183.0,
     65.0
   ],
-  "previous_size_mm": [
-    183,
-    77
-  ],
   "builder": "Figures/compact_methods_layouts.py",
-  "builder_sha256": "d98afa4dde513152bec2cb02e48dfb9a6138b81ff4e32ee58e75e1491df69d7e",
-  "export_builder_sha256": "91496c358d56ea092ece87262b56f2ab83cccf875eceb020840378f18818526e",
+  "builder_sha256": "e1d5e1365596372c42710e7673984acb31f8d65acd96313201d0291d320d1588",
+  "export_builder_sha256": "68ff09b7679e958c8e6fc470e63c94e5c6cab0750f10b0fa2a2ca0cbbb1eba76",
   "files": {
-    "bratu-continuation.pdf": "13e8227bb2c5e3cba1f9d109164adc9e81f36ee02c4406971460c4883069b541",
+    "bratu-continuation.pdf": "2db9c4990bf1de20680c71622e21ba06f7aadc551b6f282d749c1b84edc739d0",
     "bratu-continuation.png": "31537edefa4d324c25f895e9c199b3515a05a4c48915acd9167909264c313b91",
-    "bratu-continuation.svg": "5d1c616eb542be0626ec4217bb403fa32f09cdaec106cd78b2186935f1401d43"
-  },
-  "layout_bounds_checked": true
+    "bratu-continuation.svg": "3f8d839c05f1d366c23083dc10ea048569c56fd14e7387bdd7051e893977e29f"
+  }
 }

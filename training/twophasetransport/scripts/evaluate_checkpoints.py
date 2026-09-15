@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 """Evaluate native LM checkpoints on independent packed TwoPhaseTransport data partitions.
 
-This offline evidence tool is deliberately separate from the C++ optimizer.
-It evaluates every saved checkpoint in vectorized NumPy, keeping snapshot
-diagnostics cheap enough to be part of a normal reproducible run.
+Vectorized NumPy evaluation reports root errors, equation residuals and
+out-of-bounds predictions for each saved checkpoint and data partition.
 """
 
 from __future__ import annotations
@@ -136,8 +135,9 @@ def metrics(weights: np.ndarray, rows: np.ndarray, law: str, beta_max: float,
     # This mirrors the optional native regular-law objective.  The exact root
     # derivative in column 4 converts recurrence error to the normalized-output
     # scale locally; its MSE can therefore be compared directly with normalized
-    # supervised MSE.  Retain raw physical residual above for model-agnostic
-    # diagnostics and avoid claiming an objective for the distinct IMP law.
+    # supervised MSE. The physical residual above is evaluated for both laws;
+    # the composite-objective calculation below is implemented for the
+    # quadratic-endpoint law only.
     if law == "regular" and np.all(finite):
         normalized_error = 2.0 * error
         normalized_recurrence = 2.0 * (

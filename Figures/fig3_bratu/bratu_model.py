@@ -1,4 +1,4 @@
-# merged_bratu_figure.py
+"""Bratu inverse branches, three-dimensional reference solve and solution plots."""
 
 import os
 from pathlib import Path
@@ -608,19 +608,7 @@ def plot_beta_branch_ax(ax, alpha=1.0):
 
 
 def plot_slice_ax(ax, cax, x, y, z, U, zloc=0.5, cmap="viridis"):
-    """
-    Panel c:
-    Plot z = zloc slice of U.
-
-    Important:
-    The colour scale is local to this slice, matching the original
-    plot_slice behavior:
-
-        vmin = data.min()
-        vmax = data.max()
-
-    not the full 3D U.min()/U.max().
-    """
+    """Plot a constant-z slice, with color limits set by that slice's range."""
     iz = int(np.argmin(np.abs(z - zloc)))
     z_actual = z[iz]
 
@@ -705,9 +693,7 @@ def build_merged_bratu_figure(
 
     fig = plt.figure(figsize=(fig_width_in, fig_height_in))
 
-    # Extra right margin fixes the cropped colourbar/tick-label issue.
-    # Do not push this too close to 1.0, because panel c has a colorbar
-    # and the colorbar tick labels extend to the right.
+    # Reserve room on the right for the colorbar and its tick labels.
     fig.subplots_adjust(
         left=0.055,
         right=0.945,
@@ -758,7 +744,7 @@ def build_merged_bratu_figure(
 # ============================================================
 if __name__ == "__main__":
     build_merged_bratu_figure(
-        outpath=Path(__file__).resolve().parent / "legacy_bratu_figure.pdf",
+        outpath=Path(__file__).resolve().parent / "bratu_branches_and_slice.pdf",
         force_recompute=False,
         fig_width_in=7.2,
         fig_height_in=2.25,

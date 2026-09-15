@@ -1,4 +1,4 @@
-"""Supplementary training diagnostics from completed campaigns, without reruns."""
+"""Plot training histories, validation errors, input distributions and optimizer cost."""
 import sys
 import json
 import os
@@ -116,7 +116,7 @@ def efficiency(axes=None):
 
 
 def combined():
-    """One full-page figure, preserving all six history and four efficiency panels."""
+    """Combine training histories and optimizer-efficiency measurements."""
     from matplotlib.lines import Line2D
     from matplotlib.ticker import LogLocator, NullFormatter, MaxNLocator
     fig=plt.figure(figsize=(183/25.4,245/25.4),layout='constrained')

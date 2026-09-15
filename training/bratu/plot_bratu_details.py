@@ -198,4 +198,4 @@ def matched_accuracy():
 if __name__=='__main__':
     selected=selection()
     histories(selected);local(selected);global_figures();matched_accuracy()
-    print('Bratu supplementary diagnostics exported.',flush=True)
+    print('Bratu supplementary figures exported.',flush=True)

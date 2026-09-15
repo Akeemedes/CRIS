@@ -1,6 +1,6 @@
-# Regular transport: current-model computational cost
+# Transport computational cost
 
-Current lambda=0.01 CRIS versus the unchanged, matched-policy SRDM runs.
+CRIS with residual weight lambda=0.01 and paired SRDM results.
 All factors are SRDM/CRIS. Equal-weight work sums Jacobian builds, Krylov
 iterations and residual evaluations before taking the ratio. Counts include
 failed attempts; one Jacobian build is represented by each Newton update.
@@ -33,7 +33,7 @@ not repeated-timing confidence intervals. The manifest records threads and host.
 
 ## Timing sources
 
-Explicit publication_sources.json: one recorded process time for each plotted paired run.
+`publication_sources.json` identifies the output files and process time for each paired run.
 All cases completed; failed attempts are included. Independent references use CRIS time grids.
 Producer curves use physical fractional-flow water cuts reconstructed from completion rates.
 

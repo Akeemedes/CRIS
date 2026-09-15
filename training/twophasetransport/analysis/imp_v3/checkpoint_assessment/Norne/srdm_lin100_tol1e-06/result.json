@@ -7,31 +7,31 @@
   "config_sha256": "8dcab434384ecd7e1018981aa88e2a1725770a6bb00034551618678e336591ef",
   "inputs": {
     "CL_FILE": {
-      "path": "C:\\Users\\Akeem\\OneDrive - Texas A&M University\\SimulationFramework_DevBranch\\training\\twophasetransport\\analysis\\imp_v3\\checkpoint_assessment\\Norne\\intr_faces.txt",
+      "path": "Figures/fig4_transport/benchmark_cases/cases/Norne_5SpotBase/inputs/1be257d699_intr_faces.txt",
       "sha256": "64cb6f6108d65c434d0d794d5059d210cfbb7e8beb28bfc7e66c7591e030b386"
     },
     "TRANS_FILE": {
-      "path": "C:\\Users\\Akeem\\OneDrive - Texas A&M University\\SimulationFramework_DevBranch\\training\\twophasetransport\\analysis\\imp_v3\\checkpoint_assessment\\Norne\\intr_T.txt",
+      "path": "Figures/fig4_transport/benchmark_cases/cases/Norne_5SpotBase/inputs/8ca4a54cab_intr_T.txt",
       "sha256": "14e97e25381c411816a6fcd4798ded970b6411e217b6802b42df510a76c2f759"
     },
     "DEPTH_FILE": {
-      "path": "C:\\Users\\Akeem\\OneDrive - Texas A&M University\\SimulationFramework_DevBranch\\training\\twophasetransport\\analysis\\imp_v3\\checkpoint_assessment\\Norne\\depth.txt",
+      "path": "Figures/fig4_transport/benchmark_cases/cases/Norne_5SpotBase/inputs/f848c74c45_depth.txt",
       "sha256": "b73563135bcdd310041f78528a86de7942b6a7303e133dd323248663fe842f32"
     },
     "VOL_FILE": {
-      "path": "C:\\Users\\Akeem\\OneDrive - Texas A&M University\\SimulationFramework_DevBranch\\training\\twophasetransport\\analysis\\imp_v3\\checkpoint_assessment\\Norne\\vol.txt",
+      "path": "Figures/fig4_transport/benchmark_cases/cases/Norne_5SpotBase/inputs/ab4b440c14_vol.txt",
       "sha256": "cc78199ccdfc7653e21af1b861ae84a2b15a2eb1aedf9da2a5b259c088ed8704"
     },
     "GLOBAL_IDX_FILE": {
-      "path": "C:\\Users\\Akeem\\OneDrive - Texas A&M University\\SimulationFramework_DevBranch\\training\\twophasetransport\\analysis\\imp_v3\\checkpoint_assessment\\Norne\\indexMap.txt",
+      "path": "Figures/fig4_transport/benchmark_cases/cases/Norne_5SpotBase/inputs/12a5a66e32_indexMap.txt",
       "sha256": "d7f54a2ce10f68d59069ac338c25cc730e7780e115a71601b4df9f0fc236b35e"
     },
     "WELLS_FILE": {
-      "path": "C:\\Users\\Akeem\\OneDrive - Texas A&M University\\SimulationFramework_DevBranch\\training\\twophasetransport\\analysis\\imp_v3\\checkpoint_assessment\\Norne\\wells.txt",
+      "path": "Figures/fig4_transport/benchmark_cases/cases/Norne_5SpotBase/inputs/d57348d50a_wells.txt",
       "sha256": "e9890f5c9fe652a121888b37088154a2b3bad8015f806250af8936864c0cc8a2"
     }
   },
-  "scope": "Full degenerate Norne, M=.4 n=(2,.2), fresh ILU0, MAC-free SRDM+line search; LINTOL 1e-06 floor1e-6, continue-on-budget, pressure LINMAX100; original time controls",
+  "scope": "Full degenerate Norne, M=.4 n=(2,.2), ILU0 recomputed at each update, SRDM+line search; LINTOL 1e-06 floor1e-6, continue-on-budget, pressure LINMAX100; benchmark time-step controls",
   "returncode": 4294967295,
   "seconds": 575.1069094999984,
   "accepted_time": 2500.0,

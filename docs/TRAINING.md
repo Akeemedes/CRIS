@@ -33,6 +33,15 @@ Run directories contain checkpoints and optimizer histories. `--continue-from` s
 
 Transport datasets are in `training/twophasetransport/datasets/`, and Bratu datasets are in `training/bratu/datasets/lower_branch/`. Their manifests describe the sampling and normalization.
 
+To generate the four Bratu label datasets with the supplied sampling settings:
+
+```text
+python training/bratu/generate_data.py --output runs/bratu_labels
+```
+
+Choose a new output directory; the generator leaves existing datasets untouched.
+Dataset paths in the generated manifest are relative to that manifest's directory.
+
 The pretrained transport inverse used by the seven-case benchmark launcher is:
 
 ```text

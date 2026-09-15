@@ -1,9 +1,9 @@
-"""Generate controlled two-cell Bratu data for expanded Fig. 3.
+"""Generate two-cell Bratu branch and convergence data.
 
 The local generator is r(u; a, beta) = a - u + beta exp(u).  Two cells are coupled
 through a = alpha0 + coupling * u_neighbour.  The CRIS map uses the exact
-continuation-selected lower Lambert-W branch; it is therefore a mechanism diagnostic,
-not a substitute for the future learned-Bratu validation panel.
+lower Lambert-W branch. The resulting basins characterize exact local inversion
+independently of network approximation error.
 """
 
 from __future__ import annotations

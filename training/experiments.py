@@ -1,8 +1,8 @@
-"""Experiment configuration, read-only checks/plans and explicit fresh training.
+"""Configure, validate and launch Bratu and transport training experiments.
 
-Only the explicit train command launches a process and writes a new run.
-Native executables and runtime directories are explicit user inputs, not
-workstation paths embedded in scientific configuration.
+The catalogue specifies the local equation, dataset and training settings.
+Supply the native trainer and any required runtime-library directories when
+planning or launching a run.
 """
 
 import argparse
@@ -65,11 +65,11 @@ def validate_config(config):
     inputs = 3 if adapter == "transport" else 2
     if config["architecture"] != [inputs, 20, 20, 20, 20, 1]:
         raise ValueError(
-            "Architecture is not supported by the current compiled adapter"
+            "Architecture is not supported by the native trainer"
         )
     if config["seed"] != 20260904 or config["beta_coordinate"] != "log1p":
         raise ValueError(
-            "This validated cold-start profile uses seed 20260904 and log1p"
+            "The supplied training profile requires seed 20260904 and log1p coordinates"
         )
     limits = config["limits"]
     if set(limits) != {
@@ -104,7 +104,7 @@ def validate_config(config):
         if config["beta_max"] != 1e6 or config["physical_mse_multiplier"] != 0.25:
             raise ValueError("Transport data/normalization profile mismatch")
         if config["default_rows"] not in ROW_NAMES:
-            raise ValueError("Unknown frozen training prefix")
+            raise ValueError("Unsupported training-set prefix size")
         if config["residual"] != "tanh(2R / R_u(label)) with cap 1":
             raise ValueError("Transport residual contract mismatch")
     else:
@@ -168,7 +168,7 @@ def check_data(config, root=ROOT, rows=None):
     adapter = config["adapter"]
     if adapter == "transport":
         if rows not in ROW_NAMES:
-            raise ValueError("Select one of the frozen transport prefixes")
+            raise ValueError("Select one of the supplied transport training-set sizes")
         manifest_path = directory / "bundle_manifest.json"
         manifest = json.loads(manifest_path.read_text())
         labels_path = directory / "train.csv.manifest.json"

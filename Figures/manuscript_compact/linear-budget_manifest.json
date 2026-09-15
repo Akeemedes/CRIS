@@ -1,25 +1,18 @@
 {
   "sources": {
-    "Figures/build_publication_completion.py": "a53d158eef4e8c60f70c1d548849b856275cc6a59a3bd10dee133c5554d9c65f",
-    "Figures/figS3_conditioning/data/frozen_linear/policy_edfm_full_budget_results.json": "4b8c4060f06b384d059aaf63c0a4f5206c76f70a52c868d8db9602a71114ca52"
+    "Figures/build_publication_completion.py": "6258eec758032c376770e57bea54b2b18a36f6c83ae4d0f1405ee9180f81934e",
+    "Figures/figS3_conditioning/data/frozen_linear/policy_edfm_full_budget_results.json": "31379f9cdab380625714d0745d37e97e9a84a20edfcf6b8d255ba9ddb6947e25"
   },
-  "numeric_artists_unchanged": true,
-  "figure_number": 10,
   "size_mm": [
     183.0,
     95.0
   ],
-  "previous_size_mm": [
-    183,
-    125
-  ],
   "builder": "Figures/compact_methods_layouts.py",
-  "builder_sha256": "d98afa4dde513152bec2cb02e48dfb9a6138b81ff4e32ee58e75e1491df69d7e",
-  "export_builder_sha256": "91496c358d56ea092ece87262b56f2ab83cccf875eceb020840378f18818526e",
+  "builder_sha256": "e1d5e1365596372c42710e7673984acb31f8d65acd96313201d0291d320d1588",
+  "export_builder_sha256": "68ff09b7679e958c8e6fc470e63c94e5c6cab0750f10b0fa2a2ca0cbbb1eba76",
   "files": {
-    "linear-budget.pdf": "61e6ad19a1591fd18a085d1a7d029ac2062e3164e58021d0e41d6683a1f3191b",
+    "linear-budget.pdf": "7ed94f26dd7312c09eca14b902b4005a6f0418639a4f37f51bd82eb54a42613a",
     "linear-budget.png": "626057d5eb34be96343b7ebf8e19366803a6f1fbf69cf18ca4e6cf98905d7f9a",
-    "linear-budget.svg": "8d26d746ebe50fe55438985c11adaaa018ec4b7b974560192a1fdfac74c3e532"
-  },
-  "layout_bounds_checked": true
+    "linear-budget.svg": "1639ba0e56ec29cfd45c4d74c096f80e58594a48505b489fd5d3741ab4a7c67b"
+  }
 }

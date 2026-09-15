@@ -5,13 +5,13 @@
   ],
   "font_min_pt": 11,
   "sources": {
-    "Figures\\build_publication_completion.py": "a53d158eef4e8c60f70c1d548849b856275cc6a59a3bd10dee133c5554d9c65f",
-    "Figures\\fig4_transport\\data\\current_model_cost_table.csv": "8933d3b649dc1e09ed9f86e3598959b5375f6f8fff8449fabe61e5672c97d11e",
-    "Figures\\publication_style.py": "5d85333910c26d970f23e5d5abc55a3d603f946cb0663791f51966499955815c",
-    "training\\twophasetransport\\analysis\\regular_v3\\regular_campaign_summary.csv": "6eb516170517e9f5d5b79df23fcaa2ff7bc60a67142de39222f09dd9e336b5e4",
-    "training\\twophasetransport\\analysis\\regular_v3\\training_cost_summary.csv": "a614e297a6e30421f7eec40f353f406f876d350698df19848b9935ede50dd466",
-    "training\\twophasetransport\\analysis\\regular_v3\\transport_accuracy_summary.csv": "63e38b776c17c4cb7f4df971b35f9dd1c106e0b04c823f5ae25d3c01aea7764d",
-    "training\\twophasetransport\\analysis\\regular_v3\\validation_residual_history.csv": "b0a6f257c4f21ed2cac6197c090b23a175ef191a4b1bd8671a0623a95d028cd1"
+    "Figures/build_publication_completion.py": "6258eec758032c376770e57bea54b2b18a36f6c83ae4d0f1405ee9180f81934e",
+    "Figures/fig4_transport/data/current_model_cost_table.csv": "3e484d6edc2bea57feb89c297b927244cd961f54e54b0a6c256678907b340929",
+    "Figures/publication_style.py": "2c2932377c843c43f03f27ae93a62c48cdbeb984804a81ebbbee411e56bfd74c",
+    "training/twophasetransport/analysis/regular_v3/regular_campaign_summary.csv": "6eb516170517e9f5d5b79df23fcaa2ff7bc60a67142de39222f09dd9e336b5e4",
+    "training/twophasetransport/analysis/regular_v3/training_cost_summary.csv": "a614e297a6e30421f7eec40f353f406f876d350698df19848b9935ede50dd466",
+    "training/twophasetransport/analysis/regular_v3/transport_accuracy_summary.csv": "63e38b776c17c4cb7f4df971b35f9dd1c106e0b04c823f5ae25d3c01aea7764d",
+    "training/twophasetransport/analysis/regular_v3/validation_residual_history.csv": "b0a6f257c4f21ed2cac6197c090b23a175ef191a4b1bd8671a0623a95d028cd1"
   },
-  "builder_sha256": "d900270f3cc69e57ba3be7ff7fe8e1b0e4c3e142b73c9cfd7f8a933f665b38e8"
+  "builder_sha256": "dda0bd4f6c8e130320463b02976bb11ac8047124af9120e086798c95d25e61f9"
 }

@@ -1,0 +1,48 @@
+{
+  "sources": {
+    "training/bratu/analysis/three_dimensional_initialization.csv": "4515728c8de4e53e461f08a2aae5201d6a51b72b25e047bf252da273af44368e"
+  },
+  "findings": {
+    "methods": [
+      "mse",
+      "lambda_0p01",
+      "lambda_0p1",
+      "lambda_1"
+    ],
+    "captured_amplitudes": [
+      0.0,
+      1.0,
+      2.0
+    ],
+    "median": [
+      2.8433349140725957e-05,
+      2.8770758232881203e-05,
+      1.2379301161388446e-05,
+      1.1159500820681914e-05
+    ],
+    "minimum": [
+      2.8433348076054945e-05,
+      2.8770758231164437e-05,
+      1.237930006017364e-05,
+      1.1159500802117262e-05
+    ],
+    "maximum": [
+      2.8433349147038545e-05,
+      2.8770758851623453e-05,
+      1.2379301168026144e-05,
+      1.1159501844609178e-05
+    ]
+  },
+  "size_mm": [
+    86.0,
+    48.0
+  ],
+  "builder": "Figures/compact_methods_layouts.py",
+  "builder_sha256": "e1d5e1365596372c42710e7673984acb31f8d65acd96313201d0291d320d1588",
+  "export_builder_sha256": "68ff09b7679e958c8e6fc470e63c94e5c6cab0750f10b0fa2a2ca0cbbb1eba76",
+  "files": {
+    "bratu-3d-accuracy.pdf": "219bbbd94459769d1a857e544fc7dcae7cb4baf7b801219cbd31d87bb35eb28c",
+    "bratu-3d-accuracy.png": "ca6d4ec66d21cedc274184eb83264ee3094839f249a13f677eb5d0cec65698b1",
+    "bratu-3d-accuracy.svg": "9c2f30703e97d2e6cfcd1d6e638a68a9a063981b520ad1d3a70684afb73cee0b"
+  }
+}

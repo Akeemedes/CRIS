@@ -1,32 +1,31 @@
 {
   "sources": [
     {
-      "run": "training\\twophasetransport\\runs\\regular_balanced_beta1e6_v3_62k_log1p_fullbatch_lm_cpu",
+      "run": "training/twophasetransport/runs/regular_balanced_beta1e6_v3_62k_log1p_fullbatch_lm_cpu",
       "arm": "MSE",
       "validation_sha256": "3724183b6ae26de9f3b4b3928f50152544bf24644f4601403a3f9177472bb36f",
       "trace_sha256": "621b512f2ad0084f3017742caebfd335b461eb3c78305aceb4eaa5454bb13e60"
     },
     {
-      "run": "training\\twophasetransport\\runs\\regular_balanced_beta1e6_v3_62k_log1p_coldstart_residual_softcap_1_lambda_0p01",
+      "run": "training/twophasetransport/runs/regular_balanced_beta1e6_v3_62k_log1p_coldstart_residual_softcap_1_lambda_0p01",
       "arm": "Residual $\\lambda=0.01$",
       "validation_sha256": "3724183b6ae26de9f3b4b3928f50152544bf24644f4601403a3f9177472bb36f",
       "trace_sha256": "2500a943902edcbb039a4bd34280ed652b2b46033df3db8f8dc3174df0dfa625"
     },
     {
-      "run": "training\\twophasetransport\\runs\\regular_balanced_beta1e6_v3_62k_log1p_coldstart_residual_softcap_1_lambda_0p1",
+      "run": "training/twophasetransport/runs/regular_balanced_beta1e6_v3_62k_log1p_coldstart_residual_softcap_1_lambda_0p1",
       "arm": "Residual $\\lambda=0.1$",
       "validation_sha256": "3724183b6ae26de9f3b4b3928f50152544bf24644f4601403a3f9177472bb36f",
       "trace_sha256": "ed18f52d51b153d930b0ec06b571de16315ac551350df313e5bb33429a289414"
     },
     {
-      "run": "training\\twophasetransport\\runs\\regular_balanced_beta1e6_v3_62k_log1p_coldstart_residual_softcap_1_lambda_1",
+      "run": "training/twophasetransport/runs/regular_balanced_beta1e6_v3_62k_log1p_coldstart_residual_softcap_1_lambda_1",
       "arm": "Residual $\\lambda=1$",
       "validation_sha256": "3724183b6ae26de9f3b4b3928f50152544bf24644f4601403a3f9177472bb36f",
       "trace_sha256": "ac7c4615c90d06ddf737227442febd6aa04e2ec176640e919fa3534af6a88372"
     }
   ],
-  "sampling": "Retained checkpoints only, not every epoch; final selected best model placed at full run effort including validation patience",
-  "continuation": "IMP is one warm-started trajectory with dataset enlargement; previous stage cost and counters included",
-  "residual": "TPT: R=u-u_old+beta*(f(clip(u,0,1))-a), evaluated on ALL fixed validation rows; slope-scaled R/R_u at label (infinite slope yields0). This is a flux extension, not a bounded prediction. Bratu: raw a-u+beta*exp(u); capped tanh(R/4.5).",
-  "scope": "No training or simulation launched; sparse checkpoints cannot locate intervening increases/decreases"
+  "sampling": "Metrics are evaluated at saved checkpoints; the selected model is shown at the full optimization cost, including validation patience.",
+  "residual": "R=u-u_old+beta*(f(clip(u,0,1))-a), evaluated on all fixed validation rows. Slope scaling uses R/R_u at the label. Clipping extends the fractional-flow function; network predictions remain unclipped.",
+  "scope": "Checkpoint metrics describe sampled stages of training; changes between checkpoints are unresolved."
 }

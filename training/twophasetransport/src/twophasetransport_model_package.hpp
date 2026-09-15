@@ -10,8 +10,7 @@
 
 namespace twophasetransport::model_package {
 
-// The production architecture mirrors the independently archived high-accuracy
-// control: 3-20-20-20-20-1, with a bias on every affine layer.
+// Architecture: 3-20-20-20-20-1, with a bias on every affine layer.
 inline constexpr std::size_t parameter_count = 1361;
 
 inline std::vector<double> read_checkpoint(const std::filesystem::path& path) {

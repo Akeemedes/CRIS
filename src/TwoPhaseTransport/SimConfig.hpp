@@ -14,7 +14,6 @@
 #include "Solvers/Nonlinear/LinearSolvePolicy.hpp"
 
 #include "SimUtils.hpp"   // provides ASSERT_WITH_MSG
-// #include "SimUtils"     // (your original include looked off; keep only the .hpp)
 
 namespace fs = std::filesystem;
 
@@ -101,9 +100,8 @@ struct SimConfig {
     int pressure_linear_budget() const { return pressure_linmax ? pressure_linmax : LINMAX; }
     int max_backtrack = 10;
     int verbosity = 1;
-    // Transport Jacobians evolve at every nonlinear update.  Reusing the
-    // previous preconditioner is legacy behavior and is not a valid default
-    // for reproducible transport comparisons.
+    // Rebuild the transport preconditioner as the Jacobian changes at each
+    // nonlinear update.
     bool refresh_transport_preconditioner = true;
     bool write_jacobian_snapshot = false;
 
@@ -484,8 +482,7 @@ inline SimConfig parse_sim_config(const std::string& folder)
             ASSERT_WITH_MSG(bool(in >> m), "Failed reading MODE value");
             m = to_upper(m);
             if (m == "SRDM") cfg.mode = SimConfig::RunMode::SRDM;
-            // CRIS remains a backwards-compatible spelling for pre-package
-            // case folders. New, reproducible cases should say CRIS_LEARNED.
+            // CRIS and CRIS_LEARNED both select the supplied inverse model.
             else if (m == "CRIS" || m == "CRIS_LEARNED") cfg.mode = SimConfig::RunMode::CRIS_LEARNED;
             else if (m == "CRIS_EXACT") cfg.mode = SimConfig::RunMode::CRIS_EXACT;
             else ASSERT_WITH_MSG(false, "MODE must be SRDM, CRIS_LEARNED, or CRIS_EXACT, got: " + m);

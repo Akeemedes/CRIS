@@ -15,17 +15,13 @@ public:
 	{
 		for (std::size_t i = 0; i < u.size(); ++i) {
 			u[i] = u[i] - du[i];
-			//if (u[i] < 0.0) u[i] = 0.0;
-			//else if (u[i] > 1.0) u[i] = 1.0;
-			//std::cout << u[i] << std::endl;
 		}
 		return model.is_update_norm_converged(du);
 	}
 };
 
-// Full Newton step with physical saturation projection. This is intentionally
-// separate from StandardNewtonUpdater so existing STANDARD configurations keep
-// their unconstrained semantics and can be reproduced exactly.
+// Full Newton step projected onto the physical saturation interval [0,1].
+// StandardNewtonUpdater applies the unconstrained step.
 class ProjectedNewtonUpdater {
 public:
 	ProjectedNewtonUpdater() = default;

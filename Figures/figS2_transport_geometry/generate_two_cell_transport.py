@@ -1,14 +1,14 @@
-"""Generate a conservative two-cell transport diagnostic for Supplementary Fig. S2.
+"""Generate conservative two-cell transport roots and convergence basins.
 
 The system is a periodic two-cell upwind finite-volume ring.  With positive
 velocity at both faces, each cell receives the other cell's fractional-flow
-flux, so its local equation has the deployed CRIS form
+flux, giving the local equation
 
     u_i - u_old,i + beta * (f(u_i) - a_i) = 0,
 
 where a_i=f(u_j).  SRDM uses the physical coupled residual. CRIS uses the
-currently deployed Regular2 local inverse and its exact network derivative.
-This is a controlled mechanism diagnostic, not a field-scale benchmark.
+supplied transport local inverse and its exact network derivative. The small
+system allows roots and solver trajectories to be examined directly.
 """
 
 from __future__ import annotations

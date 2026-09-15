@@ -275,7 +275,6 @@ public:
 
     }
 
-    //Todo Rethink resource ownership
 
 private:
 

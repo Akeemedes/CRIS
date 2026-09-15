@@ -1,4 +1,4 @@
-"""Auditable selection from retained weights within an accepted-update budget."""
+"""Select Bratu checkpoints by validation error within an accepted-update budget."""
 import csv
 import hashlib
 import json
@@ -16,7 +16,7 @@ def candidates(name, budget=BUDGET):
     if (replay/'result.json').exists() and (replay/'final_checkpoint.bin').exists():
         result=json.loads((replay/'result.json').read_text())
         if int(result['accepted_updates'])!=budget:
-            raise ValueError(f'Recovery run stopped before the requested budget: {replay}')
+            raise ValueError(f'Training run did not reach the requested budget: {replay}')
         run=replay
     with (run/'optimizer_trace.csv').open() as stream:
         trace = list(csv.DictReader(stream))
@@ -27,7 +27,7 @@ def candidates(name, budget=BUDGET):
         row = next(r for r in trace if r['status']=='accepted' and float(r['validation_mse_normalized']) <= threshold)
         if int(row['accepted_updates']) > budget:
             continue
-        result.append(dict(path=str(path.relative_to(BASE)), sha256=hashlib.sha256(path.read_bytes()).hexdigest(),
+        result.append(dict(path=path.relative_to(BASE).as_posix(), sha256=hashlib.sha256(path.read_bytes()).hexdigest(),
             accepted=int(row['accepted_updates']), proposals=int(row['iteration']),
             hours=float(row['cumulative_phase_seconds'])/3600,
             validation_mse_normalized=float(row['validation_mse_normalized'])))
@@ -36,14 +36,14 @@ def candidates(name, budget=BUDGET):
     if int(trace[-1]['accepted_updates']) <= budget:
         path = run/'final_checkpoint.bin'
         best = min(trace, key=lambda r:float(r['validation_mse_normalized']))
-        result.append(dict(path=str(path.relative_to(BASE)),sha256=hashlib.sha256(path.read_bytes()).hexdigest(),
+        result.append(dict(path=path.relative_to(BASE).as_posix(),sha256=hashlib.sha256(path.read_bytes()).hexdigest(),
             accepted=int(best['accepted_updates']), proposals=int(best['iteration']),
             hours=float(best['cumulative_phase_seconds'])/3600,
             validation_mse_normalized=float(best['validation_mse_normalized'])))
     if not result:
         raise ValueError(f'No eligible retained checkpoint: {name}')
     best_by_budget=min(eligible,key=lambda r:float(r['validation_mse_normalized']))
-    return result, dict(run=str(run), trace_sha256=hashlib.sha256((run/'optimizer_trace.csv').read_bytes()).hexdigest(),
+    return result, dict(run=run.relative_to(BASE.parents[1]).as_posix(), trace_sha256=hashlib.sha256((run/'optimizer_trace.csv').read_bytes()).hexdigest(),
         budget_accepted=budget, budget_hours=float(eligible[-1]['cumulative_phase_seconds'])/3600,
         actual_best_by_budget_accepted=int(best_by_budget['accepted_updates']),
         actual_best_by_budget_mse_physical=20.25*float(best_by_budget['validation_mse_normalized']),
