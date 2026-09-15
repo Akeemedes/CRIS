@@ -1,0 +1,30 @@
+{
+  "experiment_id": "twophasetransport-active-advection-v1",
+  "status": "baseline-training-specification",
+  "recurrence": "u - u_old + beta * (f(u) - a) = 0",
+  "inputs": ["a", "beta", "u_old"],
+  "state_domain": [0.0, 1.0],
+  "fractional_flow": "f(u) = u^n_w / (u^n_w + M * (1-u)^n_nw), Ng = 0",
+  "laws": {
+    "regular": {"M": 0.4, "n_w": 2.0, "n_nw": 2.0},
+    "imp": {"M": 0.4, "n_w": 2.0, "n_nw": 0.2}
+  },
+  "training_sampling": {
+    "a": [0.0, 1.0],
+    "beta": [0.0, 150000.0],
+    "u_old": [0.0, 1.0],
+    "design": "stratified_target_tail",
+    "allocation": {"uniform": 0.30, "log_beta": 0.20, "edge": 0.10, "target_tail": 0.40},
+    "note": "The allocation is a fixed coverage design: target_tail samples the physical root near 0 and 1 first, then derives admissible controls. It responds to endpoint overshoot risk and expected saturation-heavy use; it is not a hyperparameter search."
+  },
+  "label_oracle": {
+    "method": "fixed-iteration bracketed bisection",
+    "iterations": 80,
+    "precision": "IEEE-754 float64"
+  },
+  "network_candidate": {
+    "architecture": [3, 20, 20, 20, 1],
+    "hidden_activation": "tanh",
+    "optimizer_family": "Levenberg-Marquardt"
+  }
+}

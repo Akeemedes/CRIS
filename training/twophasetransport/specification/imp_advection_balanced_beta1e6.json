@@ -1,0 +1,31 @@
+{
+  "experiment_id": "twophasetransport-imp-balanced-beta1e6-mse",
+  "law": "imp",
+  "physics": {"M": 0.4, "n_w": 2.0, "n_nw": 0.2, "Ng": 0.0, "dispersion": 0.0},
+  "recurrence": "u - u_old + beta * (f(u) - a) = 0",
+  "fractional_flow": "u^2 / (u^2 + 0.4 * (1-u)^0.2)",
+  "inputs": ["a", "beta", "u_old"],
+  "input_ranges": [[0, 1], [0, 1000000], [0, 1]],
+  "output_range": [0, 1],
+  "label_oracle": {"method": "bracketed bisection", "iterations": 80, "precision": "float64", "retain_representation_flags": true},
+  "sampling": {
+    "design": "balanced_transport", "cycle_rows": 200,
+    "allocation": {"beta_zero": 0.08, "log_beta_backbone": 0.42, "target_tail": 0.25, "transport_path": 0.20, "independent_edge": 0.05},
+    "beta_decades": [[1e-8, 1], [1, 10], [10, 100], [100, 1000], [1000, 10000], [10000, 100000], [100000, 1000000]],
+    "source_rows": 1000000, "seed_root": 20260907,
+    "train_prefixes": [62400, 125000, 250000, 500000, 1000000],
+    "validation_rows": 100000, "test_rows_per_design": 20000
+  },
+  "training": {
+    "initial_rows": 62400, "objective": "mse", "residual_weight": 0,
+    "architecture": [3, 20, 20, 20, 20, 1], "parameters": 1361,
+    "hidden_activation": "tanh", "output_activation": "linear",
+    "beta_coordinate": "log1p", "precision": "float64",
+    "optimizer": "full-batch LM", "initialization": "nguyen_widrow", "seed": 20260904,
+    "threads": 16, "block_size": 16384, "normal_kernel": "mkl-syrk",
+    "max_proposals": 50000, "max_accepted_updates": 20000, "validation_patience_accepted": 500,
+    "selection": "minimum fixed validation supervised MSE",
+    "scope": "One cold-start 62,400-row pilot; no automatic size escalation or residual sweep"
+  },
+  "endpoint_note": "The IMP derivative is singular at u=1. Float64 root representation can limit the attainable raw residual there; retain these labels and flags. No regular-law recurrence loss is used."
+}

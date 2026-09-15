@@ -1,0 +1,15 @@
+{
+  "size_mm": [
+    183.0,
+    125.0
+  ],
+  "font_min_pt": 11,
+  "sources": {
+    "Figures\\build_publication_completion.py": "a53d158eef4e8c60f70c1d548849b856275cc6a59a3bd10dee133c5554d9c65f",
+    "Figures\\publication_style.py": "5d85333910c26d970f23e5d5abc55a3d603f946cb0663791f51966499955815c",
+    "training\\twophasetransport\\analysis\\imp_v3\\checkpoint_assessment\\front_input_accuracy.csv": "cd840afbd2f8a61052b31b4209e650b447b897f8e1f9675c4edd6e0ae59dbe28",
+    "training\\twophasetransport\\analysis\\imp_v3\\checkpoint_assessment\\mse_125k.bin": "82f4f984f3882a71289ed0564dc3375ed31a22e983485f9df192dcf6b61dfb4f",
+    "training\\twophasetransport\\analysis\\imp_v3\\checkpoint_assessment\\residual_continued_best.bin": "1723205503376b8267a9a20584f159e763badf32c9c883b0590c8bbabeaa2eb8"
+  },
+  "builder_sha256": "d900270f3cc69e57ba3be7ff7fe8e1b0e4c3e142b73c9cfd7f8a933f665b38e8"
+}

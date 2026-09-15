@@ -1,0 +1,355 @@
+{
+  "schema_version": 1,
+  "figures": [
+    {
+      "id": "workflow",
+      "name": "CRIS workflow",
+      "status": "provided artwork",
+      "output": "fig1_workflow/art_direction/cris_workflow_caption_polished.png",
+      "experiments": [],
+      "inputs": [
+        "Figures/fig1_workflow/art_direction/cris_workflow_caption_polished.png"
+      ]
+    },
+    {
+      "id": "bratu",
+      "name": "Bratu branch and Newton basins",
+      "status": "replot from supplied data",
+      "builder": "build_main_results.py",
+      "arguments": [
+        "--only",
+        "bratu"
+      ],
+      "output": "fig3_bratu/main_bratu.pdf",
+      "experiments": [
+        "bratu.lower_branch.basins"
+      ],
+      "inputs": [
+        "training/bratu/analysis/two_cell_basins.csv",
+        "training/bratu/analysis/manifest.json",
+        "Figures/fig3_bratu/data/bratu3d_regenerated/bratu3d_lam2_dx001_dz002.npz"
+      ],
+      "input_manifests": [
+        "Figures/fig3_bratu/main_bratu_manifest.json"
+      ]
+    },
+    {
+      "id": "regular-transport",
+      "name": "Regular transport across seven problems",
+      "status": "replot from supplied data",
+      "builder": "fig4_transport/build_fig4_transport.py",
+      "output": "fig4_transport/fig4_transport.pdf",
+      "experiments": [
+        "transport.regular.benchmarks"
+      ],
+      "inputs": [
+        "Figures/fig4_transport/data/publication_sources.json"
+      ],
+      "arguments": [
+        "--sources",
+        "Figures/fig4_transport/data/publication_sources.json"
+      ]
+    },
+    {
+      "id": "training-transfer",
+      "name": "Training accuracy and downstream transport",
+      "status": "replot from supplied data",
+      "builder": "build_main_results.py",
+      "arguments": [
+        "--only",
+        "training"
+      ],
+      "output": "fig5_local_inverse/main_training.pdf",
+      "experiments": [
+        "transport.regular.training",
+        "transport.regular.checkpoint_transfer"
+      ],
+      "inputs": [
+        "training/twophasetransport/analysis/regular_v3/transport_accuracy_summary.csv"
+      ],
+      "input_manifests": [
+        "Figures/fig5_local_inverse/main_training_manifest.json"
+      ]
+    },
+    {
+      "id": "training-histories",
+      "name": "Training, validation and residual histories",
+      "status": "replot from supplied data",
+      "builder": "build_training_supplement.py",
+      "arguments": [
+        "--only",
+        "combined"
+      ],
+      "output": "fig5_local_inverse/supp_training_histories.pdf",
+      "experiments": [
+        "transport.regular.training",
+        "transport.degenerate.training",
+        "bratu.lower_branch.training"
+      ],
+      "inputs": [],
+      "input_manifests": [
+        "Figures/fig5_local_inverse/supp_training_histories_manifest.json"
+      ]
+    },
+    {
+      "id": "domain-errors",
+      "name": "Regular inverse error over the input domain",
+      "status": "replot from supplied data",
+      "builder": "build_training_supplement.py",
+      "arguments": [
+        "--only",
+        "domain"
+      ],
+      "output": "fig5_local_inverse/figure_r3_structured_error_topology.pdf",
+      "experiments": [
+        "transport.regular.training"
+      ],
+      "inputs": [
+        "training/twophasetransport/analysis/regular_v3/regular_campaign_manifest.json"
+      ]
+    },
+    {
+      "id": "error-distributions",
+      "name": "Local accuracy and saturation bounds",
+      "status": "replot from supplied data",
+      "builder": "build_training_supplement.py",
+      "arguments": [
+        "--only",
+        "distributions"
+      ],
+      "output": "fig5_local_inverse/supp_regular_distributions.pdf",
+      "experiments": [
+        "transport.regular.training"
+      ],
+      "inputs": [
+        "training/twophasetransport/analysis/regular_v3/regular_campaign_summary.csv"
+      ],
+      "input_manifests": [
+        "Figures/fig5_local_inverse/supp_regular_distributions_manifest.json"
+      ]
+    },
+    {
+      "id": "training-efficiency",
+      "name": "Training cost and time to accuracy",
+      "status": "replot from supplied data",
+      "builder": "build_training_supplement.py",
+      "arguments": [
+        "--only",
+        "efficiency"
+      ],
+      "output": "fig5_local_inverse/supp_training_efficiency.pdf",
+      "experiments": [
+        "transport.regular.training"
+      ],
+      "inputs": [
+        "training/twophasetransport/analysis/regular_v3/training_cost_summary.csv",
+        "training/twophasetransport/analysis/regular_v3/training_accuracy_thresholds.csv"
+      ],
+      "input_manifests": [
+        "Figures/fig5_local_inverse/supp_training_efficiency_manifest.json"
+      ]
+    },
+    {
+      "id": "degenerate-transport",
+      "name": "Degenerate EDFM and Norne",
+      "status": "replot from supplied data",
+      "builder": "build_publication_completion.py",
+      "arguments": [
+        "--only",
+        "degenerate"
+      ],
+      "output": "figC1_impossible/main_degenerate.pdf",
+      "inputs": [],
+      "experiments": [
+        "transport.degenerate.benchmarks"
+      ]
+    },
+    {
+      "id": "degenerate-endpoints",
+      "name": "Degenerate saturation and flux accuracy",
+      "status": "replot from supplied data",
+      "builder": "build_publication_completion.py",
+      "arguments": [
+        "--only",
+        "endpoints"
+      ],
+      "output": "figC1_impossible/supp_degenerate_endpoints.pdf",
+      "inputs": [],
+      "experiments": [
+        "transport.degenerate.endpoints"
+      ]
+    },
+    {
+      "id": "corrected-solver",
+      "name": "EDFM linear-budget sensitivity",
+      "status": "replot from supplied data",
+      "builder": "build_publication_completion.py",
+      "arguments": [
+        "--only",
+        "solver_sensitivity"
+      ],
+      "output": "figS3_conditioning/supp_corrected_solver.pdf",
+      "inputs": [],
+      "experiments": [
+        "transport.regular.linear_budget"
+      ]
+    },
+    {
+      "id": "transport-root-selection",
+      "name": "Two-cell transport residual contours",
+      "status": "replot from supplied data",
+      "builder": "two_cell_contours.py",
+      "arguments": [
+        "--only",
+        "transport"
+      ],
+      "output": "figS2_transport_geometry/two_cell_residual_contours.pdf",
+      "experiments": [
+        "transport.two_cell.selection"
+      ],
+      "inputs": []
+    },
+    {
+      "id": "bratu-local-error",
+      "name": "Bratu local and near-fold accuracy",
+      "status": "replot from supplied data",
+      "builder": "build_bratu_supplement.py",
+      "arguments": [
+        "--only",
+        "local"
+      ],
+      "output": "fig3_bratu/supp_bratu_local_error.pdf",
+      "experiments": [
+        "bratu.lower_branch.training"
+      ],
+      "input_manifests": [
+        "Figures/fig3_bratu/supp_bratu_local_error_manifest.json"
+      ],
+      "inputs": []
+    },
+    {
+      "id": "bratu-domain-errors",
+      "name": "Bratu error over the input domain",
+      "status": "replot from supplied data",
+      "builder": "build_bratu_supplement.py",
+      "arguments": [
+        "--only",
+        "global"
+      ],
+      "output": "fig3_bratu/supp_bratu_error_domain.pdf",
+      "experiments": [
+        "bratu.lower_branch.training"
+      ],
+      "input_manifests": [
+        "Figures/fig3_bratu/supp_bratu_error_domain_manifest.json"
+      ],
+      "inputs": []
+    },
+    {
+      "id": "bratu-basin-work",
+      "name": "Bratu basin-resolved Newton work",
+      "status": "replot from supplied data",
+      "builder": "build_bratu_supplement.py",
+      "arguments": [
+        "--only",
+        "global"
+      ],
+      "output": "fig3_bratu/supp_bratu_basins.pdf",
+      "experiments": [
+        "bratu.lower_branch.basins"
+      ],
+      "input_manifests": [
+        "Figures/fig3_bratu/supp_bratu_basins_manifest.json"
+      ],
+      "inputs": []
+    },
+    {
+      "id": "bratu-3d-initialization",
+      "name": "Bratu three-dimensional initialization sensitivity",
+      "status": "replot from supplied data",
+      "builder": "build_bratu_supplement.py",
+      "arguments": [
+        "--only",
+        "global"
+      ],
+      "output": "fig3_bratu/supp_bratu_3d.pdf",
+      "experiments": [
+        "bratu.lower_branch.initialization_3d"
+      ],
+      "input_manifests": [
+        "Figures/fig3_bratu/supp_bratu_3d_manifest.json"
+      ],
+      "inputs": []
+    },
+    {
+      "id": "timestep-work",
+      "name": "Timestep rejection and accumulated work",
+      "status": "replot from supplied data",
+      "builder": "build_supplementary_methods.py",
+      "output": "fig4_transport/supp_timestep_work.pdf",
+      "experiments": [],
+      "inputs": [
+        "Figures/supplementary_methods_manifest.json"
+      ],
+      "input_manifests": [
+        "Figures/supplementary_methods_manifest.json"
+      ]
+    },
+    {
+      "id": "transport-embedding",
+      "name": "Transport local inverse inputs",
+      "status": "replot from supplied data",
+      "builder": "build_supplementary_methods.py",
+      "output": "fig5_local_inverse/supp_transport_embedding.pdf",
+      "experiments": [],
+      "inputs": [
+        "Figures/supplementary_methods_manifest.json"
+      ],
+      "input_manifests": [
+        "Figures/supplementary_methods_manifest.json"
+      ]
+    },
+    {
+      "id": "branch-construction",
+      "name": "Bratu continuation consistency",
+      "status": "replot from supplied data",
+      "builder": "build_supplementary_methods.py",
+      "output": "fig3_bratu/supp_local_construction.pdf",
+      "experiments": [],
+      "inputs": [
+        "Figures/supplementary_methods_manifest.json"
+      ],
+      "input_manifests": [
+        "Figures/supplementary_methods_manifest.json"
+      ]
+    },
+    {
+      "id": "residual-error-indicator",
+      "name": "Residual-based local error indicator",
+      "status": "replot from supplied data",
+      "builder": "build_supplementary_methods.py",
+      "output": "fig5_local_inverse/supp_residual_error_indicator.pdf",
+      "experiments": [],
+      "inputs": [
+        "Figures/supplementary_methods_manifest.json"
+      ],
+      "input_manifests": [
+        "Figures/supplementary_methods_manifest.json"
+      ]
+    },
+    {
+      "id": "matrix-free-pilot",
+      "name": "Million-cell matrix-free CRIS pilot",
+      "status": "replot from supplied data",
+      "builder": "build_supplementary_methods.py",
+      "output": "fig4_transport/supp_matrix_free_pilot.pdf",
+      "experiments": [],
+      "inputs": [
+        "Figures/supplementary_methods_manifest.json"
+      ],
+      "input_manifests": [
+        "Figures/supplementary_methods_manifest.json"
+      ]
+    }
+  ]
+}

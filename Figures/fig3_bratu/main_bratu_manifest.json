@@ -1,0 +1,20 @@
+{
+  "size_mm": [
+    183.0,
+    120.0
+  ],
+  "font_min_pt": 11,
+  "sources": {
+    "Figures\\fig3_bratu\\data\\bratu3d_regenerated\\bratu3d_lam2_dx001_dz002.npz": "850d7ad904320de81a20d4a38496492b0736bdd19d59a2290e6eea7bc6e291eb",
+    "Figures\\publication_style.py": "5d85333910c26d970f23e5d5abc55a3d603f946cb0663791f51966499955815c",
+    "Figures\\two_cell_contours.py": "728006b10a199c09124f47351de522d67cc1251d6c0d9cb3fb10fbc40fb9b255",
+    "training\\bratu\\analysis\\manifest.json": "d7bcbdbb2c278ffb853c258d276586fab91eb62c541b3a7186a8745669244488",
+    "training\\bratu\\analysis\\three_dimensional_initialization.csv": "4515728c8de4e53e461f08a2aae5201d6a51b72b25e047bf252da273af44368e",
+    "training\\bratu\\analysis\\two_cell_basins.csv": "a1b137082ac72093df2e853e982b4c88870abf9401c56da65f6e0747afb03a71",
+    "training\\bratu\\runs\\budget_10k\\lambda_0p01\\final_checkpoint.bin": "4f8a5b42b12c3bdfb5043de15dd59019e68571485a4bdcfb286c3d20622ec657",
+    "training\\bratu\\runs\\budget_10k\\lambda_0p1\\final_checkpoint.bin": "cddea5776691d5e30e062b7a8379a9fbf525f443251c374bef1ca6814047b15b",
+    "training\\bratu\\runs\\budget_10k\\mse\\final_checkpoint.bin": "730b32e7421335a690966660ded62a71a1e2af56077ad5084e0b1172ea89993c",
+    "training\\bratu\\runs\\lower_branch_sweep\\lambda_1\\final_checkpoint.bin": "da1e33d513a369f719b0ab46dd1eea1b11005c6e9aca70b35a123c470fc1525f"
+  },
+  "builder_sha256": "d900270f3cc69e57ba3be7ff7fe8e1b0e4c3e142b73c9cfd7f8a933f665b38e8"
+}

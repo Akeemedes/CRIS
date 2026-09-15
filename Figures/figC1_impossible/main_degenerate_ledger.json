@@ -1,0 +1,94 @@
+[
+  {
+    "case": "EDFM",
+    "model": "mse_125k",
+    "work": {
+      "Newton": 513,
+      "Krylov": 1603,
+      "Residual": 545
+    },
+    "final_rmse": 0.018758998102387278,
+    "recorded_work": 2661,
+    "accepted_time": 1000000000.0,
+    "progress_percent": 100.0,
+    "reported_attempts": 32,
+    "accepted_steps": 32
+  },
+  {
+    "case": "EDFM",
+    "model": "residual_continued_best",
+    "work": {
+      "Newton": 830,
+      "Krylov": 2606,
+      "Residual": 862
+    },
+    "final_rmse": 0.007364779351688495,
+    "recorded_work": 4298,
+    "accepted_time": 1000000000.0,
+    "progress_percent": 100.0,
+    "reported_attempts": 32,
+    "accepted_steps": 32
+  },
+  {
+    "case": "EDFM",
+    "model": "srdm_partial",
+    "work": {
+      "Newton": 21133,
+      "Krylov": 35193,
+      "Residual": 279277
+    },
+    "completed_fraction": 1.00146484375e-05,
+    "seconds": 900.048609999998,
+    "recorded_work": 335603,
+    "accepted_time": 10014.6484375,
+    "progress_percent": 0.00100146484375,
+    "reported_attempts": 30,
+    "accepted_steps": 9
+  },
+  {
+    "case": "Norne",
+    "model": "mse_125k",
+    "work": {
+      "Newton": 1240,
+      "Krylov": 6934,
+      "Residual": 1254
+    },
+    "final_rmse": 0.036871705840994314,
+    "recorded_work": 9428,
+    "accepted_time": 1000000.0,
+    "progress_percent": 100.0,
+    "reported_attempts": 14,
+    "accepted_steps": 14
+  },
+  {
+    "case": "Norne",
+    "model": "residual_continued_best",
+    "work": {
+      "Newton": 2314,
+      "Krylov": 12785,
+      "Residual": 2328
+    },
+    "final_rmse": 0.007894459939191778,
+    "recorded_work": 17427,
+    "accepted_time": 1000000.0,
+    "progress_percent": 100.0,
+    "reported_attempts": 14,
+    "accepted_steps": 14
+  },
+  {
+    "case": "Norne",
+    "model": "srdm_partial",
+    "work": {
+      "Newton": 4042,
+      "Krylov": 35150,
+      "Residual": 48106
+    },
+    "completed_fraction": 0.0025,
+    "seconds": 575.1069094999984,
+    "recorded_work": 87298,
+    "accepted_time": 2500.0,
+    "progress_percent": 0.25,
+    "reported_attempts": 5,
+    "accepted_steps": 1
+  }
+]

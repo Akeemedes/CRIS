@@ -1,0 +1,24 @@
+{
+  "sources": {
+    "Figures/build_supplementary_methods.py": "2415da4b73ac6a13f1c683708c1ab681289378b091b303a2aa60ad30003949ae"
+  },
+  "content": "Same three stages, local inputs and recurrence as the source schematic.",
+  "figure_number": 5,
+  "size_mm": [
+    165.0,
+    37.0
+  ],
+  "previous_size_mm": [
+    183,
+    49
+  ],
+  "builder": "Figures/compact_methods_layouts.py",
+  "builder_sha256": "d98afa4dde513152bec2cb02e48dfb9a6138b81ff4e32ee58e75e1491df69d7e",
+  "export_builder_sha256": "91496c358d56ea092ece87262b56f2ab83cccf875eceb020840378f18818526e",
+  "files": {
+    "transport-inputs.pdf": "ffb62df34b7efdc74ce52d3d27ad3700a0129c1f88a795a650ee3e1c9bb06e19",
+    "transport-inputs.png": "eb8a5c6db682256ec9984618db9281b120b333058d972d6316efcfb549426561",
+    "transport-inputs.svg": "66416d9190fc2d33667d00cfc0b85c60e778d359183ae370d6acd50a5adda3c2"
+  },
+  "layout_bounds_checked": true
+}

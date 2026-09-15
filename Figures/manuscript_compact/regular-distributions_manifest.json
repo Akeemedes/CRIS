@@ -1,0 +1,53 @@
+{
+  "canonical_name": "supp_regular_distributions",
+  "operation": "Saved-data composer with export intercepted; layout only",
+  "before_size_mm": [
+    183.0,
+    156.0
+  ],
+  "size_mm": [
+    183.0,
+    118.0
+  ],
+  "axes_count": 6,
+  "line_count": 72,
+  "patch_count": 0,
+  "numeric_before_sha256": "2d38a38a2e26824276d1de6d7d4334812b4965bad86d99bb961325e41240d64c",
+  "numeric_after_sha256": "2d38a38a2e26824276d1de6d7d4334812b4965bad86d99bb961325e41240d64c",
+  "numeric_artists_identical": true,
+  "verified_properties": [
+    "line data",
+    "bar vertices and data transform",
+    "collection offsets",
+    "axis scales",
+    "axis limits",
+    "line colors, markers, styles and marker sizes"
+  ],
+  "native_font_sizes_pt": {
+    "ticks": 9.5,
+    "axis_labels": 10,
+    "titles": 10.5,
+    "legends": 9.5
+  },
+  "sources": {
+    "Figures/artifact_paths.py": "bef4f5ec3d1cd62888392460fb4e869185e34326c6ed1409fefe74c3433fa252",
+    "Figures/build_main_results.py": "8ff938821ff2d865f3d6563fa4f89c073bdfb53b335fe447b9d7074c9d41256a",
+    "Figures/build_training_supplement.py": "1d9762ed07209672ab6684620fffcc5db262a0932bb9b3d0a0c0fa2f2b8ebb15",
+    "Figures/compact_training_layouts.py": "d7921b5707d187542da8b610767f961d8f011128e6a4f0a6e2174e90aeb4e23f",
+    "training/twophasetransport/analysis/regular_v3/regular_campaign_summary.csv": "6eb516170517e9f5d5b79df23fcaa2ff7bc60a67142de39222f09dd9e336b5e4"
+  },
+  "figure_number": 17,
+  "previous_size_mm": [
+    183,
+    156
+  ],
+  "builder": "Figures/compact_training_layouts.py",
+  "builder_sha256": "d7921b5707d187542da8b610767f961d8f011128e6a4f0a6e2174e90aeb4e23f",
+  "export_builder_sha256": "91496c358d56ea092ece87262b56f2ab83cccf875eceb020840378f18818526e",
+  "files": {
+    "regular-distributions.pdf": "083b339486abf961d697278dacbf1f575b627bfd4297a619600beb8602fade52",
+    "regular-distributions.png": "c229c2efedcf83880b7601a2c01d4eaf582b042a8fed32e732606cf118e0abd5",
+    "regular-distributions.svg": "c6706d0018884797fce242062a033ca391440bfd4e8bab9eec0abcee6edb4460"
+  },
+  "layout_bounds_checked": true
+}

@@ -1,0 +1,73 @@
+{
+  "canonical_name": "supp_training_histories",
+  "operation": "Saved-data composer with export intercepted; layout only",
+  "before_size_mm": [
+    183.0,
+    245.0
+  ],
+  "size_mm": [
+    183.0,
+    208.0
+  ],
+  "axes_count": 10,
+  "line_count": 50,
+  "patch_count": 12,
+  "numeric_before_sha256": "664af43dcfc2a52e21fd531c507564b63345016294d104fb30cf48a0f3e46bb5",
+  "numeric_after_sha256": "664af43dcfc2a52e21fd531c507564b63345016294d104fb30cf48a0f3e46bb5",
+  "numeric_artists_identical": true,
+  "verified_properties": [
+    "line data",
+    "bar vertices and data transform",
+    "collection offsets",
+    "axis scales",
+    "axis limits",
+    "line colors, markers, styles and marker sizes"
+  ],
+  "native_font_sizes_pt": {
+    "ticks": 9.5,
+    "axis_labels": 10,
+    "titles": 10.5,
+    "legends": 9.5
+  },
+  "sources": {
+    "Figures/artifact_paths.py": "bef4f5ec3d1cd62888392460fb4e869185e34326c6ed1409fefe74c3433fa252",
+    "Figures/build_main_results.py": "8ff938821ff2d865f3d6563fa4f89c073bdfb53b335fe447b9d7074c9d41256a",
+    "Figures/build_training_supplement.py": "1d9762ed07209672ab6684620fffcc5db262a0932bb9b3d0a0c0fa2f2b8ebb15",
+    "Figures/compact_training_layouts.py": "d7921b5707d187542da8b610767f961d8f011128e6a4f0a6e2174e90aeb4e23f",
+    "training/bratu/analysis/validation_residual_history.csv": "f0b04e673bab0dc2a4ce4ea3c124ffee401b97cb68b67a48e101f5f771cbea4e",
+    "training/bratu/analysis/validation_residual_history_manifest.json": "b749789b988c9ec6a84d2533df68e024dd34c70f806103003e328aa60709026e",
+    "training/bratu/runs/budget_10k/lambda_0p01/optimizer_trace.csv": "e6aeee148682c9f3495d8af1bdb62e562d3d6f7a6049a2a2b68f88a81a97115a",
+    "training/bratu/runs/budget_10k/lambda_0p1/optimizer_trace.csv": "975aae076ed32fab24301c8bd9e22590587101e4da314bb6c8ab639fdd3de167",
+    "training/bratu/runs/budget_10k/mse/optimizer_trace.csv": "4c4ed7e0bb7c73335d61b71f039a180293c4f68b3ff260437a633f1b2d1755c2",
+    "training/bratu/runs/lower_branch_sweep/lambda_1/optimizer_trace.csv": "abb9ccfe1d76837789616a6680ad262597c7ff9d02c6843e92052aacc3bfccf7",
+    "training/twophasetransport/analysis/imp_v3/validation_residual_history.csv": "c10b0e3cbbaf2b9ccec01b8955fbab92ff8f0f0e5bd0bec290a9aad0563fef3f",
+    "training/twophasetransport/analysis/imp_v3/validation_residual_history_manifest.json": "2b21a0e3aca0bb7fb2d74c971efb1a703a53b6fbef0ad09ace3128ca8f53e9f8",
+    "training/twophasetransport/analysis/regular_v3/regular_campaign_manifest.json": "75dd03b44621ad6d597a11187e70f07e64b7945c9e8f0e9d434208616f578b85",
+    "training/twophasetransport/analysis/regular_v3/training_accuracy_thresholds.csv": "0b70fb3315353bd9e796b03d3257698bc97e17657f182ef1672066531b12a453",
+    "training/twophasetransport/analysis/regular_v3/training_cost_summary.csv": "a614e297a6e30421f7eec40f353f406f876d350698df19848b9935ede50dd466",
+    "training/twophasetransport/analysis/regular_v3/validation_residual_history.csv": "b0a6f257c4f21ed2cac6197c090b23a175ef191a4b1bd8671a0623a95d028cd1",
+    "training/twophasetransport/analysis/regular_v3/validation_residual_history_manifest.json": "564d416648807c0c4ebefc6e3282d63d8b12a95d9e83175cf3d8cf7926445693",
+    "training/twophasetransport/runs/imp_balanced_beta1e6_v3_125k_log1p_fullbatch_lm_cpu/optimizer_trace.csv": "86506a88839249f18034cbcd6667fa399c9461469b22765de43d7fd38f708ab2",
+    "training/twophasetransport/runs/imp_balanced_beta1e6_v3_125k_log1p_fullbatch_lm_cpu_residual_lambda_0p01/optimizer_trace.csv": "a36b4d4f13c817158ac9b930f018bd2c8c07873e5882deea1475dc7e7fa2ba78",
+    "training/twophasetransport/runs/imp_balanced_beta1e6_v3_62k_log1p_fullbatch_lm_cpu/optimizer_trace.csv": "9433dc53e3ee180210f00b4b2ad3f4dafc8110c6cc7b3a4c8fe49b93c6337471",
+    "training/twophasetransport/runs/imp_balanced_beta1e6_v3_62k_log1p_fullbatch_lm_cpu_residual_lambda_0p01/optimizer_trace.csv": "44dba6f27d9b1747bdc7a17fd1e3e592a945739255a637d5bb10ff83ed51bbf1",
+    "training/twophasetransport/runs/regular_balanced_beta1e6_v3_62k_log1p_coldstart_residual_softcap_1_lambda_0p01/optimizer_trace.csv": "2500a943902edcbb039a4bd34280ed652b2b46033df3db8f8dc3174df0dfa625",
+    "training/twophasetransport/runs/regular_balanced_beta1e6_v3_62k_log1p_coldstart_residual_softcap_1_lambda_0p1/optimizer_trace.csv": "ed18f52d51b153d930b0ec06b571de16315ac551350df313e5bb33429a289414",
+    "training/twophasetransport/runs/regular_balanced_beta1e6_v3_62k_log1p_coldstart_residual_softcap_1_lambda_1/optimizer_trace.csv": "ac7c4615c90d06ddf737227442febd6aa04e2ec176640e919fa3534af6a88372",
+    "training/twophasetransport/runs/regular_balanced_beta1e6_v3_62k_log1p_fullbatch_lm_cpu/optimizer_trace.csv": "621b512f2ad0084f3017742caebfd335b461eb3c78305aceb4eaa5454bb13e60"
+  },
+  "figure_number": 12,
+  "previous_size_mm": [
+    183,
+    245
+  ],
+  "builder": "Figures/compact_training_layouts.py",
+  "builder_sha256": "d7921b5707d187542da8b610767f961d8f011128e6a4f0a6e2174e90aeb4e23f",
+  "export_builder_sha256": "91496c358d56ea092ece87262b56f2ab83cccf875eceb020840378f18818526e",
+  "files": {
+    "training-histories.pdf": "16f2f62a7d8abfb626f5437052262dccff461b6669d73391c0d1ba008febb33e",
+    "training-histories.png": "1578e1cef748dea36b844ed74dd2074e542e39c27b64fc86c453101dabb742db",
+    "training-histories.svg": "7410034e12bca69d2900b5065e1bb55cbd9bf9de8ec4c9b3f94938cba6334362"
+  },
+  "layout_bounds_checked": true
+}

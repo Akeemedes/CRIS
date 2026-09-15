@@ -1,0 +1,64 @@
+# NX NY NZ = 60 220 85 (0-indexed)
+# Regular 5-spot:
+#   4 corner injectors, 1 center producer
+# Edge offset = 1 cell
+# Injectors perforated in top 35 layers (K 0-34)
+# Producer perforated in bottom 50 layers (K 35-84)
+# Producer: BHP 4000, Injectors: BHP 8000
+# --- Producer (1) ---
+WELL P01
+TYPE PRODUCER
+IJ  29  110
+K   0  84
+DATUMK 0
+RW 0.1
+SKIN 2.0
+SCHEDULE
+  0.0 ON BHP 4000
+END
+END
+# --- Injectors (4) ---
+WELL I01
+TYPE INJECTOR
+IJ  1   1
+K   0   84
+DATUMK 0
+RW 0.1
+SKIN 2.0
+SCHEDULE
+  0.0 ON BHP 10000
+END
+END
+WELL I02
+TYPE INJECTOR
+IJ  58  1
+K   0   84
+DATUMK 0
+RW 0.1
+SKIN 2.0
+SCHEDULE
+  0.0 ON BHP 10000
+END
+END
+WELL I03
+TYPE INJECTOR
+IJ  1   218
+K   0   84
+DATUMK 0
+RW 0.1
+SKIN 2.0
+SCHEDULE
+  0.0 ON BHP 10000
+END
+END
+WELL I04
+TYPE INJECTOR
+IJ  58  218 
+K   0   84
+DATUMK 0
+RW 0.1
+SKIN 2.0
+SCHEDULE
+  0.0 ON BHP 10000
+END
+END

@@ -1,0 +1,6 @@
+# Isolated environment for reproducible publication figures.
+numpy==1.26.4
+matplotlib==3.11.1
+scipy==1.13.1
+pypdf==6.10.0
+Pillow==12.3.0

@@ -1,0 +1,13 @@
+model,physical_validation_mse_threshold,instrumented_hours_to_first_crossing,accepted_updates
+MSE,1e-06,0.015072113777777774,101
+MSE,1e-08,0.0802200304166665,548
+MSE,1e-10,1.0456503867499964,6825
+Residual $\lambda=0.01$,1e-06,0.10918440086111111,418
+Residual $\lambda=0.01$,1e-08,0.4699304541666682,1662
+Residual $\lambda=0.01$,1e-10,1.979641759444447,6334
+Residual $\lambda=0.1$,1e-06,0.1346193984166667,515
+Residual $\lambda=0.1$,1e-08,0.5285717099444445,2023
+Residual $\lambda=0.1$,1e-10,3.14143456230556,10948
+Residual $\lambda=1$,1e-06,0.12112061447222225,432
+Residual $\lambda=1$,1e-08,0.803756077944445,2691
+Residual $\lambda=1$,1e-10,3.6051705675277947,12797

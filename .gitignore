@@ -1,0 +1,21 @@
+# Local builds and newly generated runs
+/build/
+/runs/
+/.venv/
+/tmp/
+**/__pycache__/
+**/.mplconfig/
+*.py[cod]
+*.log
+*.lock
+*.exe
+*.dll
+*.lib
+*.obj
+*.pdb
+.vs/
+.vscode/
+*.user
+Thumbs.db
+Desktop.ini
+*~

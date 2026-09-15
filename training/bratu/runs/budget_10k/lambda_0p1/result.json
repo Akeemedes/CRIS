@@ -1,0 +1,8 @@
+{
+"stopping_reason":"max_accepted_updates",
+"accepted_updates":10000,
+"iteration":13003,
+"best_validation_mse_normalized":2.961046001931238e-12,
+"best_validation_mse_physical":5.9961181539107567e-11,
+"cumulative_phase_seconds":11967.908796699958
+}

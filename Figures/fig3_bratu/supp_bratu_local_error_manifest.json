@@ -1,0 +1,21 @@
+{
+  "size_mm": [
+    183.0,
+    120.0
+  ],
+  "font_min_pt": 11,
+  "sources": {
+    "Figures\\publication_style.py": "5d85333910c26d970f23e5d5abc55a3d603f946cb0663791f51966499955815c",
+    "training\\bratu\\analysis\\checkpoint_selection.json": "4173c97e25998e28307d3adb0adeaeaa5dfa112305d3378947b0213453e5f7d0",
+    "training\\bratu\\checkpoint_selection.py": "83beeb739fa573d4cc9504b4a8918e2f1a581e7b9dd25a22b5102d1fe0aa629a",
+    "training\\bratu\\datasets\\lower_branch\\test.bin": "057c802b329c71ab59067590db54a7a30b4a9406a51ab6a2b35cb8558ca9ac9b",
+    "training\\bratu\\datasets\\lower_branch\\test_near_fold.bin": "e4d2d46d581c117f89d83fcaac5a3cb331ce15d37faa0a4a8d6c4fb376367328",
+    "training\\bratu\\datasets\\lower_branch\\validation.bin": "4be16c531fb019762d631fe944efea59874fafcc0bc083ad95d0a1fb4954198d",
+    "training\\bratu\\plot_bratu_details.py": "365a9d3574ac060a493eb9fc739f70891315035ad937b1e3b3fd33f4403834b0",
+    "training\\bratu\\runs\\budget_10k\\lambda_0p01\\final_checkpoint.bin": "4f8a5b42b12c3bdfb5043de15dd59019e68571485a4bdcfb286c3d20622ec657",
+    "training\\bratu\\runs\\budget_10k\\lambda_0p1\\final_checkpoint.bin": "cddea5776691d5e30e062b7a8379a9fbf525f443251c374bef1ca6814047b15b",
+    "training\\bratu\\runs\\budget_10k\\mse\\final_checkpoint.bin": "730b32e7421335a690966660ded62a71a1e2af56077ad5084e0b1172ea89993c",
+    "training\\bratu\\runs\\lower_branch_sweep\\lambda_1\\final_checkpoint.bin": "da1e33d513a369f719b0ab46dd1eea1b11005c6e9aca70b35a123c470fc1525f"
+  },
+  "builder_sha256": "d900270f3cc69e57ba3be7ff7fe8e1b0e4c3e142b73c9cfd7f8a933f665b38e8"
+}

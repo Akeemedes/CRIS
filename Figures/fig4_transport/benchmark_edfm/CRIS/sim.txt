@@ -1,0 +1,54 @@
+MESH UNSTRUCTURED
+CL_FILE ../inputs/cris/74d061f5ee_intr_faces.txt
+TRANS_FILE ../inputs/cris/ab5b529b6b_intr_T.txt
+DEPTH_FILE ../inputs/cris/f77dc9af76_depth.txt
+VOL_FILE ../inputs/cris/325cfb88bf_vol.txt
+
+
+DISPERSION HOMOGENEOUS
+DISPX 0.0
+DISPY 0.0
+DISPZ 0.0
+
+BOUNDARY_FIELD HOMOGENEOUS
+BC_VALUE 0.0 0.0 0.0 0.0 0.0 0.0
+DIRICHLET_BC 0 0 0 0 0 0
+INIT_FIELD HOMOGENEOUS
+INIT_VALUE 0.0
+INTR_VEL_FIELD HETEROGENEOUS
+
+WELLS_FILE ../inputs/cris/f48b0d5ff7_wells.txt
+
+#fractional_flow 
+mu_w 1
+mu_nw 0.4
+n_w 2.0
+n_nw 2.0
+Ng 0.0
+lambda 1.0
+
+#Timestep_Control
+DT_INIT 1E6
+dt_min 1e-3
+DT_MAX 1E8
+dt_incr 2
+dt_decr 0.5
+
+T_END 1E9
+REPORT_FREQ 1E8
+
+VERBOSITY 1
+
+#Nonlinear_Solver
+DUTOL 1e-6
+RTOL 1e-6
+LINTOL 1e-2
+LINMAX 7
+MAX_STEPS_NEWTON 1000
+NEWTONUPDATER STANDARD
+
+
+#Discrete_System
+MODE CRIS
+CRIS_MODEL ../inputs/cris/83d59975f1_TransportNetRegular2
+REFRESH_TRANSPORT_PRECONDITIONER 1

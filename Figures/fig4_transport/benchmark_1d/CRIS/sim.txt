@@ -1,0 +1,55 @@
+NX 5000
+NY 1
+NZ 1
+GEOMETRY UNIFORM
+DX 1.0
+DY 1.0
+DZ 1.0
+
+DISPERSION HOMOGENEOUS
+DISPX 0.0
+DISPY 0.0
+DISPZ 0.0
+
+BOUNDARY_FIELD HOMOGENEOUS
+BC_VALUE 1.0 0.0 0.0 0.0 0.0 0.0
+DIRICHLET_BC 1 1 0 0 0 0
+INIT_FIELD HETEROGENEOUS
+INIT_VALUE 0.0
+INIT_FILE ../inputs/init.txt
+INTR_VEL_FIELD HOMOGENEOUS
+INTR_VEL_VALS 1.0 0.0 0.0
+BNDR_VEL_FIELD HOMOGENEOUS
+BNDR_VEL_VALS -1.0 1.0 0.0 0.0 0.0 0.0
+
+#fractional_flow 
+mu_w 1
+mu_nw 0.4
+n_w 2.0
+n_nw 2.0
+Ng 0.0
+lambda 1.0
+
+#Timestep_Control
+dt_init 150
+dt_min 1e-4
+dt_max 150
+dt_incr 1.5
+dt_decr 0.5
+
+t_end 1500
+report_freq 500
+verbosity 1
+
+#Nonlinear_Solver
+DUTOL 1e-6
+RTOL 1e-6
+LINTOL 1e-2
+LINMAX 7
+MAX_STEPS_NEWTON 10000
+NEWTONUPDATER STANDARD
+
+#Discrete_System
+MODE CRIS
+CRIS_MODEL ../../../../build/TwoPhaseTransport/cases/models/TransportNetRegular2
+REFRESH_TRANSPORT_PRECONDITIONER 1

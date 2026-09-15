@@ -1,0 +1,4 @@
+# Local Python and Matplotlib state.  Canonical data and figures remain tracked.
+__pycache__/
+.mplconfig/
+*.py[cod]

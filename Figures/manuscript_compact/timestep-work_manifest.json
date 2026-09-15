@@ -1,0 +1,46 @@
+{
+  "sources": {
+    "training/twophasetransport/analysis/regular_v3/paired_benchmarks/EDFM/CRIS/result.json": "1579dcee583ae70d45f4ca1f90a70ca9ce216ebe99f6a5ae2653b6f858643d2c",
+    "training/twophasetransport/analysis/regular_v3/paired_benchmarks/EDFM/CRIS/output/solver_report.csv": "79441b33b7f759d0187e9c7f2d56e96c2344f7c8b13fc26aaa5c628af0ce43a1",
+    "training/twophasetransport/analysis/regular_v3/paired_benchmarks/EDFM/SRDM/result.json": "b40a8ed0ea65416b399836291219a9f7935f201e8f0c69c737aca42f765f3f8b",
+    "training/twophasetransport/analysis/regular_v3/paired_benchmarks/EDFM/SRDM/output/solver_report.csv": "6c061d55403e8d56c5fd46277fe82aa15fc34b4220ad4ede273a3c20b993809a"
+  },
+  "findings": {
+    "CRIS": {
+      "accepted": 17,
+      "rejected": 0,
+      "discarded_percent": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "SRDM": {
+      "accepted": 67,
+      "rejected": 49,
+      "discarded_percent": [
+        95.88872380356584,
+        96.04779128936333,
+        98.83814797486905
+      ]
+    }
+  },
+  "figure_number": 9,
+  "size_mm": [
+    183.0,
+    103.0
+  ],
+  "previous_size_mm": [
+    183,
+    125
+  ],
+  "builder": "Figures/compact_methods_layouts.py",
+  "builder_sha256": "d98afa4dde513152bec2cb02e48dfb9a6138b81ff4e32ee58e75e1491df69d7e",
+  "export_builder_sha256": "91496c358d56ea092ece87262b56f2ab83cccf875eceb020840378f18818526e",
+  "files": {
+    "timestep-work.pdf": "1013d3d694198c350832be3a7b655365ae07d8bcf787d61e2dcaf9dc60117522",
+    "timestep-work.png": "53d060916a9b9f4086d47c466a4f2ffba3241cf132272b3bbff3679f6100a44f",
+    "timestep-work.svg": "abade3f5b4f343a318da27ff8f75ea1b6080b7e246794262e0b0f57a7b1f7de9"
+  },
+  "layout_bounds_checked": true
+}

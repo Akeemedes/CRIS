@@ -1,0 +1,62 @@
+[
+  {
+    "case": "EDFM",
+    "checkpoint_sha256": "1723205503376b8267a9a20584f159e763badf32c9c883b0590c8bbabeaa2eb8",
+    "executable_sha256": "13569c11587c3394d4b9b1ade2b03cffa6820d1cd2912fa6190785b25c3f9d13",
+    "config_sha256": "5ad1161aa2cd0e987880625225a953aec6a698674f3364e409470c04edda05b0",
+    "timed_out": false,
+    "returncode": 0,
+    "seconds": 36.20795320000616,
+    "accepted_time": 1000000000.0,
+    "accepted_steps": 32,
+    "failed_attempts": 0,
+    "NLNSTEPS": 830,
+    "LINSTEPS": 2606,
+    "NFEVAL": 862,
+    "matched_time_grid": true,
+    "matched_pressure": true,
+    "completed": true,
+    "final_accuracy": {
+      "time": 1000000000,
+      "cells": 19299,
+      "rmse": 0.007364779351688495,
+      "mae": 0.0023192133087882195,
+      "q99_abs_error": 0.03481075832212591,
+      "max_abs_error": 0.08476706531690892,
+      "prediction_min": -4.963359234944065e-06,
+      "prediction_max": 1.0003043861738417,
+      "out_of_bounds_count": 5179,
+      "volume_weighted_rmse": 0.006945804744759267
+    }
+  },
+  {
+    "case": "Norne",
+    "checkpoint_sha256": "1723205503376b8267a9a20584f159e763badf32c9c883b0590c8bbabeaa2eb8",
+    "executable_sha256": "13569c11587c3394d4b9b1ade2b03cffa6820d1cd2912fa6190785b25c3f9d13",
+    "config_sha256": "0bb22ba4e83b1b5a77725de3826914379e1e86d8f1131cb475f38e04093e6a04",
+    "timed_out": false,
+    "returncode": 0,
+    "seconds": 285.39292370001203,
+    "accepted_time": 1000000.0,
+    "accepted_steps": 14,
+    "failed_attempts": 0,
+    "NLNSTEPS": 2314,
+    "LINSTEPS": 12785,
+    "NFEVAL": 2328,
+    "matched_time_grid": true,
+    "matched_pressure": true,
+    "completed": true,
+    "final_accuracy": {
+      "time": 1000000,
+      "cells": 44915,
+      "rmse": 0.007894459939191778,
+      "mae": 0.003973867421154602,
+      "q99_abs_error": 0.02866531279797714,
+      "max_abs_error": 0.07364742256587276,
+      "prediction_min": -4.962433971966718e-06,
+      "prediction_max": 1.0000809372734436,
+      "out_of_bounds_count": 7500,
+      "volume_weighted_rmse": 0.008253795137516062
+    }
+  }
+]

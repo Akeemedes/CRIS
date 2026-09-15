@@ -1,0 +1,61 @@
+NX 60
+NY 220
+NZ 1
+
+GEOMETRY UNIFORM
+DX 20
+DY 10
+DZ 170
+
+DISPERSION HOMOGENEOUS
+DISPX 0.0
+DISPY 0.0
+DISPZ 0.0
+
+K HETEROGENEOUS
+KX_FILE ../inputs/7b26012382_kx.txt
+KY_FILE ../inputs/7b26012382_kx.txt
+KZ_FILE ../inputs/7b26012382_kx.txt
+
+BOUNDARY_FIELD HOMOGENEOUS
+BC_VALUE 0.0 0.0 0.0 0.0 0.0 0.0
+DIRICHLET_BC 0 0 0 0 0 0
+INIT_FIELD HOMOGENEOUS
+INIT_VALUE 0.0
+INTR_VEL_FIELD HETEROGENEOUS
+
+WELLS_FILE ../inputs/ff8ca1b2f7_wells.txt
+
+#fractional_flow 
+mu_w 1
+mu_nw 0.4
+n_w 2.0
+n_nw 2.0
+Ng 0.0
+lambda 1.0
+
+#Timestep_Control
+dt_init 10000
+dt_min 1e-3
+dt_max 50000
+dt_incr 1.5
+dt_decr 0.5
+
+t_end 500000
+report_freq 50000
+
+VERBOSITY 1
+
+#Nonlinear_Solver
+DUTOL 1e-6
+RTOL 1e-6
+LINTOL 1e-2
+LINMAX 7
+MAX_STEPS_NEWTON 1000
+NEWTONUPDATER STANDARD
+
+
+#Discrete_System
+MODE CRIS
+CRIS_MODEL ../inputs/83d59975f1_TransportNetRegular2
+REFRESH_TRANSPORT_PRECONDITIONER 1

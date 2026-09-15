@@ -1,0 +1,24 @@
+{
+  "sources": {
+    "Figures/fig3_bratu/data/continuation_validation.csv": "74816c888ea94286ffa28a4ffcb397eb206af19f7c45fef7dc7148a7b146d3c1"
+  },
+  "content": "Same saved targets, reductions and 1e-16 display floor as original.",
+  "figure_number": 13,
+  "size_mm": [
+    183.0,
+    65.0
+  ],
+  "previous_size_mm": [
+    183,
+    77
+  ],
+  "builder": "Figures/compact_methods_layouts.py",
+  "builder_sha256": "d98afa4dde513152bec2cb02e48dfb9a6138b81ff4e32ee58e75e1491df69d7e",
+  "export_builder_sha256": "91496c358d56ea092ece87262b56f2ab83cccf875eceb020840378f18818526e",
+  "files": {
+    "bratu-continuation.pdf": "13e8227bb2c5e3cba1f9d109164adc9e81f36ee02c4406971460c4883069b541",
+    "bratu-continuation.png": "31537edefa4d324c25f895e9c199b3515a05a4c48915acd9167909264c313b91",
+    "bratu-continuation.svg": "5d1c616eb542be0626ec4217bb403fa32f09cdaec106cd78b2186935f1401d43"
+  },
+  "layout_bounds_checked": true
+}

@@ -1,0 +1,5 @@
+model,common_captures,exact_updates,learned_updates,learned_fewer,equal,learned_more
+mse,6026,23805,23813,0,6018,8
+lambda_0p01,6028,23817,23821,0,6024,4
+lambda_0p1,6028,23817,23821,0,6024,4
+lambda_1,6028,23817,23819,0,6026,2

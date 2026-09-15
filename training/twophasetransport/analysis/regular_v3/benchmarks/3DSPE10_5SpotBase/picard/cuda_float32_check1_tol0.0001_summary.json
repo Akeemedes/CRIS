@@ -1,0 +1,38 @@
+{
+  "case": "3DSPE10_5SpotBase",
+  "device": "cuda",
+  "threads": 16,
+  "dtype": "torch.float32",
+  "tolerance": 0.0001,
+  "cells": 1122000,
+  "graph_levels": 1844,
+  "completed": true,
+  "achieved_time": 20000.0,
+  "iterations": 1873,
+  "seconds": 34.951233499996306,
+  "check_every": 1,
+  "initial_transfer_seconds": 0.022596700000576675,
+  "final_download_seconds": 0.0010586999997030944,
+  "final_map_residual_inf": 0.00013256072998046875,
+  "model_sha256": "ffd1166d3381ea4230cf264609182fddd186f5dc63507e3096f6fa0239176b55",
+  "torch_version": "2.6.0+cu124",
+  "gpu": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+  "minimum": -4.827976226806641e-06,
+  "maximum": 1.0006663799285889,
+  "rmse_vs_native_newton": 7.660903785651488e-05,
+  "reference_path": "C:\\Users\\Akeem\\OneDrive - Texas A&M University\\SimulationFramework_DevBranch\\training\\twophasetransport\\analysis\\regular_v3\\benchmarks\\3DSPE10_5SpotBase\\reference_68f0bf8a75bfaf82.npz",
+  "rmse_vs_physical_reference": 8.86300936788476e-05,
+  "volume_weighted_rmse": 8.863009367884761e-05,
+  "fixed_20_updates_seconds": {
+    "scalar_sync_each_update": [
+      0.37259190000622766,
+      0.3738207999995211,
+      0.3726405000052182
+    ],
+    "sync_at_end": [
+      0.36218129999906523,
+      0.361802000006719,
+      0.3617473000049358
+    ]
+  }
+}

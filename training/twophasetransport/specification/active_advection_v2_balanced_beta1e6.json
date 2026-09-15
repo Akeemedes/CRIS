@@ -1,0 +1,46 @@
+{
+  "experiment_id": "twophasetransport-active-advection-v2-balanced-beta1e6",
+  "status": "data-size-and-coverage-training-specification",
+  "recurrence": "u - u_old + beta * (f(u) - a) = 0",
+  "inputs": ["a", "beta", "u_old"],
+  "state_domain": [0.0, 1.0],
+  "fractional_flow": "f(u) = u^n_w / (u^n_w + M * (1-u)^n_nw), Ng = 0",
+  "laws": {
+    "regular": {"M": 0.4, "n_w": 2.0, "n_nw": 2.0},
+    "imp": {"M": 0.4, "n_w": 2.0, "n_nw": 0.2}
+  },
+  "training_sampling": {
+    "a": [0.0, 1.0],
+    "beta": [0.0, 1000000.0],
+    "u_old": [0.0, 1.0],
+    "design": "balanced_transport",
+    "cycle_rows": 200,
+    "allocation": {
+      "beta_zero": 0.08,
+      "log_beta_backbone": 0.42,
+      "target_tail": 0.25,
+      "transport_path": 0.20,
+      "independent_edge": 0.05
+    },
+    "beta_decades": [[1e-8, 1.0], [1.0, 10.0], [10.0, 100.0], [100.0, 1000.0], [1000.0, 10000.0], [10000.0, 100000.0], [100000.0, 1000000.0]],
+    "note": "A deterministic 200-row cycle makes the 62.4k, 125k, 250k, 500k, and 1M training prefixes identically distributed. Target-tail labels are sampled by physical root then converted to admissible controls. Transport-path rows are recurrence-derived inlet, retreat, stationary, and flux-correlated states."
+  },
+  "validation": {
+    "design": "balanced_transport",
+    "rows": 100000,
+    "selection": "Use the fixed independent validation set for early stopping; report per-decade and per-design test panels separately."
+  },
+  "label_oracle": {
+    "method": "fixed-iteration bracketed bisection",
+    "iterations": 80,
+    "precision": "IEEE-754 float64"
+  },
+  "network_candidate": {
+    "architecture": [3, 20, 20, 20, 20, 1],
+    "parameter_count": 1361,
+    "hidden_activation": "tanh",
+    "optimizer_family": "Levenberg-Marquardt",
+    "input_normalization": "[-1,1] affine; beta_max=1000000 is serialized as this artifact's package input_max, not a CRIS constant"
+  },
+  "data_size_schedule": [62400, 125000, 250000, 500000, 1000000]
+}

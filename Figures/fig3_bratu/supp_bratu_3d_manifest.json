@@ -1,0 +1,15 @@
+{
+  "size_mm": [
+    183.0,
+    95.0
+  ],
+  "font_min_pt": 11,
+  "sources": {
+    "Figures\\publication_style.py": "5d85333910c26d970f23e5d5abc55a3d603f946cb0663791f51966499955815c",
+    "training\\bratu\\analysis\\checkpoint_selection.json": "4173c97e25998e28307d3adb0adeaeaa5dfa112305d3378947b0213453e5f7d0",
+    "training\\bratu\\analysis\\three_dimensional_initialization.csv": "4515728c8de4e53e461f08a2aae5201d6a51b72b25e047bf252da273af44368e",
+    "training\\bratu\\checkpoint_selection.py": "83beeb739fa573d4cc9504b4a8918e2f1a581e7b9dd25a22b5102d1fe0aa629a",
+    "training\\bratu\\plot_bratu_details.py": "365a9d3574ac060a493eb9fc739f70891315035ad937b1e3b3fd33f4403834b0"
+  },
+  "builder_sha256": "d900270f3cc69e57ba3be7ff7fe8e1b0e4c3e142b73c9cfd7f8a933f665b38e8"
+}

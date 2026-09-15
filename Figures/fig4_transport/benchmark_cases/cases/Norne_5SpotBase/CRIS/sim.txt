@@ -1,0 +1,59 @@
+NX 46
+NY 112
+NZ 22
+
+MESH UNSTRUCTURED
+CL_FILE ../inputs/1be257d699_intr_faces.txt
+TRANS_FILE ../inputs/8ca4a54cab_intr_T.txt
+DEPTH_FILE ../inputs/f848c74c45_depth.txt
+VOL_FILE ../inputs/ab4b440c14_vol.txt
+GLOBAL_IDX_FILE ../inputs/12a5a66e32_indexMap.txt
+
+DISPERSION HOMOGENEOUS
+DISPX 0.0
+DISPY 0.0
+DISPZ 0.0
+
+BOUNDARY_FIELD HOMOGENEOUS
+BC_VALUE 0.0 0.0 0.0 0.0 0.0 0.0
+DIRICHLET_BC 0 0 0 0 0 0
+INIT_FIELD HOMOGENEOUS
+INIT_VALUE 0.0
+IC_FILE init1D.txt
+INTR_VEL_FIELD HETEROGENEOUS
+
+WELLS_FILE ../inputs/d57348d50a_wells.txt
+
+#fractional_flow 
+mu_w 1
+mu_nw 0.4
+n_w 2.0
+n_nw 2.0
+Ng 0.0
+lambda 1.0
+
+#Timestep_Control
+dt_init 10000
+dt_min 1e-3
+dt_max 100000
+dt_incr 2
+dt_decr 0.5
+
+t_end 1000000
+report_freq 100000
+
+VERBOSITY 1
+
+#Nonlinear_Solver
+DUTOL 1e-6
+RTOL 1e-6
+LINTOL 1e-2
+LINMAX 7
+MAX_STEPS_NEWTON 1000
+NEWTONUPDATER STANDARD
+
+
+#Discrete_System
+MODE CRIS
+CRIS_MODEL ../inputs/83d59975f1_TransportNetRegular2
+REFRESH_TRANSPORT_PRECONDITIONER 1

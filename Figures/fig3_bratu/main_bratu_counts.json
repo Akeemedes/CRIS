@@ -1,0 +1,22 @@
+[
+  {
+    "method": "srdm",
+    "lower_capture": 4355,
+    "starts": 8281
+  },
+  {
+    "method": "exact",
+    "lower_capture": 6028,
+    "starts": 8281
+  },
+  {
+    "method": "mse",
+    "lower_capture": 7228,
+    "starts": 8281
+  },
+  {
+    "method": "lambda_1",
+    "lower_capture": 8074,
+    "starts": 8281
+  }
+]

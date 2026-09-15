@@ -1,0 +1,20 @@
+{
+  "artifact": "twophasetransport_active_advection_local_labels",
+  "recurrence": "u - u_old + beta * (f(u) - a) = 0",
+  "law": "regular",
+  "fractional_flow": {"M": 0.40000000000000002, "n_w": 2, "n_nw": 2, "Ng": 0},
+  "split": "train",
+  "design": "balanced_transport",
+  "sampling_allocation": "stratified=60% uniform, 25% log_beta, 15% edge; stratified_target_tail=30% uniform, 20% log_beta, 10% edge, 40% target_tail; balanced_transport=8% beta_zero, 42% decade-balanced log-beta backbone, 25% exact target-tail, 20% transport-path, 5% independent edge",
+  "samples": 1000000,
+  "seed": 20260918,
+  "beta_max": 1000000,
+  "root_method": "bracketed_bisection",
+  "bisection_iterations": 80,
+  "elapsed_seconds": 7.9303315999999997,
+  "samples_per_second": 126098.13188643966,
+  "max_abs_residual": 1.5082349258399574e-10,
+  "max_abs_residual_representable": 1.5082349258399574e-10,
+  "representation_limited_count": 0,
+  "max_bracket_width": 1.1102230246251565e-16
+}

@@ -1,0 +1,32 @@
+{
+  "sources": [
+    {
+      "run": "C:\\Users\\Akeem\\OneDrive - Texas A&M University\\SimulationFramework_DevBranch\\training\\twophasetransport\\runs\\imp_balanced_beta1e6_v3_62k_log1p_fullbatch_lm_cpu",
+      "arm": "$\\lambda=0$",
+      "validation_sha256": "26e01246869b0b1a76b113adb8d4df29b99fb3932f8db68d9f87e7faa6f34333",
+      "trace_sha256": "9433dc53e3ee180210f00b4b2ad3f4dafc8110c6cc7b3a4c8fe49b93c6337471"
+    },
+    {
+      "run": "C:\\Users\\Akeem\\OneDrive - Texas A&M University\\SimulationFramework_DevBranch\\training\\twophasetransport\\runs\\imp_balanced_beta1e6_v3_125k_log1p_fullbatch_lm_cpu",
+      "arm": "$\\lambda=0$",
+      "validation_sha256": "26e01246869b0b1a76b113adb8d4df29b99fb3932f8db68d9f87e7faa6f34333",
+      "trace_sha256": "86506a88839249f18034cbcd6667fa399c9461469b22765de43d7fd38f708ab2"
+    },
+    {
+      "run": "C:\\Users\\Akeem\\OneDrive - Texas A&M University\\SimulationFramework_DevBranch\\training\\twophasetransport\\runs\\imp_balanced_beta1e6_v3_62k_log1p_fullbatch_lm_cpu_residual_lambda_0p01",
+      "arm": "$\\lambda=0.01$",
+      "validation_sha256": "26e01246869b0b1a76b113adb8d4df29b99fb3932f8db68d9f87e7faa6f34333",
+      "trace_sha256": "44dba6f27d9b1747bdc7a17fd1e3e592a945739255a637d5bb10ff83ed51bbf1"
+    },
+    {
+      "run": "C:\\Users\\Akeem\\OneDrive - Texas A&M University\\SimulationFramework_DevBranch\\training\\twophasetransport\\runs\\imp_balanced_beta1e6_v3_125k_log1p_fullbatch_lm_cpu_residual_lambda_0p01",
+      "arm": "$\\lambda=0.01$",
+      "validation_sha256": "26e01246869b0b1a76b113adb8d4df29b99fb3932f8db68d9f87e7faa6f34333",
+      "trace_sha256": "a36b4d4f13c817158ac9b930f018bd2c8c07873e5882deea1475dc7e7fa2ba78"
+    }
+  ],
+  "sampling": "Retained checkpoints only, not every epoch; final selected best model placed at full run effort including validation patience",
+  "continuation": "IMP is one warm-started trajectory with dataset enlargement; previous stage cost and counters included",
+  "residual": "TPT: R=u-u_old+beta*(f(clip(u,0,1))-a), evaluated on ALL fixed validation rows; slope-scaled R/R_u at label (infinite slope yields0). This is a flux extension, not a bounded prediction. Bratu: raw a-u+beta*exp(u); capped tanh(R/4.5).",
+  "scope": "No training or simulation launched; sparse checkpoints cannot locate intervening increases/decreases"
+}

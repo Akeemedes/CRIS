@@ -1,0 +1,76 @@
+{
+  "physics": "a-u+beta*exp(u)=0",
+  "branch": "lower, continued from beta=0; Lambert W0",
+  "root_formula": "u=a-W0(-beta*exp(a))",
+  "a_range": [
+    -2,
+    6
+  ],
+  "beta_range": [
+    0,
+    1
+  ],
+  "branch_domain": "beta*exp(a)<=1/e",
+  "train_fold_deficit_min": 1e-08,
+  "near_fold_test_deficit": [
+    1e-10,
+    1e-08
+  ],
+  "sampling": {
+    "beta_zero": 0.08,
+    "log_beta": 0.52,
+    "near_fold": 0.3,
+    "uniform_beta": 0.1
+  },
+  "input_transform": [
+    "(a+2)/4-1",
+    "2*log1p(beta/1e-6)/log1p(1e6)-1"
+  ],
+  "output_transform": "normalized=(u+2)/4.5-1; physical=4.5*(normalized+1)-2",
+  "physical_MSE_multiplier": 20.25,
+  "generation_seconds": 0.3216100000008737,
+  "generator_sha256": "6024ab3de633b4ce7393cd63f4f079fabab2de46d9a6cdae1544cddb0a0a089b",
+  "products": {
+    "train": {
+      "rows": 62400,
+      "seed": 20260919,
+      "max_W0_discrepancy": 1.7994494783124537e-12,
+      "max_physical_residual": 8.881072689325559e-16,
+      "minimum_root_slope": 0.00014142439029463105,
+      "beta_zero_rows": 4992,
+      "path": "C:\\Users\\Akeem\\OneDrive - Texas A&M University\\SimulationFramework_DevBranch\\training\\bratu\\datasets\\lower_branch\\train.bin",
+      "sha256": "59a0ceeb44c20736fac488277b3010d719b0db46f573de4293283018f4121540"
+    },
+    "validation": {
+      "rows": 100000,
+      "seed": 20260931,
+      "max_W0_discrepancy": 1.942446203884174e-12,
+      "max_physical_residual": 8.880361181649865e-16,
+      "minimum_root_slope": 0.000141416448700471,
+      "beta_zero_rows": 8000,
+      "path": "C:\\Users\\Akeem\\OneDrive - Texas A&M University\\SimulationFramework_DevBranch\\training\\bratu\\datasets\\lower_branch\\validation.bin",
+      "sha256": "4be16c531fb019762d631fe944efea59874fafcc0bc083ad95d0a1fb4954198d"
+    },
+    "test": {
+      "rows": 20000,
+      "seed": 20261001,
+      "max_W0_discrepancy": 1.8411938640383596e-12,
+      "max_physical_residual": 8.871628271963673e-16,
+      "minimum_root_slope": 0.00014142413245910035,
+      "beta_zero_rows": 1600,
+      "path": "C:\\Users\\Akeem\\OneDrive - Texas A&M University\\SimulationFramework_DevBranch\\training\\bratu\\datasets\\lower_branch\\test.bin",
+      "sha256": "057c802b329c71ab59067590db54a7a30b4a9406a51ab6a2b35cb8558ca9ac9b"
+    },
+    "test_near_fold": {
+      "rows": 20000,
+      "seed": 20261002,
+      "max_W0_discrepancy": 2.5359270239277976e-11,
+      "max_physical_residual": 2.220446049250313e-16,
+      "minimum_root_slope": 1.414356423301566e-05,
+      "beta_zero_rows": 0,
+      "path": "C:\\Users\\Akeem\\OneDrive - Texas A&M University\\SimulationFramework_DevBranch\\training\\bratu\\datasets\\lower_branch\\test_near_fold.bin",
+      "sha256": "e4d2d46d581c117f89d83fcaac5a3cb331ce15d37faa0a4a8d6c4fb376367328"
+    }
+  },
+  "caveat": "No exact labels exist beyond the fold. Network extension there is tested later, not supervised as a real branch."
+}

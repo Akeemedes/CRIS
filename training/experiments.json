@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "experiments": [
+    {
+      "id": "transport.regular.training",
+      "adapter": "transport",
+      "physics": {"law": "regular", "M": 0.4, "n_w": 2, "n_nw": 2, "Ng": 0, "dispersion": false},
+      "dataset_root": "training/twophasetransport/datasets/regular_balanced_beta1e6_v3_1m",
+      "architecture": [3, 20, 20, 20, 20, 1],
+      "beta_coordinate": "log1p",
+      "beta_max": 1000000,
+      "physical_mse_multiplier": 0.25,
+      "seed": 20260904,
+      "default_rows": 62400,
+      "validation_rows": 100000,
+      "residual": "tanh(2R / R_u(label)) with cap 1",
+      "limits": {"accepted": 20000, "proposed": 50000, "validation_patience": 500, "threads": 16, "block_size": 16384}
+    },
+    {
+      "id": "transport.degenerate.training",
+      "adapter": "transport",
+      "physics": {"law": "imp", "M": 0.4, "n_w": 2, "n_nw": 0.2, "Ng": 0, "dispersion": false},
+      "dataset_root": "training/twophasetransport/datasets/imp_balanced_beta1e6_v3_1m",
+      "architecture": [3, 20, 20, 20, 20, 1],
+      "beta_coordinate": "log1p",
+      "beta_max": 1000000,
+      "physical_mse_multiplier": 0.25,
+      "seed": 20260904,
+      "default_rows": 62400,
+      "validation_rows": 100000,
+      "residual": "tanh(2R / R_u(label)) with cap 1",
+      "limits": {"accepted": 20000, "proposed": 50000, "validation_patience": 500, "threads": 16, "block_size": 16384}
+    },
+    {
+      "id": "bratu.lower_branch.training",
+      "adapter": "bratu",
+      "physics": {"equation": "a-u+beta*exp(u)=0", "branch": "lower", "a_range": [-2, 6], "beta_range": [0, 1]},
+      "dataset_root": "training/bratu/datasets/lower_branch",
+      "architecture": [2, 20, 20, 20, 20, 1],
+      "beta_coordinate": "log1p",
+      "beta_max": 1,
+      "physical_mse_multiplier": 20.25,
+      "seed": 20260904,
+      "default_rows": 62400,
+      "validation_rows": 100000,
+      "residual": "tanh(R / 4.5) with cap 1",
+      "limits": {"accepted": 10000, "proposed": 50000, "validation_patience": 500, "threads": 16, "block_size": 16384}
+    }
+  ]
+}

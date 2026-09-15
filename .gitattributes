@@ -1,0 +1,3 @@
+# Preserve exact input/output bytes across platforms for SHA-256 evidence checks.
+# Text remains diffable; checkout must not rewrite line endings in frozen data.
+* -text

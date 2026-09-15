@@ -1,0 +1,62 @@
+NX 60
+NY 220
+NZ 85
+
+GEOMETRY UNIFORM
+DX 20
+DY 10
+DZ 2
+
+DISPERSION HOMOGENEOUS
+DISPX 0.0
+DISPY 0.0
+DISPZ 0.0
+
+K HETEROGENEOUS
+KX_FILE ../inputs/db2c12f8d7_kx.txt
+KY_FILE ../inputs/db2c12f8d7_kx.txt
+KZ_FILE ../inputs/db2c12f8d7_kx.txt
+
+BOUNDARY_FIELD HOMOGENEOUS
+BC_VALUE 0.0 0.0 0.0 0.0 0.0 0.0
+DIRICHLET_BC 0 0 0 0 0 0
+INIT_FIELD HOMOGENEOUS
+INIT_VALUE 0.0
+IC_FILE init1D.txt
+INTR_VEL_FIELD HETEROGENEOUS
+
+WELLS_FILE ../inputs/85dd431307_wells.txt
+
+#fractional_flow 
+mu_w 1
+mu_nw 0.4
+n_w 2.0
+n_nw 2.0
+Ng 0.0
+lambda 1.0
+
+#Timestep_Control
+dt_init 2000
+dt_min 1e-3
+dt_max 2000
+dt_incr 2
+dt_decr 0.5
+
+t_end 20000
+report_freq 2000
+
+VERBOSITY 3
+
+#Nonlinear_Solver
+DUTOL 1e-6
+RTOL 1e-6
+LINTOL 1e-2
+LINMAX 7
+MAX_STEPS_NEWTON 1000
+NEWTONUPDATER LINESEARCH
+MAX_BACKTRACK 10
+
+
+#Discrete_System
+MODE SRDM
+REFRESH_TRANSPORT_PRECONDITIONER 1
